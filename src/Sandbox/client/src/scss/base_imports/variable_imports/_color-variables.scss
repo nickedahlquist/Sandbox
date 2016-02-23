@@ -1,0 +1,40 @@
+/*
+ * _color-variables.scss
+ * =====================
+ * 
+ */
+
+// Global Colours
+$color-accent: #3DC9B3;
+$color-accent-highlight: tint($color-accent, 40);
+$color-accent-shade: shade($color-accent, 20);
+
+$color-white: #FFF;
+$color-light-grey: #FFF;
+$color-dark-grey: #FFF;
+$color-black: #000;
+
+// Text Colours
+$color-text-primary: rgba(31, 53, 78, 0.75);
+
+// Body Font Color
+$color-text-secondary: #3D4351;
+
+// Heading Font Color
+$color-text-light: $color-white;
+
+// Header/Hero
+$color-text-accent: #ACB1B4;
+$color-form-placeholder: #BCC1C3;
+
+// Layout Colours
+$color-section-light: $color-white;
+$color-section-dark: #F3F4F8;
+$color-footer: #373D4A;
+$color-navbar: rgba(17,18,23,0.85);
+
+// Keylines
+$color-keyline-color: #E6E9EA;
+$color-footer-keyline-color: #4E566C;
+$color-overlay-color: rgba(0, 0, 0, 0.9);
+$color-error-color: #EF1940;

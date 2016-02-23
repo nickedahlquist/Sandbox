@@ -1,0 +1,72 @@
+/*
+ * _font-variables.scss
+ * ====================
+ * 
+ */
+
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
+// Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 500;
+$font-weight-bold: 700;
+
+// Sizes
+$font-size-h1: 7.6rem;
+$font-size-h2: 4.7rem;
+$font-size-h3: 2.9rem;
+$font-size-h4: 2.3rem;
+$font-size-h5: 1.8rem;
+$font-size-h6: 1.4rem;
+$font-size-base: 1.8rem;
+
+/*$font-size-base: 1.8rem;
+$font-size-modifier: $ratio-golden;
+
+// Sizes
+$font-size-h6: $font-size-base / $font-size-modifier;
+$font-size-h5: $font-size-base;
+$font-size-h4: $font-size-base * $font-size-modifier;
+$font-size-h3: $font-size-h4 * $font-size-modifier;
+$font-size-h2: $font-size-h3 * $font-size-modifier;
+$font-size-h1: $font-size-h2 * $font-size-modifier;*/
+
+// Line Height (keep unitless)
+$font-line-height: 1.667;
+
+/*---------------------------
+  Font-stacks:                     
+---------------------------*/
+
+// Serif
+$font-stack-antiqua: 'Book Antiqua', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif';
+$font-stack-baskerville: 'Baskerville', 'Baskerville old face', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif';
+$font-stack-bodoni: 'Bodoni MT', 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif';
+$font-stack-cambria: 'Cambria', 'Georgia', 'serif';
+$font-stack-caslon: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', 'Georgia', 'serif';
+$font-stack-constantia: 'Constantia', 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Georgia', 'serif';
+$font-stack-didot: 'Didot', 'Didot LT STD', 'Hoefler Text', 'Garamond', 'Times New Roman', 'serif';
+$font-stack-garamond: 'Garamond', 'Baskerville', 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', 'serif';
+$font-stack-goudy: 'Goudy Old Style', 'Garamond', 'Big Caslon', 'Times New Roman', 'serif';
+$font-stack-hoefler: 'Hoefler Text', 'Baskerville old face', 'Garamond', 'Times New Roman', 'serif';
+$font-stack-lucida-bright: 'Lucida Bright', 'Georgia', 'serif';
+$font-stack-palatino: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif';
+ 
+// Sans-serif
+$font-stack-calibri: 'Calibri', 'Candara', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif';
+$font-stack-candara: 'Candara', 'Calibri', 'Segoe', 'Segoe UI', 'Optima', 'Arial', 'sans-serif';
+$font-stack-courier: 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace';
+$font-stack-franklin: 'Franklin Gothic Medium', 'Arial', 'sans-serif';
+$font-stack-futura: 'Futura', 'Trebuchet MS', 'Arial', 'sans-serif';
+$font-stack-geneva: 'Geneva', 'Tahoma', 'Verdana', 'sans-serif';
+$font-stack-gill-sans: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'sans-serif';
+$font-stack-helvetica: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+$font-stack-lucida-grande: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Geneva', 'Verdana', 'sans-serif';
+$font-stack-optima: 'Optima', 'Segoe', 'Segoe UI', 'Candara', 'Calibri', 'Arial', 'sans-serif';
+$font-stack-open-sans: 'Open Sans', 'sans-serif';
+$font-stack-segoe: 'Segoe', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif';
+$font-stack-tahoma: 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+$font-stack-trebuchet: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'Tahoma', 'sans-serif';
+$font-stack-verdana: 'Verdana', 'Geneva', 'sans-serif';

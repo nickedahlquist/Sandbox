@@ -1,0 +1,58 @@
+/*
+ * _typography.scss
+ * ================
+ * 
+ */
+
+h1, h2, h3, h4, h5, h6, p {
+  //margin: 0;
+  padding: 0 0 $font-size-base 0;
+  line-height: inherit;
+  user-select: text;
+} 
+
+h1 {
+  font-size: $font-size-h1 / $ratio-golden;
+  line-height: normal;
+
+  @media(min-width: $screen-sm) {
+    font-size: $font-size-h1;
+  }
+}
+
+h2 {
+  font-size: $font-size-h2 / $ratio-golden;
+  line-height: normal;
+
+  @media(min-width: $screen-sm) {
+    font-size: $font-size-h2;
+  }
+}
+
+h3 {
+  font-size: $font-size-h3 / $ratio-golden;
+
+  @media(min-width: $screen-sm) {
+    font-size: $font-size-h3;
+  }
+}
+
+h4 {
+  font-size: $font-size-h4 / $ratio-golden;
+  
+  @media(min-width: $screen-sm) {
+    font-size: $font-size-h4;
+  }
+}
+
+h5 {
+  font-size: $font-size-h5;
+}
+
+h6 {
+  font-size: $font-size-h6;
+}
+
+p {
+  font-size: $font-size-base;
+}

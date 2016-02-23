@@ -1,0 +1,106 @@
+/*
+ * _global.scss
+ * ============
+ * 
+ * All global styles goes in here. This file should only contain   
+ * <element> selectors, no #id or .class selectors.
+ */
+
+* {
+  border-radius: 0 !important;
+  user-select: none;
+
+  &:focus {
+    outline-color: $color-accent !important;
+    box-shadow: none !important;
+  }
+}
+
+::selection {
+  color: $color-white !important;
+  background-color: $color-accent !important;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $font-stack-open-sans;
+  color: $color-text-primary;
+  line-height: $font-line-height;
+  font-size: $font-size-base;
+  -webkit-text-size-adjust: 100%;
+  @include word-wrap(break-word);
+  hyphens: auto;
+}
+
+img { 
+  border: 0;
+  outline: 0; 
+  -ms-interpolation-mode: bicubic;
+  display: block; 
+  width: 100%;
+}
+
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+span {
+  user-select: text;
+}
+
+a {
+  color: $color-accent;
+  transition-timing-function: ease;
+  transition-duration: $animation-transition-short;
+  transition-property: color, border-color, background-color;
+  user-select: text;
+
+  &:hover, &:active, &:focus {
+    color: $color-accent-shade;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    
+    transition-timing-function: ease;
+    transition-duration: $animation-transition-short;
+    transition-property: color, border-color, background-color;
+  }
+}
+
+button[type=submit]:focus {
+  color: $color-accent-shade;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  user-select: text;
+
+  &::-webkit-input-placeholder {
+    opacity: 1;
+    color: $color-form-placeholder !important;
+  }
+
+  &:-moz-placeholder {
+    opacity: 1;
+    color: $color-form-placeholder !important;
+  }
+
+  &::-moz-placeholder {
+    opacity: 1;
+    color: $color-form-placeholder !important;
+  }
+
+  &:-ms-input-placeholder {
+    opacity: 1;
+    color: $color-form-placeholder !important;
+  }
+}
