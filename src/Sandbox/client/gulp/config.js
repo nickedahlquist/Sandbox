@@ -1,13 +1,15 @@
 (function() {
 'use strict';
 
+  var launch_settings = require('../../Properties/launchSettings.json');
+  var proxy = launch_settings.iisSettings.iisExpress.applicationUrl + 'index.html';
   var mode = ((process.env.NODE_ENV || 'development').trim().toLowerCase() !== 'production') ? 'development' : 'production';
   var src_path = './client/src';
   var dest_path = './wwwroot';
-  
+
   module.exports = {
     server: {
-        proxy: 'http://localhost:53419/index.html'
+        proxy: proxy
     },
     paths: {
       html: {
