@@ -1,16 +1,16 @@
 (function() {
 'use strict';
   
-  var logColors = require('colors/safe');
-  var pkg       = require('../../package.json');
+  var gutil = require('gulp-util');
 
   module.exports = {
-    output : function(mode) {
-      console.log('\n' + logColors.grey('Project: ') +  pkg.name + 
-      '\n' + logColors.grey('Version: ') + pkg.version + 
-      '\n' + logColors.grey.bold('Authors: ') + pkg.author.name + 
-      '\n' + logColors.grey.bold('Mode: ') + (mode === 'development' ? logColors.bgMagenta(' development ') : logColors.bgGreen(' production ')) + 
-      '\n');
+    output : function(info) {
+      gutil.log('Logging to console... \r\n \r\n' +
+      '\n' + gutil.colors.white('Project: ' + info.project) +
+      '\n' + gutil.colors.white('Version: ' + info.version) +
+      '\n' + gutil.colors.white('Authors: ' + info.authors) +
+      '\n' + gutil.colors.white('Mode: ') + (info.mode === 'development' ? gutil.colors.yellow(' development ') : gutil.colors.green(' production ')) +
+      ' \r\n \r\n');
     }
   };
 

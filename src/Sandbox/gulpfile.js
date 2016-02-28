@@ -11,6 +11,7 @@ var browserSync = require('browser-sync');
 var watchify = require('watchify');
 var browserify = require('browserify');
 var debowerify = require('debowerify');
+var del = require('del');
 var ngAnnotate = require('browserify-ngannotate');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -31,16 +32,14 @@ var buildInfo = require('./client/gulp/build-info.js');
 var onError = require('./client/gulp/on-error.js');
 var config = require('./client/gulp/config.js');
 var paths = config.paths;
-var buildMode = config.mode;
+var isProd = (config.info.mode === 'production') ? true : false;
 
 //Output build info.
-buildInfo.output(buildMode);
+buildInfo.output(config.info);
 
 // --------------------------------------------------------------------
 // Task: BROWSERIFY
 // --------------------------------------------------------------------
-
-var isProd = (buildMode === 'production') ? true : false;
 
 // bundling js with browserify and watchify
 var bundler = browserify({
@@ -69,14 +68,14 @@ function bundle() {
       .on('error', onError)
       .pipe(source('bundle.js'))
       .pipe(buffer())
-      .pipe(buildMode === 'development' ? sourcemaps.init() : gutil.noop())
-      .pipe(buildMode === 'production' ? babel({
+      .pipe(!isProd ? sourcemaps.init() : gutil.noop())
+      .pipe(isProd ? babel({
           presets: ['es2015'],
           compact: false
       }) : gutil.noop())
       .pipe(concat('bundle.js'))
-      .pipe(buildMode === 'development' ? sourcemaps.write('.') : gutil.noop())
-      .pipe(buildMode === 'production' ? streamify(uglify()) : gutil.noop())
+      .pipe(!isProd ? sourcemaps.write('./') : gutil.noop())
+      .pipe(isProd ? streamify(uglify({ mangle: true })) : gutil.noop())
       .pipe(gulp.dest(paths.js.dest))
       .pipe(browserSync.stream());
 }
@@ -84,12 +83,20 @@ function bundle() {
 gulp.task('js', bundle);
 
 // --------------------------------------------------------------------
+// Task: CLEAN
+// --------------------------------------------------------------------
+
+gulp.task('clean', function () {
+  return del(paths.del);
+});
+
+// --------------------------------------------------------------------
 // Task: HTML
 // --------------------------------------------------------------------
 
 gulp.task('html', function () {
-    return gulp.src(paths.html.src)
-      .pipe(htmlmin({ collapseWhitespace: true }))
+  return gulp.src(paths.html.src)
+      .pipe(isProd ? htmlmin({ collapseWhitespace: true }) : gutil.noop())
       .pipe(gulp.dest(paths.html.dest))
       .pipe(browserSync.stream());
 });
@@ -99,7 +106,8 @@ gulp.task('html', function () {
 // --------------------------------------------------------------------
 
 gulp.task('sass', function () {
-    return gulp.src(paths.css.src)
+  return gulp.src(paths.css.src)
+    .pipe(!isProd ? sourcemaps.init() : gutil.noop())
       .pipe(sass({
           includePaths: [
           './bower_components/bourbon/app/assets/stylesheets',
@@ -109,7 +117,8 @@ gulp.task('sass', function () {
       }))
       .on('error', onError)
       .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 9'], cascade: false }))
-      .pipe(buildMode === 'production' ? cssnano() : gutil.noop())
+      .pipe(!isProd ? sourcemaps.write('./') : gutil.noop())
+      .pipe(isProd ? cssnano({ discardComments: { removeAll: true } }) : gutil.noop())
       .pipe(gulp.dest(paths.css.dest))
       .pipe(browserSync.stream());
 });
@@ -150,6 +159,9 @@ gulp.task('serve', function (done) {
 // Task: DEFAULT
 // --------------------------------------------------------------------
 
+var sequence = (isProd) ? ['clean', 'html', 'sass', 'js'] : ['html', 'sass', 'js'];
+
 // use gulp-sequence to finish building html, sass and js before first page load
-gulp.task('default', gulpSequence(['html', 'sass', 'js'], 'serve'));
+gulp.task('default', gulpSequence(sequence, 'serve'));
+
 

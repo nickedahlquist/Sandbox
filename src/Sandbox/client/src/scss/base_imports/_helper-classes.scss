@@ -1,0 +1,85 @@
+﻿/*
+ * _helper-classes.scss
+ * ====================
+ * 
+ * This file will house a collection of css helper-classes. These
+ * classes should be kept fairly "low-level" as to maximize their 
+ * general applicability, that is to say they should be sematically 
+ * separated from the document-wide\component-wide theme.
+ * 
+ */
+
+/*---------------------------
+  text-helpers:                     
+---------------------------*/
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/*---------------------------
+  padding-helpers:                     
+---------------------------*/
+
+.no-padding {
+  padding: 0;
+}
+
+.section-padding {
+  padding-top: $layout-section-padding/4;
+  padding-bottom: $layout-section-padding/4;
+
+  @media(min-width: $screen-sm) {
+    padding-top: $layout-section-padding/2;
+    padding-bottom: $layout-section-padding/2;
+  }
+
+  @media(min-width: $screen-md) {
+    padding-top: $layout-section-padding;
+    padding-bottom: $layout-section-padding;
+  }
+}
+
+/*---------------------------
+  margin-helpers:                     
+---------------------------*/
+
+.no-margin {
+  margin: 0;
+}
+
+/*---------------------------
+  display-helpers:                     
+---------------------------*/
+
+.display-none {
+  display: none !important;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-inline {
+  display: inline !important;
+}
+
+.display-inline-block {
+  display: inline-block !important;
+}
+
+.display-flex {
+  display: flex !important;
+}

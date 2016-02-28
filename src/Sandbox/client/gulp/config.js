@@ -1,6 +1,7 @@
 (function() {
 'use strict';
 
+  var pkg = require('../../package.json');
   var launch_settings = require('../../Properties/launchSettings.json');
   var proxy = launch_settings.iisSettings.iisExpress.applicationUrl + 'index.html';
   var mode = ((process.env.NODE_ENV || 'development').trim().toLowerCase() !== 'production') ? 'development' : 'production';
@@ -25,9 +26,15 @@
         src: src_path + '/js/main',
         dest: dest_path + '/js'
       },
-      baseDir: dest_path
+      baseDir: dest_path,
+      del: [dest_path + '/**', '!' + dest_path, '!' + dest_path + '/web.config']
     },
-    mode: mode
+    info: {
+      project: pkg.name,
+      version: pkg.version,
+      authors: pkg.author.name,
+      mode: mode
+    }
   };
 
 })();

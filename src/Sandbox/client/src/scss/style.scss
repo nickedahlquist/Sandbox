@@ -3,7 +3,8 @@
  * ============
  * 
  * This file serves as the scss entry-point. It should 
- * only contain @import statements.    
+ * only contain @import statements.
+ *    
  */
 
 @charset 'UTF-8';
@@ -17,6 +18,7 @@
 @import './base_imports/_variables.scss';
 @import './base_imports/_global.scss';
 @import './base_imports/_typography.scss';
+@import './base_imports/_helper-classes.scss';
 
 
 // Custom styles.
