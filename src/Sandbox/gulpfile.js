@@ -32,7 +32,9 @@ var buildInfo = require('./client/gulp/build-info.js');
 var onError = require('./client/gulp/on-error.js');
 var config = require('./client/gulp/config.js');
 var paths = config.paths;
-var isProd = (config.info.mode === 'production') ? true : false;
+
+var buildMode = config.mode;
+var isProd = (buildMode === 'production') ? true : false;
 
 //Output build info.
 buildInfo.output(config.info);
@@ -41,46 +43,48 @@ buildInfo.output(config.info);
 // Task: BROWSERIFY
 // --------------------------------------------------------------------
 
+
+
 // bundling js with browserify and watchify
 var bundler = browserify({
-    entries: [paths.js.src],
-    cache: {},
-    packageCache: {},
-    fullPaths: isProd
+  entries: [paths.js.src],
+  cache: {},
+  packageCache: {},
+  fullPaths: isProd
 });
 
 if (!isProd) {
-    bundler = watchify(bundler);
+  bundler = watchify(bundler);
 
-    bundler.on('update', function () {
-        bundle();
-        gutil.log('Browserify rebundling...');
-    });
+  bundler.on('update', function () {
+    bundle();
+    gutil.log('Browserify rebundling...');
+  });
 
-    bundler.on('log', gutil.log);
+  bundler.on('log', gutil.log);
 }
 
 bundler.transform(debowerify, {});
 bundler.transform(ngAnnotate, {});
 
 function bundle() {
-    return bundler.bundle()
-      .on('error', onError)
-      .pipe(source('bundle.js'))
-      .pipe(buffer())
-      .pipe(!isProd ? sourcemaps.init() : gutil.noop())
-      .pipe(isProd ? babel({
-          presets: ['es2015'],
-          compact: false
-      }) : gutil.noop())
-      .pipe(concat('bundle.js'))
-      .pipe(!isProd ? sourcemaps.write('./') : gutil.noop())
-      .pipe(isProd ? streamify(uglify({ mangle: true })) : gutil.noop())
-      .pipe(gulp.dest(paths.js.dest))
-      .pipe(browserSync.stream());
+  return bundler.bundle()
+    .on('error', onError)
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(buildMode === 'development' ? sourcemaps.init() : gutil.noop())
+    .pipe(buildMode === 'production' ? babel({
+      presets: ['es2015'],
+      compact: false
+    }) : gutil.noop())
+  .pipe(concat('bundle.js'))
+  .pipe(buildMode === 'development' ? sourcemaps.write('.') : gutil.noop())
+  .pipe(buildMode === 'production' ? streamify(uglify()) : gutil.noop())
+  .pipe(gulp.dest(paths.js.dest))
+  .pipe(browserSync.stream());
 }
 
-gulp.task('js', bundle);
++gulp.task('js', bundle);
 
 // --------------------------------------------------------------------
 // Task: CLEAN
@@ -109,11 +113,11 @@ gulp.task('sass', function () {
   return gulp.src(paths.css.src)
     .pipe(!isProd ? sourcemaps.init() : gutil.noop())
       .pipe(sass({
-          includePaths: [
-          './bower_components/bourbon/app/assets/stylesheets',
-          './bower_components/bootstrap-sass/assets/stylesheets',
-          './bower_components/animate.css',
-          ]
+        includePaths: [
+        './bower_components/bourbon/app/assets/stylesheets',
+        './bower_components/bootstrap-sass/assets/stylesheets',
+        './bower_components/animate.css',
+        ]
       }))
       .on('error', onError)
       .pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 9'], cascade: false }))
@@ -151,17 +155,15 @@ gulp.task('serve', function (done) {
     }
   }, done);
 
-    gulp.watch(paths.html.src, ['html']);
-    gulp.watch(paths.css.src, ['sass']);
+  gulp.watch(paths.html.src, ['html']);
+  gulp.watch(paths.css.src, ['sass']);
 });
 
 // --------------------------------------------------------------------
 // Task: DEFAULT
 // --------------------------------------------------------------------
 
-var sequence = (isProd) ? ['clean', 'html', 'sass', 'js'] : ['html', 'sass', 'js'];
-
 // use gulp-sequence to finish building html, sass and js before first page load
-gulp.task('default', gulpSequence(sequence, 'serve'));
+gulp.task('default', gulpSequence(['html', 'sass', 'js'], 'serve'));
 
 
