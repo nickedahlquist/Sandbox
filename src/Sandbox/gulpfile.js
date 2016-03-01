@@ -1,10 +1,4 @@
-﻿/// <binding />
-/*
-This file in the main entry point for defining Gulp tasks and using Gulp plugins.
-Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
-*/
-
-// Hotfix for ES6 Promises
+﻿// Hotfix for ES6 Promises
 require('es6-promise').polyfill();
 
 var browserSync = require('browser-sync');
@@ -32,9 +26,7 @@ var buildInfo = require('./client/gulp/build-info.js');
 var onError = require('./client/gulp/on-error.js');
 var config = require('./client/gulp/config.js');
 var paths = config.paths;
-
-var buildMode = config.mode;
-var isProd = (buildMode === 'production') ? true : false;
+var isProd = (config.info.mode === 'production') ? true : false;
 
 //Output build info.
 buildInfo.output(config.info);
@@ -42,8 +34,6 @@ buildInfo.output(config.info);
 // --------------------------------------------------------------------
 // Task: BROWSERIFY
 // --------------------------------------------------------------------
-
-
 
 // bundling js with browserify and watchify
 var bundler = browserify({
@@ -72,19 +62,19 @@ function bundle() {
     .on('error', onError)
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(buildMode === 'development' ? sourcemaps.init() : gutil.noop())
-    .pipe(buildMode === 'production' ? babel({
+    .pipe(!isProd ? sourcemaps.init() : gutil.noop())
+    .pipe(isProd ? babel({
       presets: ['es2015'],
       compact: false
     }) : gutil.noop())
   .pipe(concat('bundle.js'))
-  .pipe(buildMode === 'development' ? sourcemaps.write('.') : gutil.noop())
-  .pipe(buildMode === 'production' ? streamify(uglify()) : gutil.noop())
+  .pipe(!isProd ? sourcemaps.write('.') : gutil.noop())
+  .pipe(isProd ? streamify(uglify()) : gutil.noop())
   .pipe(gulp.dest(paths.js.dest))
   .pipe(browserSync.stream());
 }
 
-+gulp.task('js', bundle);
+gulp.task('js', bundle);
 
 // --------------------------------------------------------------------
 // Task: CLEAN

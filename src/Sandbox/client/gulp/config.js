@@ -34,8 +34,7 @@
       version: pkg.version,
       authors: pkg.author.name,
       mode: mode
-    },
-    mode: mode
+    }
   };
 
 })();
