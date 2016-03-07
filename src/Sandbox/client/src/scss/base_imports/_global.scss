@@ -8,7 +8,7 @@
  */
 
 * {
-  border-radius: 0 !important;
+  //border-radius: 0 !important;
   user-select: none;
 
   &:focus {
@@ -35,6 +35,7 @@ body {
   -webkit-text-size-adjust: 100%;
   @include word-wrap(break-word);
   hyphens: auto;
+  background-color: $color-white;
 }
 
 img { 
@@ -104,4 +105,8 @@ input, textarea {
     opacity: 1;
     color: $color-form-placeholder !important;
   }
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
 }

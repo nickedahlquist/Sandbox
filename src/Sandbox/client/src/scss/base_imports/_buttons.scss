@@ -1,0 +1,28 @@
+﻿/*
+ * _buttons.scss
+ * ============
+ * 
+ */
+
+.fm-button {
+  border-radius: 0.2rem;
+  background-color: $color-dark-grey;
+  color: $color-white;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.3rem;
+  font-size: $font-size-h6;
+  padding: 1.5rem 6rem;
+  outline: 0;
+  border: 0;
+
+  &.button-light {
+    background-color: transparent;
+    border: 1px solid $color-white;
+
+    &:hover, &:active {
+       background-color: rgba(255, 255, 255, 0.15);
+       color: $color-white;
+    }
+  }
+}

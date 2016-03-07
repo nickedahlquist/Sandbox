@@ -5,17 +5,19 @@
  */
 
 // Global Colours
-$color-accent: #3DC9B3;
+$color-accent: #2ABBAE;
 $color-accent-highlight: tint($color-accent, 40);
 $color-accent-shade: shade($color-accent, 20);
 
 $color-white: #FFF;
-$color-light-grey: #FFF;
-$color-dark-grey: #FFF;
+$color-light-grey: #F2F2F0;
+$color-dark-grey: #1B1E25;
 $color-black: #000;
 
 // Text Colours
-$color-text-primary: rgba(31, 53, 78, 0.75);
+$color-text-primary: #AFA9A9;
+$color-text-primary-highlight: tint($color-text-primary, 40);
+$color-text-primary-shade: shade($color-text-primary, 20);
 
 // Body Font Color
 $color-text-secondary: #3D4351;

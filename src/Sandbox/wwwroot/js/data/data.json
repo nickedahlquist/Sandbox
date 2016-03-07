@@ -1,0 +1,19 @@
+{
+  "newsitems": [
+    {
+      "headline": "Bacon ipsum",
+      "content": "Bacon ipsum dolor amet boudin shoulder pork chop salami. Pork turducken venison chuck short loin frankfurter. Sausage kevin tri-tip pastrami. Frankfurter filet mignon venison beef pig, short loin flank beef ribs. Meatball cupim pork loin frankfurter doner, prosciutto andouille hamburger.",
+      "timestamp": "2016-03-01"
+    },
+    {
+      "headline": "Brunch deep",
+      "content": "Brunch deep v cronut, shoreditch synth chartreuse marfa drinking vinegar gentrify umami irony quinoa distillery next level kogi. Ennui 90's kitsch salvia VHS food truck, narwhal celiac pabst cray 8-bit austin polaroid. Etsy ennui tilde cold-pressed heirloom aesthetic, raw denim artisan art party poutine flexitarian try-hard polaroid. Truffaut banjo chicharrones iPhone fap, kinfolk mustache dreamcatcher.",
+      "timestamp": "2016-03-04"
+    },
+    {
+      "headline": "Alohamora wand",
+      "content": "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies.",
+      "timestamp": "2016-03-06"
+    }
+  ]
+}

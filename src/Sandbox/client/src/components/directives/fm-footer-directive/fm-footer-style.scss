@@ -1,0 +1,51 @@
+﻿.fm-footer {
+  background-color: $color-dark-grey;
+  color: $color-white;
+
+  .fm-form-title {
+    color: $color-white;
+    text-transform: uppercase;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $layout-modifier-large;
+  }
+
+  .fm-contact-form {
+
+    input, textarea {
+      border-radius: 2px;
+      padding: $layout-modifier-small;
+      margin-bottom: $layout-modifier-large;
+      background-color: transparent;
+      outline: 0;
+      box-shadow: none;
+    }
+
+    textarea {
+      margin-top: $layout-modifier-large*1.5;
+      resize: vertical;
+    }
+
+    input {
+      border-radius: 0;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    ::placeholder {
+      color: $color-white;
+      text-transform: uppercase;
+      font-weight: $font-weight-semibold;
+      letter-spacing: 0.3rem;
+      font-size: $font-size-h6;
+    }
+
+    button[type=submit] {
+      width: 100%;
+
+      @media(min-width: $screen-sm) {
+        width: auto;
+      }
+    }
+  }
+}

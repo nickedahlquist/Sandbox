@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6, p {
 h1 {
   font-size: $font-size-h1 / $ratio-golden;
   line-height: normal;
+  color: $color-dark-grey;
 
   @media(min-width: $screen-sm) {
     font-size: $font-size-h1;
@@ -23,6 +24,7 @@ h1 {
 h2 {
   font-size: $font-size-h2 / $ratio-golden;
   line-height: normal;
+  color: $color-dark-grey;
 
   @media(min-width: $screen-sm) {
     font-size: $font-size-h2;
@@ -31,6 +33,7 @@ h2 {
 
 h3 {
   font-size: $font-size-h3 / $ratio-golden;
+  color: $color-dark-grey;
 
   @media(min-width: $screen-sm) {
     font-size: $font-size-h3;
@@ -39,6 +42,7 @@ h3 {
 
 h4 {
   font-size: $font-size-h4 / $ratio-golden;
+  color: $color-dark-grey;
   
   @media(min-width: $screen-sm) {
     font-size: $font-size-h4;
@@ -47,6 +51,7 @@ h4 {
 
 h5 {
   font-size: $font-size-h5;
+  color: $color-dark-grey;
 }
 
 h6 {

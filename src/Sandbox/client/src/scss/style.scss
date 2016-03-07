@@ -1,4 +1,4 @@
-﻿/*
+/*
  * _styles.scss
  * ============
  * 
@@ -18,10 +18,14 @@
 @import './base_imports/_variables.scss';
 @import './base_imports/_global.scss';
 @import './base_imports/_typography.scss';
+@import './base_imports/_buttons.scss';
 @import './base_imports/_helper-classes.scss';
 
-
-// Custom styles.
+// Component styles.
 /* inject:scss */
-
+@import "../components/directives/fm-footer-directive/fm-footer-style.scss";
+@import "../components/directives/fm-hero-directive/fm-hero-style.scss";
+@import "../components/directives/fm-navbar-directive/fm-navbar-style.scss";
+@import "../components/directives/fm-newsfeed-directive/fm-newsfeed-style.scss";
 /* endinject */
+
