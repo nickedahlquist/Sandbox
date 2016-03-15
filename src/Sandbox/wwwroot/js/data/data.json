@@ -7,13 +7,115 @@
     },
     {
       "headline": "Brunch deep",
-      "content": "Brunch deep v cronut, shoreditch synth chartreuse marfa drinking vinegar gentrify umami irony quinoa distillery next level kogi. Ennui 90's kitsch salvia VHS food truck, narwhal celiac pabst cray 8-bit austin polaroid. Etsy ennui tilde cold-pressed heirloom aesthetic, raw denim artisan art party poutine flexitarian try-hard polaroid. Truffaut banjo chicharrones iPhone fap, kinfolk mustache dreamcatcher.",
+      "content": "Brunch deep v cronut, shoreditch synth chartreuse marfa drinking vinegar gentrify umami irony quinoa distillery next level kogi. Ennui 90's kitsch salvia VHS food truck, narwhal celiac pabst cray 8-bit austin polaroid. Etsy ennui tilde cold-pressed heirloom aesthetic, raw denim artisan art party poutine flexitarian try-hard polaroid.",
       "timestamp": "2016-03-04"
     },
     {
       "headline": "Alohamora wand",
-      "content": "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies.",
+      "content": "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed.",
       "timestamp": "2016-03-06"
+    }
+  ],
+  "funds": [
+    {
+      "id": 1,
+      "image": "amundi.jpg",
+      "manager": "Amundi Luxembourg",
+      "name": "Amundi Funds Equity Global Gold Mines",
+      "price": "31,37 USD",
+      "return": "32.65%",
+      "risk": "high",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "image": "blackrock.jpg",
+      "manager": "BlackRock",
+      "name": "GF World Gold Fund A2 USD",
+      "price": "25,68 USD",
+      "return": "12.95%",
+      "risk": "high",
+      "rating": 1
+    },
+    {
+      "id": 3,
+      "image": "allianz.jpg",
+      "manager": "Allianz Global Investors",
+      "name": "Allianz Global Metals and Mining",
+      "price": "30,77 EUR",
+      "return": "56.04%",
+      "risk": "high",
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "image": "hsbc.jpg",
+      "manager": "HSBC Global Investment Funds",
+      "name": "GIF Brazil Equity",
+      "price": "13,52 USD",
+      "return": "45.50%",
+      "risk": "medium",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "image": "blackrock.jpg",
+      "manager": "BlackRock",
+      "name": "GF World Mining Fund A2 USD",
+      "price": "24,06 USD",
+      "return": "11.34%",
+      "risk": "high",
+      "rating": 2
+    },
+    {
+      "id": 6,
+      "image": "amundi.jpg",
+      "manager": "Amundi Luxembourg",
+      "name": "Amundi Funds Equity Global Resources",
+      "price": "55,28 USD",
+      "return": "18.95%",
+      "risk": "high",
+      "rating": 1
+    },
+    {
+      "id": 7,
+      "image": "jpmorgan.jpg",
+      "manager": "JPMorgan",
+      "name": "JPMF Brazil Equity Fund",
+      "price": "4,35 USD",
+      "return": "2.60%",
+      "risk": "high",
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "image": "hsbc.jpg",
+      "manager": "HSBC Global Investment Funds",
+      "name": "GIF Thai Equity",
+      "price": "16,44 USD",
+      "return": "89.15%",
+      "risk": "high",
+      "rating": 3
+    },
+    {
+      "id": 9,
+      "image": "bnp.jpg",
+      "manager": "BNP Paribas Investment Partners LU",
+      "name": "Parvest Equity Brazil",
+      "price": "62,53 USD",
+      "return": "12.65%",
+      "risk": "high",
+      "rating": 2
+    },
+    {
+      "id": 10,
+      "image": "aberdeen.jpg",
+      "manager": "Aberdeen Internat.Fund Managers Ltd.",
+      "name": "Aberdeen Global - Latin America Equity",
+      "price": "2 578,29 USD",
+      "return": "14.78%",
+      "risk": "high",
+      "rating": 3
     }
   ]
 }

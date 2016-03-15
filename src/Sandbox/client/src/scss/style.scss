@@ -19,11 +19,14 @@
 @import './base_imports/_global.scss';
 @import './base_imports/_typography.scss';
 @import './base_imports/_buttons.scss';
+@import './base_imports/_forms.scss';
 @import './base_imports/_helper-classes.scss';
 
 // Component styles.
 /* inject:scss */
+@import "../components/controllers/fm-register-controller/fm-register-style.scss";
 @import "../components/directives/fm-footer-directive/fm-footer-style.scss";
+@import "../components/directives/fm-fund-gallery-directive/fm-fund-gallery-style.scss";
 @import "../components/directives/fm-hero-directive/fm-hero-style.scss";
 @import "../components/directives/fm-navbar-directive/fm-navbar-style.scss";
 @import "../components/directives/fm-newsfeed-directive/fm-newsfeed-style.scss";

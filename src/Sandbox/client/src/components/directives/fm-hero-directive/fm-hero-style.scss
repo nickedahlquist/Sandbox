@@ -42,7 +42,7 @@
 
     .fm-hero-title {
     color: $color-white;
-    margin: $layout-modifier-small/2 auto $layout-modifier-small auto;
+    margin: $layout-modifier-sm/2 auto $layout-modifier-sm auto;
     margin: 0 auto;
     font-size: $font-size-h1;
     font-weight: $font-weight-light;
@@ -53,7 +53,7 @@
 
       @media(min-width: $screen-sm) {
         font-size: $font-size-h1*1.2;
-        margin: $layout-modifier-small auto $layout-modifier-large auto;
+        margin: $layout-modifier-sm auto $layout-modifier-lg auto;
         letter-spacing: 0.7rem;
         border-bottom: 0.4rem solid $color-white;
         display: inline-block;
@@ -68,7 +68,7 @@
         font-weight: $font-weight-light;
         text-transform: uppercase;
         max-width: 100rem;
-        margin: 0 auto $layout-modifier-small auto;
+        margin: 0 auto $layout-modifier-sm auto;
         display: block;
       }
     }

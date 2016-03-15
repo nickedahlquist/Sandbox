@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["controllers/fm-funds-controller/fm-funds-controller.js"],"sourcesContent":["(function () {\r\n    'use strict';\r\n\r\n    angular.module('fm').controller('FmFundsController', ['$scope', function ($scope) {\r\n\r\n    }]);\r\n\r\n})();\r\n"],"file":"controllers/fm-funds-controller/fm-funds-controller.js","sourceRoot":"/source/"}

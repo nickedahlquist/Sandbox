@@ -1,12 +1,12 @@
 ﻿.fm-navbar {
     position: fixed;
     width: 100%;
-    padding: $layout-modifier-small 0;
+    padding: $layout-modifier-sm 0;
     margin: auto;
     top: 0;
-    z-index: 2;
+    z-index: 10;
     background-color: $color-white;
-    border-bottom: 1px #E6E6E6 solid;
+    border-bottom: 1px $color-light-grey-shade solid;
 
   nav {
 
@@ -15,7 +15,7 @@
 
       li {
          display: inline-block;
-         padding-right: $layout-modifier-large;
+         padding-right: $layout-modifier-lg;
 
          a {
            font-size: $font-size-h6;
@@ -23,10 +23,20 @@
            font-weight: $font-weight-semibold;
            letter-spacing: 0.3rem;
            color: $color-text-primary;
+           position: relative; 
 
            &:hover {
              color: $color-text-primary-shade;
            }
+
+          &.fm-navbar-active:before {
+            content: " ";
+            border-top: solid 1rem $color-accent;
+            position: absolute;
+            top: -3.5rem;
+            display: inline;
+            width: 100%;
+          }
          }
       }
     }

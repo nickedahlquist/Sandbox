@@ -4,24 +4,26 @@
 
   .fm-form-title {
     color: $color-white;
-    text-transform: uppercase;
-    font-weight: $font-weight-semibold;
-    margin-bottom: $layout-modifier-large;
+    margin-bottom: $layout-modifier-lg;
   }
 
   .fm-contact-form {
-
+    
+    .form-control {
+      color: $color-white !important;
+    }
+    
     input, textarea {
       border-radius: 2px;
-      padding: $layout-modifier-small;
-      margin-bottom: $layout-modifier-large;
+      padding: $layout-modifier-sm;
+      margin-bottom: $layout-modifier-lg;
       background-color: transparent;
       outline: 0;
       box-shadow: none;
     }
 
     textarea {
-      margin-top: $layout-modifier-large*1.5;
+      margin-top: $layout-modifier-lg * 1.5;
       resize: vertical;
     }
 

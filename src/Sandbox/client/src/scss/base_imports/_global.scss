@@ -31,11 +31,15 @@ body {
   font-family: $font-stack-open-sans;
   color: $color-text-primary;
   line-height: $font-line-height;
-  font-size: $font-size-base;
+  font-size: 1.4rem;
   -webkit-text-size-adjust: 100%;
   @include word-wrap(break-word);
   hyphens: auto;
   background-color: $color-white;
+
+  @media(min-width: $screen-sm) {
+    font-size: $font-size-base;
+  }
 }
 
 img { 
@@ -56,7 +60,7 @@ ul li {
 }
 
 span {
-  user-select: text;
+
 }
 
 a {
@@ -64,7 +68,6 @@ a {
   transition-timing-function: ease;
   transition-duration: $animation-transition-short;
   transition-property: color, border-color, background-color;
-  user-select: text;
 
   &:hover, &:active, &:focus {
     color: $color-accent-shade;
@@ -78,32 +81,61 @@ a {
   }
 }
 
+hr {
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid $color-text-primary;
+  opacity: 0.5;
+  margin: $font-size-base 0;
+
+}
+
 button[type=submit]:focus {
   color: $color-accent-shade;
 }
 
+h1, h2, h3, h4, h5, h6, p, a, 
+td, th, span, li, input, textarea {
+  user-select: text;
+}
+
 input, textarea {
   -webkit-appearance: none;
-  user-select: text;
 
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: $font-size-base;
+    appearance: none;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    padding: 0.5rem 1rem;
+
+  
   &::-webkit-input-placeholder {
     opacity: 1;
-    color: $color-form-placeholder !important;
+    color: $color-white !important;
   }
 
   &:-moz-placeholder {
     opacity: 1;
-    color: $color-form-placeholder !important;
+    color: $color-white !important;
   }
 
   &::-moz-placeholder {
     opacity: 1;
-    color: $color-form-placeholder !important;
+    color: $color-white !important;
   }
 
   &:-ms-input-placeholder {
     opacity: 1;
-    color: $color-form-placeholder !important;
+    color: $color-white !important;
+  }
+
+  &:focus, &:active {
+    border-color: $color-accent !important;
   }
 }
 

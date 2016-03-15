@@ -17,9 +17,8 @@
   <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
   <fm-navbar></fm-navbar>
-  <main ng-view></main>
+  <main ui-view></main>
   <fm-footer></fm-footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -29,26 +28,26 @@
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/angular-animate/angular-animate.js"></script>
-  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <!-- endbower -->
 
   <script src="/js/app.js"></script>
   <script src="/js/router.js"></script>
 
   <!-- inject:js-modules -->
+  <script src="/js/services/fm-authtoken-factory.js"></script>
   <script src="/js/services/fm-data-service.js"></script>
   <script src="/js/services/fm-navlinks-service.js"></script>
   <script src="/js/controllers/fm-contact-controller/fm-contact-controller.js"></script>
+  <script src="/js/controllers/fm-funds-controller/fm-funds-controller.js"></script>
   <script src="/js/controllers/fm-home-controller/fm-home-controller.js"></script>
   <script src="/js/controllers/fm-news-controller/fm-news-controller.js"></script>
-  <script src="/js/directives/fm-footer-directive/fm-footer-controller.js"></script>
+  <script src="/js/controllers/fm-register-controller/fm-register-controller.js"></script>
   <script src="/js/directives/fm-footer-directive/fm-footer-directive.js"></script>
-  <script src="/js/directives/fm-hero-directive/fm-hero-controller.js"></script>
+  <script src="/js/directives/fm-fund-gallery-directive/fm-fund-gallery-directive.js"></script>
   <script src="/js/directives/fm-hero-directive/fm-hero-directive.js"></script>
-  <script src="/js/directives/fm-newsfeed-directive/fm-newsfeed-controller.js"></script>
-  <script src="/js/directives/fm-newsfeed-directive/fm-newsfeed-directive.js"></script>
-  <script src="/js/directives/fm-navbar-directive/fm-navbar-controller.js"></script>
   <script src="/js/directives/fm-navbar-directive/fm-navbar-directive.js"></script>
+  <script src="/js/directives/fm-newsfeed-directive/fm-newsfeed-directive.js"></script>
   <!-- endinject -->
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

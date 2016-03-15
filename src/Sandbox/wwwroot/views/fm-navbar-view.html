@@ -1,7 +1,10 @@
 <div class="fm-navbar animated fadeInDownBig">
   <nav>
-    <ul ng-controller="FmNavbarController">
-      <li ng-repeat="link in navbarlinks"><a href="{{link.url}}">{{link.title}}</a></li>
+    <ul>
+      <li ng-repeat="link in navbarlinks"><a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a></li>
+      <!--<li><a ng-if="isAuthenticated()" href="" ng-click="logOut()">Logga ut</a></li>
+      <li><a ng-if="!isAuthenticated()" ui-sref-active="fm-navbar-active" ui-sref="Skapa Konto">Skapa Konto</a></li>-->
     </ul>
   </nav>
 </div>
+

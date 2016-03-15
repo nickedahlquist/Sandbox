@@ -1,16 +1,16 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('fm').service('$fmDataService', ['$http', '$q', function ($http, $q) {
+    angular.module('fm').service('$fmDataService', ['$http', '$q', 'fmConfig', function ($http, $q, fmConfig) {
       var deferred = $q.defer();
 
       $http({
         method: 'GET',
-        url: 'js/data/data.json'
+        url: fmConfig.IIS.url
       }).then(onSuccess, onError);
 
       function onSuccess(res) {
-        var newsitems = res.data.newsitems;
+        var newsitems = res.data;
         deferred.resolve(newsitems);
       }
 
@@ -18,10 +18,8 @@
         deferred.reject(res);
       }
 
-      this.getData = function () {
-        return deferred.promise;
-      };
-
+      return deferred.promise;
+      
     }]);
 
 

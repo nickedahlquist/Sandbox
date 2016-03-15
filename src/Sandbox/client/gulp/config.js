@@ -3,7 +3,7 @@
 
   var pkg = require('../../package.json');
   var launch_settings = require('../../Properties/launchSettings.json');
-  var proxy = launch_settings.iisSettings.iisExpress.applicationUrl + 'index.html';
+  var proxy = launch_settings.iisSettings.iisExpress.applicationUrl;
   var src_path = './client/src';
   var dest_path = './wwwroot';
 
@@ -63,5 +63,3 @@
   };
 
 })();
-
-//src: src_path + '/js/main.js'

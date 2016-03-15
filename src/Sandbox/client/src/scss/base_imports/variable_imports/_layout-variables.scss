@@ -5,8 +5,9 @@
  */
 
 // Layout modifiers (use to set padding or margin)
-$layout-modifier-small: 2.4rem;
-$layout-modifier-large: $layout-modifier-small * 2;
+$layout-modifier-sm: 2.4rem;
+$layout-modifier-lg: $layout-modifier-sm * 2;
+$layout-modifier-xl: $layout-modifier-sm * 6;
 
 // Padding
 $layout-section-padding: 12rem;

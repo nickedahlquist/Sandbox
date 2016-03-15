@@ -3,20 +3,19 @@
   text-align: center;
 
   .fm-news-title {
-    text-transform: uppercase;
-    font-weight: $font-weight-semibold;
+
   }
 
   .fm-news-subtitle {
-    margin-bottom: $layout-modifier-large;
+    margin-bottom: $layout-modifier-lg;
   }
 
   .fm-news-item {
-    margin-bottom: $layout-modifier-large;
+    margin-bottom: $layout-modifier-lg;
 
     .inner {
       background-color: $color-white;
-      padding: $layout-modifier-large;
+      padding: $layout-modifier-lg;
       
       .fa-news-date {
         padding: 0;
@@ -26,20 +25,11 @@
       } 
 
       .fm-news-headline {
-        text-transform: uppercase;
-        font-weight: $font-weight-semibold;
 
-        &:after {
-          content: " ";
-          border: solid 0.2rem $color-accent;
-          display: block;
-          width: $layout-modifier-large;
-          margin: $layout-modifier-small auto;
-        }
       }
 
       .fm-news-content{
-        margin-bottom: $layout-modifier-small;
+        margin-bottom: $layout-modifier-sm;
       }
     }
   }

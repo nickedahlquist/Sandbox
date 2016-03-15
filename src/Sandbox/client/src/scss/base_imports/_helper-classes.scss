@@ -33,6 +33,25 @@
   font-weight: $font-weight-light;
 }
 
+.text-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.text-accent {
+  color: $color-accent !important;
+}
+
+.text-truncate {
+  max-width: 45rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /*---------------------------
   padding-helpers:                     
 ---------------------------*/

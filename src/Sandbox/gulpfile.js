@@ -45,16 +45,6 @@ gulp.task('log:production', function () {
 });
 
 // --------------------------------------------------------------------
-// Task: BOWER
-// --------------------------------------------------------------------
-
-gulp.task('bower', function () {
-  return gulp.src('./bower_components/**/*')
-    .pipe(newer('./wwwroot/bower_components'))
-    .pipe(gulp.dest('./wwwroot/bower_components'));
-});
-
-// --------------------------------------------------------------------
 // Task: CLEAN
 // --------------------------------------------------------------------
 
@@ -114,7 +104,7 @@ var wiredep_options = {
   ignorePath: '../..'
 };
 
-gulp.task('wiredep:development', ['bower'], function () {
+gulp.task('wiredep:development', function () {
   return gulp.src(paths.html.src)
     .pipe(wiredep(wiredep_options))
     .pipe(gulp.dest(paths.root_src));
@@ -305,7 +295,6 @@ gulp.task('serve', function (done) {
 
   gulp.watch(paths.components.css.src, ['inject-sass-components']);
   gulp.watch([paths.js.src, paths.components.js.src], ['inject-js']);
-  gulp.watch('./bower_components/**/*', ['bower']);
   
 });
 

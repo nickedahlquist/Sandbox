@@ -5,14 +5,20 @@
  */
 
 // Global Colours
+$color-black: #000;
+$color-white: #FFF;
+
 $color-accent: #2ABBAE;
 $color-accent-highlight: tint($color-accent, 40);
 $color-accent-shade: shade($color-accent, 20);
 
-$color-white: #FFF;
 $color-light-grey: #F2F2F0;
+$color-light-grey-shade: shade($color-light-grey, 5);
+
 $color-dark-grey: #1B1E25;
-$color-black: #000;
+$color-dark-grey-highlight: tint($color-dark-grey, 15);
+$color-dark-grey-shade: shade($color-dark-grey, 20);
+
 
 // Text Colours
 $color-text-primary: #AFA9A9;
@@ -32,6 +38,7 @@ $color-form-placeholder: #BCC1C3;
 // Layout Colours
 $color-section-light: $color-white;
 $color-section-dark: #F3F4F8;
+
 $color-footer: #373D4A;
 $color-navbar: rgba(17,18,23,0.85);
 

@@ -15,6 +15,11 @@
   padding: 1.5rem 6rem;
   outline: 0;
   border: 0;
+  transition: background-color ease-in-out $animation-transition-short;
+
+  &:hover, &:active {
+    background-color: $color-black;
+  }
 
   &.button-light {
     background-color: transparent;
@@ -22,6 +27,16 @@
 
     &:hover, &:active {
        background-color: rgba(255, 255, 255, 0.15);
+       color: $color-white;
+    }
+  }
+
+  &.button-accent {
+    background-color: $color-accent;
+    border: 0;
+
+    &:hover, &:active {
+       background-color: $color-accent-shade;
        color: $color-white;
     }
   }

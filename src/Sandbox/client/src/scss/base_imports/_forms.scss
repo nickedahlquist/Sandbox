@@ -1,0 +1,59 @@
+﻿/*
+ * _table.scss
+ * ===========
+ * 
+ */
+
+$table-padding: 0.5rem;
+
+.fm-table {
+  border: 1px $color-light-grey-shade solid;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+
+  tr { 
+
+    th, td {
+      padding: $table-padding;
+      border: 0;
+      line-height: inherit;
+
+      @media(min-width: $screen-sm) {
+         padding: $table-padding * 2;
+      }
+    }
+  }
+
+  thead {
+    background-color: $color-accent;
+    color: $color-white;
+    text-transform: uppercase;
+  }
+
+  tbody {
+
+    tr {
+      background-color: $color-light-grey;
+
+      &:nth-child(odd) {
+        background-color: $color-white;
+      }
+    }
+  }
+
+  &.table-dark {
+
+    tbody {
+
+      tr {
+        color: $color-white;
+        background-color: $color-dark-grey-shade;
+
+        &:nth-child(odd) {
+          background-color: $color-dark-grey;
+        }
+      }
+    }
+  }
+}

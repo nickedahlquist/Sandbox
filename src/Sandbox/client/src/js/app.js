@@ -9,6 +9,8 @@
 (function() {
 'use strict';
 
-angular.module('fm', ['ngRoute']);
+angular.module('fm', ['ngAnimate', 'ui.router']).run(function ($rootScope) {
+  $rootScope.store = 0;
+});
 
 })();
