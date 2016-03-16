@@ -9,6 +9,7 @@
           <h6 class="fa-news-date">{{newsitem.timestamp}}</h6>
           <h4 class="fm-news-headline">{{newsitem.headline}}</h4>
           <p class="fm-news-content">{{newsitem.content | limitTo : 175}}...</p>
+          <p><span ng-repeat="tag in newsitem.tags">{{tag}}</span></p>
           <button class="fm-button">Läs mer</button>
         </div>
       </article>

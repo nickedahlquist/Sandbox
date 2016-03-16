@@ -8650,13 +8650,19 @@ p {
       top: 200px;
       opacity: 0; }
     .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container {
-      -webkit-perspective: 100rem;
-      perspective: 100rem;
+      -webkit-perspective: 80rem;
+      perspective: 80rem;
       width: 100%;
       min-height: 42rem; }
       .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container:not(.manual-flip):hover .fm-fund-card, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container.hover.manual-flip .fm-fund-card {
         -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg); }
+        .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container:not(.manual-flip):hover .fm-fund-card .fm-fund-card-back, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container.hover.manual-flip .fm-fund-card .fm-fund-card-back {
+          /* Fix bug for IE */ }
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container:not(.manual-flip):hover .fm-fund-card .fm-fund-card-back, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container.hover.manual-flip .fm-fund-card .fm-fund-card-back {
+              z-index: 5;
+              visibility: visible; } }
       .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container.static:hover, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container.static.hover {
         -webkit-transform: none;
         -ms-transform: none;
@@ -8671,9 +8677,14 @@ p {
         text-align: center; }
         .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card:hover {
           cursor: pointer; }
-          .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card:hover .fm-fund-card-front .fm-fund-card-header .fm-fund-card-overlay {
-            background-color: #2ABBAE;
-            opacity: 0.5; }
+          .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card:hover .fm-fund-card-front {
+            /* Fix bug for IE */ }
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+              .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card:hover .fm-fund-card-front {
+                z-index: 4; } }
+            .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card:hover .fm-fund-card-front .fm-fund-card-header .fm-fund-card-overlay {
+              background-color: #2ABBAE;
+              opacity: 0.5; }
         .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-front, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back {
           -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -8683,7 +8694,12 @@ p {
           width: 100%;
           min-height: 42rem;
           border: 1px #e6e6e4 solid;
-          background-color: #FFF; }
+          background-color: #FFF;
+          /* Fix bug for IE */ }
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-front, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back {
+              -webkit-backface-visibility: visible;
+              backface-visibility: visible; } }
           .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-front .fm-fund-card-content, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back .fm-fund-card-content {
             padding: 2.4rem; }
             .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-front .fm-fund-card-content .fm-fund-card-title, .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back .fm-fund-card-content .fm-fund-card-title {
@@ -8719,25 +8735,12 @@ p {
         .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back {
           -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-          z-index: 3; }
-          .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back .header {
-            padding: 15px 20px;
-            height: 90px; }
-          .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back .fm-fund-card-motto {
-            border-bottom: 1px solid #EEEEEE;
-            color: #999999;
-            font-size: 14px;
-            font-weight: 400;
-            padding-bottom: 10px;
-            text-align: center; }
-    .fm-fund-gallery .fm-fund-wrapper .fm-fund-card {
-      border: 1px #e6e6e4 solid;
-      background-color: #FFF; }
-      .fm-fund-gallery .fm-fund-wrapper .fm-fund-card:hover {
-        cursor: pointer; }
-        .fm-fund-gallery .fm-fund-wrapper .fm-fund-card:hover .fm-fund-card-header .fm-fund-card-overlay {
-          background-color: #2ABBAE;
-          opacity: 0.5; }
+          z-index: 3;
+          /* Fix bug for IE */ }
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            .fm-fund-gallery .fm-fund-wrapper .fm-fund-card-container .fm-fund-card .fm-fund-card-back {
+              visibility: hidden;
+              -ms-transition: all 0.2s cubic-bezier(0.92, 0.01, 0.83, 0.67); } }
   .fm-fund-gallery .fm-table .text-truncate {
     max-width: 15rem; }
     @media (min-width: 768px) {
@@ -8785,23 +8788,30 @@ p {
         border: 0;
         font-size: 4.7rem; }
 
-/*       Fix bug for IE      */
+/* Fix bug for IE */
+/*
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .fm-fund-card-front, .fm-fund-card-back {
-    -webkit-backface-visibility: visible;
-    backface-visibility: visible; }
-  .fm-fund-card-back {
-    visibility: hidden;
-    -ms-transition: all 0.2s cubic-bezier(0.92, 0.01, 0.83, 0.67); }
-  .fm-fund-card-front {
-    z-index: 4; }
-  .fm-fund-card-container:not(.manual-flip):hover .fm-fund-card-back,
-  .fm-fund-card-container.manual-flip.hover .fm-fund-card-back {
-    z-index: 5;
-    visibility: visible; } }
+    .fm-fund-card-front, .fm-fund-card-back {   
+        backface-visibility: visible;
+    }
+    
+    .fm-fund-card-back {
+        visibility: hidden;
+        -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
+    }
 
+    .fm-fund-card-front {
+        z-index: 4;
+    }
+
+    .fm-fund-card-container:not(.manual-flip):hover .fm-fund-card-back,
+    .fm-fund-card-container.manual-flip.hover .fm-fund-card-back {
+        z-index: 5;
+        visibility: visible;
+    }
+}*/
 .fm-hero {
-  background-image: url("../img/fm-hero.jpg");
+  background-image: url("../img/fm-hero-2.jpg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -8818,7 +8828,7 @@ p {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 90, 68, 0.7);
+    background-color: rgba(0, 90, 68, 0.4);
     background-repeat: repeat; }
   .fm-hero .fm-hero-content {
     position: absolute;
@@ -8841,7 +8851,7 @@ p {
       margin: 1.2rem auto 2.4rem auto;
       margin: 0 auto;
       font-size: 7.6rem;
-      font-weight: 300;
+      font-weight: 600;
       text-transform: uppercase;
       word-break: break-word;
       -webkit-hyphens: auto;
@@ -8912,8 +8922,8 @@ p {
         text-transform: uppercase;
         letter-spacing: 0.3rem;
         font-weight: 600; }
-      .fm-newsfeed .fm-news-item .inner .fm-news-content {
-        margin-bottom: 2.4rem; }
+      .fm-newsfeed .fm-news-item .inner .fm-button {
+        margin-top: 2.4rem; }
   .fm-newsfeed .fa-news-link {
     text-transform: uppercase;
     font-weight: 800;

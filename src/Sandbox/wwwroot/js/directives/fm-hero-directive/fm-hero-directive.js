@@ -7,7 +7,7 @@
         restrict: 'E',
         templateUrl: '../../../views/fm-hero-view.html',
         link: function (scope, elem, attrs) {
-          scope.title = 'Fräsig Rubrik';
+          scope.title = 'Framtiden i fokus';
           scope.subtitle = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
         }
       }

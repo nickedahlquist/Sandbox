@@ -19,9 +19,11 @@
 
         <article ng-repeat="fund in funds | filter : search" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 fm-fund-wrapper">
 
+          <!-- fm-card-container -->
           <div class="fm-fund-card-container">
             <div class="fm-fund-card">
 
+              <!-- fm-card-front -->
               <div class="fm-fund-card-front">
 
                 <header class="fm-fund-card-header">
@@ -30,8 +32,8 @@
                 </header>
 
                 <div class="fm-fund-card-content">
-                  <h5 class="fm-fund-card-title">{{fund.manager}}</h5>
-                  <h6 class="fm-fund-card-subtitle">{{fund.name}}</h6>
+                  <h5 class="fm-fund-card-title text-truncate">{{fund.manager}}</h5>
+                  <h6 class="fm-fund-card-subtitle text-truncate">{{fund.name}}</h6>
 
                   <p class="fm-fund-card-text"><span class="text-semibold">Kurs: </span>{{fund.price}}</p>
                   <p class="fm-fund-card-text"><span class="text-semibold">Avkastning i år: </span><span class="text-accent">{{fund.return}}</span></p>
@@ -45,8 +47,9 @@
                   </footer>
                 </div>
 
-              </div> <!-- end front panel -->
+              </div> <!-- fm-card-front:end -->
 
+              <!-- fm-card-back -->
               <div class="fm-fund-card-back">
 
                 <div class="fm-fund-card-content">
@@ -64,9 +67,9 @@
 
                 </div>
 
-              </div> <!-- end back panel -->
-            </div> <!-- end card -->
-          </div> <!-- end card-container -->
+              </div> <!-- fm-card-back:end -->
+            </div> <!-- fm-card:end -->
+          </div> <!-- fm-card-container:end -->
         </article>
 
       </div>

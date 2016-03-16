@@ -1,5 +1,5 @@
 ﻿.fm-hero {
-  background-image: url('../img/fm-hero.jpg');
+  background-image: url('../img/fm-hero-2.jpg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -17,7 +17,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 90, 68, 0.70);
+    background-color: rgba(0, 90, 68, 0.40);
     background-repeat: repeat;
   }
 
@@ -45,7 +45,7 @@
     margin: $layout-modifier-sm/2 auto $layout-modifier-sm auto;
     margin: 0 auto;
     font-size: $font-size-h1;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-semibold;
     text-transform: uppercase;
     word-break: break-word;
     hyphens: auto;

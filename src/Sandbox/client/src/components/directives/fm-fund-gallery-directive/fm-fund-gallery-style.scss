@@ -13,11 +13,11 @@
     display: flex;
     align-items: center;
     transition: background-color ease-in-out $animation-transition-short;
-    
-    &:hover{
+
+    &:hover {
       cursor: pointer;
       background-color: $color-accent-shade;
-    } 
+    }
 
     .glyphicon {
       color: $color-white;
@@ -29,17 +29,17 @@
 
   .fm-fund-button-bar {
     display: block;
-    width: 100%; 
+    width: 100%;
     margin: $layout-modifier-sm auto;
 
     @media(min-width: $screen-sm) {
       width: 75rem;
-      display: flex; 
-      align-items: center; 
+      display: flex;
+      align-items: center;
     }
 
     button {
-      margin: 0  auto $layout-modifier-sm auto;
+      margin: 0 auto $layout-modifier-sm auto;
       width: 100%;
 
       @media(min-width: $screen-sm) {
@@ -56,13 +56,13 @@
       transition: $animation-transition-long ease-in all;
       position: relative;
       display: block;
-    } 
-    
+    }
+
     &.ng-enter.ng-enter-active, &.ng-leave {
       top: 0;
       opacity: 1;
     }
-    
+
     &.ng-leave.ng-leave-active, &.ng-enter {
       top: 200px;
       opacity: 0;
@@ -70,170 +70,155 @@
 
 
     .fm-fund-card-container {
-  perspective: 100rem;
-  width: 100%;
-	min-height: $fm-card-height;
-
-  &:not(.manual-flip):hover, &.hover.manual-flip {
-    
-    .fm-fund-card {
-      transform: rotateY(180deg);
-    }
-  }
-
-  &.static:hover, &.static.hover {
-    transform: none;
-  }
-
-  .fm-fund-card {
-    transition: transform $animation-transition-long;
-    transform-style: preserve-3d;
-	  position: relative;
-    text-align: center;
-
-    &:hover {
-      cursor: pointer;
-      
-      .fm-fund-card-front {
-        
-        .fm-fund-card-header {
-
-          .fm-fund-card-overlay {
-            background-color: $color-accent;
-            opacity: 0.5;
-          }
-        }
-      }
-    }
-
-    .fm-fund-card-front, .fm-fund-card-back {
-      backface-visibility: hidden;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
+      perspective: 80rem;
       width: 100%;
-	    min-height: $fm-card-height;
-      border: 1px $color-light-grey-shade solid; 
-      background-color: $color-white;
+      min-height: $fm-card-height;
 
-      .fm-fund-card-content {
-        padding: $layout-modifier-sm; 
+      &:not(.manual-flip):hover, &.hover.manual-flip {
 
-        .fm-fund-card-title {
-          padding-bottom: 0;
-        }
+        .fm-fund-card {
+          transform: rotateY(180deg);
 
-        .fm-fund-card-subtitle {
-
-        }
-        
-        .fm-fund-card-text {
-          padding: 0;
-          margin: 0;
-          font-size: 1.4rem;
-        }
-
-        .fm-fund-card-footer {
-          overflow: hidden;
-          
-          .fm-fund-card-rating {
-            display: block;
-            margin: 0 auto;
-            color: $color-accent;
+          .fm-fund-card-back {
+            /* Fix bug for IE */
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+              z-index: 5;
+              visibility: visible;
+            }
           }
         }
       }
-    }
 
-    .fm-fund-card-front {
-      z-index: 2;
+      &.static:hover, &.static.hover {
+        transform: none;
+      }
 
-      .fm-fund-card-header {
-        max-height: $layout-modifier-xl; 
-        overflow: hidden;
+      .fm-fund-card {
+        transition: transform $animation-transition-long;
+        transform-style: preserve-3d;
         position: relative;
-
-        .fm-fund-card-overlay {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          background-color: $color-light-grey;
-          opacity: 0.3;
-          z-index: 2;
-          transition: all ease-in-out $animation-transition-short;
-        }
-
-        .fm-fund-card-image {
-          filter: grayscale(100%);
-          z-index: 1;
-        }
-      }
-    }
-
-    .fm-fund-card-back {
-      transform: rotateY(180deg);
-      z-index: 3;
-
-      .header {
-        padding: 15px 20px;
-        height: 90px;
-      }
-
-      .fm-fund-card-motto  {
-        border-bottom: 1px solid #EEEEEE;
-        color: #999999;
-        font-size: 14px;
-        font-weight: 400;
-        padding-bottom: 10px;
         text-align: center;
-      }
-    }
-  }
-}
 
+        &:hover {
+          cursor: pointer;
 
+          .fm-fund-card-front {
+            
+            /* Fix bug for IE */
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+              z-index: 4;
+            }
 
+            .fm-fund-card-header {
 
-    
-    .fm-fund-card {
-      border: 1px $color-light-grey-shade solid; 
-      background-color: $color-white;
+              .fm-fund-card-overlay {
+                background-color: $color-accent;
+                opacity: 0.5;
+              }
+            }
+          }
+        }
 
-      &:hover {
-        cursor: pointer;
+        .fm-fund-card-front, .fm-fund-card-back {
+          backface-visibility: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          min-height: $fm-card-height;
+          border: 1px $color-light-grey-shade solid;
+          background-color: $color-white;
+          
+          /* Fix bug for IE */
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            backface-visibility: visible;
+          }
 
-        .fm-fund-card-header {
+          .fm-fund-card-content {
+            padding: $layout-modifier-sm;
 
-          .fm-fund-card-overlay {
-            background-color: $color-accent;
-            opacity: 0.5;
+            .fm-fund-card-title {
+              padding-bottom: 0;
+            }
+
+            .fm-fund-card-subtitle {
+            }
+
+            .fm-fund-card-text {
+              padding: 0;
+              margin: 0;
+              font-size: 1.4rem;
+            }
+
+            .fm-fund-card-footer {
+              overflow: hidden;
+
+              .fm-fund-card-rating {
+                display: block;
+                margin: 0 auto;
+                color: $color-accent;
+              }
+            }
+          }
+        }
+
+        .fm-fund-card-front {
+          z-index: 2;
+
+          .fm-fund-card-header {
+            max-height: $layout-modifier-xl;
+            overflow: hidden;
+            position: relative;
+
+            .fm-fund-card-overlay {
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              background-color: $color-light-grey;
+              opacity: 0.3;
+              z-index: 2;
+              transition: all ease-in-out $animation-transition-short;
+            }
+
+            .fm-fund-card-image {
+              filter: grayscale(100%);
+              z-index: 1;
+            }
+          }
+        }
+
+        .fm-fund-card-back {
+          transform: rotateY(180deg);
+          z-index: 3;
+          
+          /* Fix bug for IE */
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            visibility: hidden;
+            -ms-transition: all 0.2s cubic-bezier(0.92, 0.01, 0.83, 0.67);
           }
         }
       }
     }
-
-
   }
 
-.fm-table {
-  
-  .text-truncate {
-    max-width: 15rem;
+  .fm-table {
 
-    @media(min-width: $screen-sm) {
-      max-width: 45rem;
+    .text-truncate {
+      max-width: 15rem;
+
+      @media(min-width: $screen-sm) {
+        max-width: 45rem;
+      }
     }
   }
-}
 
+  .fm-fund-table-title {
+    display: none;
 
-.fm-fund-table-title {
-  display: none;
-
-  @media(min-width: $screen-md) {
-    display: inline-block;
+    @media(min-width: $screen-md) {
+      display: inline-block;
+    }
   }
-}
 
   .fm-fund-modal {
     position: fixed;
@@ -258,36 +243,40 @@
       z-index: 200000;
     }
 
-      .fm-fund-search-wrapper {
-          color: $color-white;
-          padding: $layout-modifier-lg $layout-modifier-xl;
+    .fm-fund-search-wrapper {
+      color: $color-white;
+      padding: $layout-modifier-lg $layout-modifier-xl;
 
-          label {
-            font-weight: $font-weight-light;
-            font-size: $font-size-h3;
-            margin-bottom: $layout-modifier-sm;
-          }
-
-          input {
-            padding: 0;
-            margin-bottom: $layout-modifier-lg;
-            background-color: transparent;
-            outline: 0;
-            box-shadow: none;
-            border-radius: 0;
-            border: 0;
-            font-size: $font-size-h2;
-          }
+      label {
+        font-weight: $font-weight-light;
+        font-size: $font-size-h3;
+        margin-bottom: $layout-modifier-sm;
       }
 
+      input {
+        padding: 0;
+        margin-bottom: $layout-modifier-lg;
+        background-color: transparent;
+        outline: 0;
+        box-shadow: none;
+        border-radius: 0;
+        border: 0;
+        font-size: $font-size-h2;
+      }
+    }
   }
-
 }
 
-/*       Fix bug for IE      */
 
+
+
+
+
+
+/* Fix bug for IE */
+/*
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .fm-fund-card-front, .fm-fund-card-back{   
+    .fm-fund-card-front, .fm-fund-card-back {   
         backface-visibility: visible;
     }
     
@@ -295,12 +284,15 @@
         visibility: hidden;
         -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
     }
-    .fm-fund-card-front{
+
+    .fm-fund-card-front {
         z-index: 4;
     }
+
     .fm-fund-card-container:not(.manual-flip):hover .fm-fund-card-back,
-    .fm-fund-card-container.manual-flip.hover .fm-fund-card-back{
+    .fm-fund-card-container.manual-flip.hover .fm-fund-card-back {
         z-index: 5;
         visibility: visible;
     }
-}
+}*/
+
