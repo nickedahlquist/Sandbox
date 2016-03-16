@@ -1,0 +1,165 @@
+﻿<section class="container-fluid section-padding fm-fund-gallery">
+
+  <!-- fm-search-button -->
+  <div class="row col-xs-12 col-lg-10 col-lg-offset-1">
+    <div ng-click="showModal = !showModal" class="fm-fund-serach-button">
+      <span class="glyphicon glyphicon-search"></span>
+    </div>
+  </div><!-- fm-search-button:end -->
+
+  <div class="fm-fund-button-bar">
+    <button ng-click="showCard = true; showTable1 = false; showTable2 = false;" class="fm-button"> Visa "Cards"</button>
+    <button ng-click="showTable1 = true; showTable2 = false; showCard = false;" class="fm-button"> Visa Tabell 1</button>
+    <button ng-click="showTable2 = true; showTable1 = false; showCard = false;" class="fm-button"> Visa Tabell 2</button>
+  </div>
+
+  <!-- fm-card -->
+    <div ng-show="showCard" class="row">
+      <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+
+        <article ng-repeat="fund in funds | filter : search" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 fm-fund-wrapper">
+
+          <div class="fm-fund-card-container">
+            <div class="fm-fund-card">
+
+              <div class="fm-fund-card-front">
+
+                <header class="fm-fund-card-header">
+                  <div class="fm-fund-card-overlay"></div>
+                  <img class="fm-fund-card-image img-responsive" ng-src="{{'/img/' + fund.image}}" alt="{{fund.manager}}" />
+                </header>
+
+                <div class="fm-fund-card-content">
+                  <h5 class="fm-fund-card-title">{{fund.manager}}</h5>
+                  <h6 class="fm-fund-card-subtitle">{{fund.name}}</h6>
+
+                  <p class="fm-fund-card-text"><span class="text-semibold">Kurs: </span>{{fund.price}}</p>
+                  <p class="fm-fund-card-text"><span class="text-semibold">Avkastning i år: </span><span class="text-accent">{{fund.return}}</span></p>
+                  <p class="fm-fund-card-text"><span class="text-semibold">Risk: </span>{{fund.risk}}</p>
+
+                  <footer class="fm-fund-card-footer">
+                    <hr />
+                    <span class="fm-fund-card-rating">
+                      <span ng-repeat="i in getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
+                    </span>
+                  </footer>
+                </div>
+
+              </div> <!-- end front panel -->
+
+              <div class="fm-fund-card-back">
+
+                <div class="fm-fund-card-content">
+                  <h5 class="fm-fund-card-title">{{fund.manager}}</h5>
+                  <h6 class="fm-fund-card-subtitle">{{fund.name}}</h6>
+
+                  <p class="fm-fund-card-text" style="margin-bottom: 2rem;">
+                    Praesent malesuada malesuada purus vel feugiat.
+                    Vivamus congue nisi nibh, et lobortis enim pulvinar sed. Donec at lorem nulla.
+                    Quisque pellentesque tortor ipsum.
+                  </p>
+
+                  <button class="fm-button" style="width: 100%; max-width: 20rem; margin: 0.5rem auto;">Köp</button>
+                  <button class="fm-button button-accent" style="width: 100%; max-width: 20rem; margin: 0.5rem auto;">Jämför</button>
+
+                </div>
+
+              </div> <!-- end back panel -->
+            </div> <!-- end card -->
+          </div> <!-- end card-container -->
+        </article>
+
+      </div>
+    </div>
+  <!-- fm-card:end -->
+
+  <!-- fm-table -->
+      <div ng-show="showTable1" class="row">
+        <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+          <table class="fm-table">
+
+            <thead>
+              <tr>
+                <th class="text-truncate">Fond</th>
+                <th class="text-center">Kurs</th>
+                <th class="text-center hidden-xs">Utv.</th>
+                <th class="text-center hidden-xs hidden-sm">Risk</th>
+                <th class="hidden-xs">Betyg</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="fund in funds | filter : search">
+                <td class="text-truncate">
+                  <span class="fm-fund-table-title">{{fund.manager}} - </span>
+                  <span>{{fund.name}}</span>
+                </td>
+                <td class="text-center">{{fund.price}}</td>
+                <td class="text-center text-accent hidden-xs">{{fund.return}}</td>
+                <td class="text-center hidden-xs hidden-sm">{{fund.risk}}</td>
+                <td class="hidden-xs">
+                  <span ng-repeat="i in getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  <!-- fm-table:end -->
+
+  <!-- fm-table -->
+  <div ng-show="showTable2" class="row">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+      <table class="fm-table table-dark">
+
+        <thead>
+          <tr>
+            <th class="text-truncate">Fond</th>
+            <th class="text-center">Kurs</th>
+            <th class="text-center hidden-xs">Utv.</th>
+            <th class="text-center hidden-xs hidden-sm">Risk</th>
+            <th class="hidden-xs">Betyg</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="fund in funds | filter : search">
+            <td class="text-truncate">
+              <span class="fm-fund-table-title">{{fund.manager}} - </span>
+              <span>{{fund.name}}</span>
+            </td>
+            <td class="text-center">{{fund.price}}</td>
+            <td class="text-center text-accent hidden-xs">{{fund.return}}</td>
+            <td class="text-center hidden-xs hidden-sm">{{fund.risk}}</td>
+            <td class="hidden-xs">
+              <span ng-repeat="i in getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- fm-table:end -->
+
+  
+  <!-- fm-modal -->
+  <div ng-show="showModal" class="fm-fund-modal">
+    <span ng-click="showModal = !showModal" class="glyphicon glyphicon-remove fm-fund-modal-close"></span>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 fm-fund-search-wrapper">
+          <label>Sök</label>
+          <input type="text" ng-model="search.manager" />
+          <ul>
+            <li ng-repeat="fund in funds | filter : search">{{fund.manager}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- fm-modal:end -->
+
+
+
+
+
