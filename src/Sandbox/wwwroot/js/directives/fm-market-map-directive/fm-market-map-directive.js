@@ -16,19 +16,19 @@
             latinAmerica  = map.find('.latin-america'),
             africa        = map.find('.africa');
 
-        asia.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+        asia.on('webkitTransitionEnd transitionend', function () {
           europe.addClass('fm-market-up');
         });
 
-        europe.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+        europe.on('webkitTransitionEnd transitionend', function () {
           northAmerica.addClass('fm-market-down');
         });
 
-        northAmerica.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+        northAmerica.on('webkitTransitionEnd transitionend', function () {
           latinAmerica.addClass('fm-market-up');
         });
 
-        latinAmerica.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+        latinAmerica.on('webkitTransitionEnd transitionend', function () {
           africa.addClass('fm-market-up');
         });
 

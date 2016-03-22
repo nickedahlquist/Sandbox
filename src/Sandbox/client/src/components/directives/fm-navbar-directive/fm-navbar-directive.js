@@ -19,12 +19,42 @@
           }
 
           // Modal
-          var modal       = $('#fm-fund-modal'),
-              searchField = modal.find('#fm-fund-modal-seach');
+          var modal         = $('#fm-fund-modal'),
+              searchField   = modal.find('#fm-fund-modal-seach'),
+              inputGroup    = modal.find('.fm-modal-inputgroup').hide(),
+              modalButton   = modal.find('.fm-fund-modal-close-button').hide();
+
+          // Eventhandlers
+          modal.on('webkitTransitionEnd transitionend', fadeInCloseButton);
+          modalButton.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', fadeInInputGroup);
+          inputGroup.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', setInputFocus);
+
+          function fadeInCloseButton() {
+            if (modal.hasClass('modal-open')) {
+              modalButton.show().addClass('flipInY fadeInDown');
+            }
+            else {
+              resetModal();
+            }
+          }
+
+          function fadeInInputGroup() {
+            inputGroup.show().addClass('fadeIn');
+          }
+
+          function setInputFocus() {
+            searchField.focus();
+          }
+
+          function resetModal() {
+            modalButton.removeClass('flipInY fadeInDown').hide();
+            inputGroup.removeClass('fadeIn').hide();
+            searchField.val('');
+            scope.search.title = '';
+          }
 
           scope.openModal = function () {
             modal.addClass('modal-open');
-            searchField.focus();
           };
 
           scope.closeModal = function () {

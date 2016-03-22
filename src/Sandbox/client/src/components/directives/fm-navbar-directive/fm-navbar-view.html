@@ -11,24 +11,32 @@
 
 <!-- fm-modal -->
 <div id="fm-fund-modal" class="fm-fund-modal">
-  <span ng-click="closeModal()" class="glyphicon glyphicon-remove fm-fund-modal-close-button"></span>
+
+  <div ng-click="closeModal()" class="fm-fund-modal-close-button animated">
+    <span></span>
+    <span></span>
+  </div>
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 fm-fund-search-wrapper">
-        <label>Sök</label>
-        <input id="fm-fund-modal-seach" type="text" ng-model="search.title" />
 
-        <div class="col-xs-6" ng-show="search.title">
+        <div class="col-xs-12 fm-modal-inputgroup animated">
+          <label>Sök</label>
+          <input id="fm-fund-modal-seach" type="text" ng-model="search.title" />
+        </div>
+
+        <div class="col-xs-12 col-md-6" ng-show="search.title">
           <label>Fonder</label>
           <ul>
-            <li ng-repeat="item in searchItems | filter : search | filter: { type: 'fund' }">{{item.title}}</li>
+            <li class="fm-fund-list text-truncate" ng-repeat="item in searchItems | filter : search | filter: { type: 'fund' }"><a href="">{{item.title}}</a></li>
           </ul>
         </div>
 
-        <div class="col-xs-6" ng-show="search.title">
+        <div class="col-xs-12 col-md-6" ng-show="search.title">
           <label>Nyheter</label>
           <ul>
-            <li ng-repeat="item in searchItems | filter : search | filter: { type: 'news' }">{{item.title}}</li>
+            <li class="fm-news-list text-truncate" ng-repeat="item in searchItems | filter : search | filter: { type: 'news' }"><a href="">{{item.title}}</a></li>
           </ul>
         </div>
 

@@ -57,6 +57,7 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 300ms, visibility 0s 300ms;
+  overflow: auto;
 
   &.modal-open {
     visibility: visible;
@@ -69,20 +70,102 @@
     margin: auto;
     top: $layout-modifier-sm;
     right: $layout-modifier-sm;
-    color: $color-white;
-    font-size: 7.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     display: block;
     z-index: 200000;
+
+    @media(min-width: $screen-sm) {
+      width: 6rem;
+      height: 6rem;
+      top: $layout-modifier-lg;
+      right: $layout-modifier-lg;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      span {
+        background: $color-accent;
+        transition: background $animation-transition-short ease-out;
+      }
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      height: 0.2rem;
+      width: 100%;
+      background: $color-white;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      transition: background $animation-transition-short ease-in;
+
+      @media(min-width: $screen-sm) {
+        height: 0.3rem;
+      }
+
+      &:nth-child(1) {
+        transform: rotate(135deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(-135deg);
+      }
+    }
   }
 
   .fm-fund-search-wrapper {
     color: $color-white;
-    padding: $layout-modifier-lg $layout-modifier-xl;
+    padding: $layout-modifier-sm $layout-modifier-lg;
+
+    @media(min-width: $screen-sm) {
+      padding: $layout-modifier-lg $layout-modifier-xl;
+    }
+
+    .fm-fund-list, .fm-news-list {
+      font-size: $font-size-h4;
+
+      @media(min-width: $screen-sm) {
+        font-size: $font-size-h3;
+      }
+
+      &.ng-enter, &.ng-leave {
+        transition: $animation-transition-long ease-in all;
+        position: relative;
+        display: block;
+      }
+
+      &.ng-enter.ng-enter-active, &.ng-leave {
+        opacity: 1;
+      }
+
+      &.ng-leave.ng-leave-active, &.ng-enter {
+        opacity: 0;
+      }
+
+      a {
+        color: $color-white;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
 
     label {
       font-weight: $font-weight-light;
       font-size: $font-size-h3;
       margin-bottom: $layout-modifier-sm;
+
+      @media(min-width: $screen-sm) {
+        font-size: $font-size-h2;
+      }
     }
 
     input {
@@ -94,6 +177,14 @@
       border-radius: 0;
       border: 0;
       font-size: $font-size-h2;
+
+      &::-ms-clear {
+        display: none;
+      }
+
+      @media(min-width: $screen-sm) {
+        font-size: $font-size-h1;
+      }
     }
   }
 }
