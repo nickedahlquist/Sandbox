@@ -1,12 +1,12 @@
 ﻿.fm-navbar {
-    position: fixed;
-    width: 100%;
-    padding: $layout-modifier-sm 0;
-    margin: auto;
-    top: 0;
-    z-index: 10;
-    background-color: $color-white;
-    border-bottom: 1px $color-light-grey-shade solid;
+  position: fixed;
+  width: 100%;
+  padding: $layout-modifier-sm 0;
+  margin: auto;
+  top: 0;
+  z-index: 10;
+  background-color: $color-white;
+  border-bottom: 1px $color-light-grey-shade solid;
 
   nav {
 
@@ -14,20 +14,20 @@
       text-align: right;
 
       li {
-         display: inline-block;
-         padding-right: $layout-modifier-lg;
+        display: inline-block;
+        padding-right: $layout-modifier-lg;
 
-         a {
-           font-size: $font-size-h6;
-           text-transform: uppercase;
-           font-weight: $font-weight-semibold;
-           letter-spacing: $layout-modifier-xs;
-           color: $color-text-primary;
-           position: relative; 
+        a {
+          font-size: $font-size-h6;
+          text-transform: uppercase;
+          font-weight: $font-weight-semibold;
+          letter-spacing: $layout-modifier-xs;
+          color: $color-text-primary;
+          position: relative;
 
-           &:hover {
-             color: $color-text-primary-shade;
-           }
+          &:hover {
+            color: $color-text-primary-shade;
+          }
 
           &.fm-navbar-active:before {
             content: " ";
@@ -37,8 +37,63 @@
             display: inline;
             width: 100%;
           }
-         }
+        }
       }
+    }
+  }
+}
+
+.fm-fund-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 100000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 300ms, visibility 0s 300ms;
+
+  &.modal-open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+
+  .fm-fund-modal-close-button {
+    position: absolute;
+    margin: auto;
+    top: $layout-modifier-sm;
+    right: $layout-modifier-sm;
+    color: $color-white;
+    font-size: 7.5rem;
+    display: block;
+    z-index: 200000;
+  }
+
+  .fm-fund-search-wrapper {
+    color: $color-white;
+    padding: $layout-modifier-lg $layout-modifier-xl;
+
+    label {
+      font-weight: $font-weight-light;
+      font-size: $font-size-h3;
+      margin-bottom: $layout-modifier-sm;
+    }
+
+    input {
+      padding: 0;
+      margin-bottom: $layout-modifier-lg;
+      background-color: transparent;
+      outline: 0;
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+      font-size: $font-size-h2;
     }
   }
 }

@@ -2,9 +2,37 @@
   <nav>
     <ul>
       <li ng-repeat="link in navbarlinks"><a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a></li>
+      <li><a href="" ng-click="openModal()">Sök</a></li>
       <!--<li><a ng-if="isAuthenticated()" href="" ng-click="logOut()">Logga ut</a></li>
       <li><a ng-if="!isAuthenticated()" ui-sref-active="fm-navbar-active" ui-sref="Skapa Konto">Skapa Konto</a></li>-->
     </ul>
   </nav>
 </div>
 
+<!-- fm-modal -->
+<div id="fm-fund-modal" class="fm-fund-modal">
+  <span ng-click="closeModal()" class="glyphicon glyphicon-remove fm-fund-modal-close-button"></span>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 fm-fund-search-wrapper">
+        <label>Sök</label>
+        <input id="fm-fund-modal-seach" type="text" ng-model="search.title" />
+
+        <div class="col-xs-6" ng-show="search.title">
+          <label>Fonder</label>
+          <ul>
+            <li ng-repeat="item in searchItems | filter : search | filter: { type: 'fund' }">{{item.title}}</li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6" ng-show="search.title">
+          <label>Nyheter</label>
+          <ul>
+            <li ng-repeat="item in searchItems | filter : search | filter: { type: 'news' }">{{item.title}}</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- fm-modal:end -->

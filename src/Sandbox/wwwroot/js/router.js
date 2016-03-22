@@ -45,11 +45,6 @@
           controller: 'FmFundsController',
           templateUrl: 'views/fm-funds-view.html'
         })
-        .state('Kontakt', {
-          url: '/Kontakt',
-          controller: 'FmContactController',
-          templateUrl: 'views/fm-contact-view.html'
-        })
         .state('Skapa Konto', {
           url: '/Skapa Konto',
           controller: 'FmRegisterController',

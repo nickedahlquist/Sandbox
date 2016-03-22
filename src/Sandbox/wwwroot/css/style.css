@@ -8615,59 +8615,6 @@ p {
       padding: 0;
       font-size: 2.5rem; }
 
-.fm-footer {
-  background-color: #303E4C;
-  color: #FFF; }
-  .fm-footer .fm-form-title {
-    color: #FFF;
-    margin-bottom: 4.8rem; }
-  .fm-footer .fm-contact-form .form-control {
-    color: #FFF !important; }
-  .fm-footer .fm-contact-form input, .fm-footer .fm-contact-form textarea {
-    border-radius: 2px;
-    padding: 2.4rem;
-    margin-bottom: 4.8rem;
-    background-color: transparent;
-    outline: 0;
-    box-shadow: none; }
-  .fm-footer .fm-contact-form textarea {
-    margin-top: 7.2rem;
-    resize: vertical; }
-  .fm-footer .fm-contact-form input {
-    border-radius: 0;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0; }
-  .fm-footer .fm-contact-form ::-webkit-input-placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form ::-moz-placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form :-ms-input-placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form ::placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form button[type=submit] {
-    width: 100%; }
-    @media (min-width: 768px) {
-      .fm-footer .fm-contact-form button[type=submit] {
-        width: auto; } }
-
 .fm-fund-gallery {
   background-color: #F2F2F0; }
   .fm-fund-gallery .fm-fund-serach-button {
@@ -8826,65 +8773,60 @@ p {
     @media (min-width: 992px) {
       .fm-fund-gallery .fm-fund-table-title {
         display: inline-block; } }
-  .fm-fund-gallery .fm-fund-modal {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 100000; }
-    .fm-fund-gallery .fm-fund-modal .fm-fund-modal-close {
-      position: absolute;
-      margin: auto;
-      top: 2.4rem;
-      right: 2.4rem;
-      color: #FFF;
-      font-size: 7.5rem;
-      display: block;
-      z-index: 200000; }
-    .fm-fund-gallery .fm-fund-modal .fm-fund-search-wrapper {
-      color: #FFF;
-      padding: 4.8rem 14.4rem; }
-      .fm-fund-gallery .fm-fund-modal .fm-fund-search-wrapper label {
-        font-weight: 300;
-        font-size: 2.9rem;
-        margin-bottom: 2.4rem; }
-      .fm-fund-gallery .fm-fund-modal .fm-fund-search-wrapper input {
-        padding: 0;
-        margin-bottom: 4.8rem;
-        background-color: transparent;
-        outline: 0;
-        box-shadow: none;
-        border-radius: 0;
-        border: 0;
-        font-size: 4.7rem; }
 
-/* Fix bug for IE */
-/*
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .fm-fund-card-front, .fm-fund-card-back {   
-        backface-visibility: visible;
-    }
-    
-    .fm-fund-card-back {
-        visibility: hidden;
-        -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);
-    }
+.fm-footer {
+  background-color: #303E4C;
+  color: #FFF; }
+  .fm-footer .fm-form-title {
+    color: #FFF;
+    margin-bottom: 4.8rem; }
+  .fm-footer .fm-contact-form .form-control {
+    color: #FFF !important; }
+  .fm-footer .fm-contact-form input, .fm-footer .fm-contact-form textarea {
+    border-radius: 2px;
+    padding: 2.4rem;
+    margin-bottom: 4.8rem;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none; }
+  .fm-footer .fm-contact-form textarea {
+    margin-top: 7.2rem;
+    resize: vertical; }
+  .fm-footer .fm-contact-form input {
+    border-radius: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0; }
+  .fm-footer .fm-contact-form ::-webkit-input-placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form ::-moz-placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form :-ms-input-placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form ::placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form button[type=submit] {
+    width: 100%; }
+    @media (min-width: 768px) {
+      .fm-footer .fm-contact-form button[type=submit] {
+        width: auto; } }
 
-    .fm-fund-card-front {
-        z-index: 4;
-    }
-
-    .fm-fund-card-container:not(.manual-flip):hover .fm-fund-card-back,
-    .fm-fund-card-container.manual-flip.hover .fm-fund-card-back {
-        z-index: 5;
-        visibility: visible;
-    }
-}*/
 .fm-hero {
   background-image: url("../img/fm-hero.jpg");
   background-repeat: no-repeat;
@@ -9123,6 +9065,50 @@ p {
           top: -3.5rem;
           display: inline;
           width: 100%; }
+
+.fm-fund-modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 100000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 300ms, visibility 0s 300ms; }
+  .fm-fund-modal.modal-open {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 300ms; }
+  .fm-fund-modal .fm-fund-modal-close-button {
+    position: absolute;
+    margin: auto;
+    top: 2.4rem;
+    right: 2.4rem;
+    color: #FFF;
+    font-size: 7.5rem;
+    display: block;
+    z-index: 200000; }
+  .fm-fund-modal .fm-fund-search-wrapper {
+    color: #FFF;
+    padding: 4.8rem 14.4rem; }
+    .fm-fund-modal .fm-fund-search-wrapper label {
+      font-weight: 300;
+      font-size: 2.9rem;
+      margin-bottom: 2.4rem; }
+    .fm-fund-modal .fm-fund-search-wrapper input {
+      padding: 0;
+      margin-bottom: 4.8rem;
+      background-color: transparent;
+      outline: 0;
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+      font-size: 4.7rem; }
 
 .fm-newsfeed {
   background-color: #F2F2F0;
