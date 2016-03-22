@@ -1,0 +1,196 @@
+﻿.fm-market-overview {
+
+  .fm-market-overview-title {
+    text-align: center;
+  }
+
+  .fm-market-overview-subtitle {
+    text-align: center;
+    margin-bottom: $layout-modifier-lg;
+  }
+
+  .fm-market-overview-panel {
+    margin-bottom: $layout-modifier-lg;
+    background-color: transparent;
+    border: 1px solid $color-accent;
+    padding: 1rem;
+    overflow: hidden;
+
+    h5 {
+      margin: 0;
+      padding: 0;
+      color: $color-accent;
+      font-weight: $font-weight-semibold;
+      font-size: 1.4rem;
+      letter-spacing: $layout-modifier-xs;
+      text-transform: uppercase;
+    }
+
+    .fm-button-group {
+      float: right;
+
+      li {
+        display: inline;
+
+        .fm-button {
+          color: $color-white;
+          font-weight: $font-weight-semibold;
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+          letter-spacing: 0.1rem;
+          border-radius: 0;
+          border: 0;
+        }
+      }
+    }
+    //background-color: $color-accent;
+    //border: 1px solid $color-accent-shade;
+  }
+
+  .fm-table {
+
+
+    &.fm-down-fund {
+
+      .ball-outline {
+        color: $color-red;
+        border-color: $color-red;
+
+        &:hover {
+          color: $color-red-shade;
+          border-color: $color-red-shade;
+        }
+      }
+    }
+
+    thead {
+
+      th {
+        overflow: hidden;
+
+        h5 {
+          color: $color-white;
+          padding: 0;
+          margin: 0;
+          font-weight: $font-weight-semibold;
+          font-size: 1.4rem;
+          letter-spacing: $layout-modifier-xs;
+
+          span {
+            margin-right: 1rem;
+          }
+        }
+      }
+
+      .fm-fund-accordion-chevron {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .fm-fund-accordion {
+        background-color: $color-dark-grey;
+        border-bottom: 1px solid $color-light-grey-shade;
+
+        .fm-fund-accordion-button-bar {
+          max-width: 15rem;
+          padding: 1rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .fm-fund-accordion-button {
+            color: $color-white;
+            font-weight: $font-weight-semibold;
+            font-size: 1.1rem;
+            letter-spacing: 0.1rem;
+
+            &:hover {
+              color: $color-accent;
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+
+      tr {
+        transition: background-color 0.2s linear;
+
+        &:hover {
+          background-color: $color-text-primary-highlight;
+          color: $color-text-primary-shade;
+          transition: background-color 0.2s linear;
+
+          td {
+
+            .fm-fund-yield {
+              color: $color-text-primary-shade !important;
+            }
+          }
+        }
+
+        td {
+
+          &:last-of-type {
+            width: 5rem;
+          }
+
+          a {
+            color: inherit;
+
+            .fm-fund-manager {
+              font-weight: $font-weight-bold;
+            }
+
+            .fm-fund-name {
+              font-size: 1.2rem;
+            }
+          }
+
+          .fm-fund-yield-wrapper {
+            width: 5rem;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+            font-weight: $font-weight-semibold;
+            font-size: 1.5rem;
+            word-break: keep-all;
+
+            .fm-fund-yield {
+              margin: 0 auto;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.fm-market-bulletin {
+  background-color: $color-dark-grey;
+  padding: $layout-modifier-sm 0;
+  position: relative;
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+
+    .fm-market-bulletin-text {
+      color: $color-white;
+      margin: 0 auto;
+      padding: 0;
+      font-size: 2.5rem;
+    }
+  }
+}

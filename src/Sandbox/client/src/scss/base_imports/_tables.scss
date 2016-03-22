@@ -4,13 +4,14 @@
  * 
  */
 
-$table-padding: 0.5rem;
+$table-padding: 1rem;
 
 .fm-table {
   border: 1px $color-light-grey-shade solid;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: $layout-modifier-sm;
+  font-size: 1.4rem;
 
   tr { 
 
@@ -18,10 +19,6 @@ $table-padding: 0.5rem;
       padding: $table-padding;
       border: 0;
       line-height: inherit;
-
-      @media(min-width: $screen-sm) {
-         padding: $table-padding * 2;
-      }
     }
   }
 

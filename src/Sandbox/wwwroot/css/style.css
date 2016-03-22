@@ -13,6 +13,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(../../../bower_components/swiper/dist/css/swiper.css);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 html {
   font-family: sans-serif;
@@ -8151,7 +8152,8 @@ button.close {
  * ====================
  * 
  */
-/*$font-size-base: 1.8rem;
+/*
+$font-size-base: 1.8rem;
 $font-size-modifier: $ratio-golden;
 
 // Sizes
@@ -8209,6 +8211,7 @@ body {
   line-height: 1.667;
   font-size: 1.4rem;
   -webkit-text-size-adjust: 100%;
+  min-width: 32rem;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
@@ -8303,13 +8306,19 @@ input, textarea {
  * 
  */
 h1, h2, h3, h4, h5, h6, p {
-  padding: 0 0 1.8rem 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0.9rem;
   line-height: inherit; }
+  @media (min-width: 768px) {
+    h1, h2, h3, h4, h5, h6, p {
+      padding-bottom: 1.8rem; } }
 
 h1 {
   font-size: 4.69716rem;
   line-height: normal;
-  color: #1B1E25; }
+  color: #303E4C; }
   @media (min-width: 768px) {
     h1 {
       font-size: 7.6rem; } }
@@ -8317,7 +8326,7 @@ h1 {
 h2 {
   font-size: 2.90482rem;
   line-height: normal;
-  color: #1B1E25;
+  color: #303E4C;
   text-transform: uppercase;
   font-weight: 600; }
   @media (min-width: 768px) {
@@ -8326,14 +8335,14 @@ h2 {
 
 h3 {
   font-size: 1.79234rem;
-  color: #1B1E25; }
+  color: #303E4C; }
   @media (min-width: 768px) {
     h3 {
       font-size: 2.9rem; } }
 
 h4 {
   font-size: 1.42151rem;
-  color: #1B1E25;
+  color: #303E4C;
   text-transform: uppercase;
   font-weight: 600; }
   h4:after {
@@ -8341,14 +8350,17 @@ h4 {
     border: solid 0.2rem #2ABBAE;
     display: block;
     width: 4.8rem;
-    margin: 2.4rem auto; }
+    margin: 1.2rem auto; }
+    @media (min-width: 768px) {
+      h4:after {
+        margin: 2.4rem auto; } }
   @media (min-width: 768px) {
     h4 {
       font-size: 2.3rem; } }
 
 h5 {
   font-size: 1.8rem;
-  color: #1B1E25; }
+  color: #303E4C; }
 
 h6 {
   font-size: 1.2rem; }
@@ -8365,8 +8377,8 @@ p {
  * 
  */
 .fm-button {
-  border-radius: 0.2rem;
-  background-color: #1B1E25;
+  border-radius: 0.3rem;
+  background-color: #303E4C;
   color: #FFF;
   text-transform: uppercase;
   font-weight: 600;
@@ -8377,7 +8389,7 @@ p {
   border: 0;
   transition: background-color ease-in-out 300ms; }
   .fm-button:hover, .fm-button:active {
-    background-color: #000; }
+    background-color: #172039; }
   .fm-button.button-light {
     background-color: transparent;
     border: 1px solid #FFF; }
@@ -8391,6 +8403,38 @@ p {
       background-color: #22968b;
       color: #FFF; }
 
+.fm-ball {
+  background-color: #2ABBAE;
+  height: 4.5rem;
+  width: 4.5rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  transition: background-color ease-in-out 300ms;
+  color: #FFF;
+  padding: 0;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 1.5rem; }
+  .fm-ball:hover {
+    cursor: pointer;
+    background-color: #22968b;
+    color: #FFF; }
+  .fm-ball span {
+    margin: 0 auto;
+    display: block; }
+  .fm-ball.ball-outline {
+    background-color: transparent;
+    color: #2ABBAE; }
+    .fm-ball.ball-outline:hover {
+      color: #22968b; }
+
 /*
  * _table.scss
  * ===========
@@ -8400,14 +8444,12 @@ p {
   border: 1px #e6e6e4 solid;
   width: 100%;
   max-width: 100%;
-  margin-bottom: 2rem; }
+  margin-bottom: 2.4rem;
+  font-size: 1.4rem; }
   .fm-table tr th, .fm-table tr td {
-    padding: 0.5rem;
+    padding: 1rem;
     border: 0;
     line-height: inherit; }
-    @media (min-width: 768px) {
-      .fm-table tr th, .fm-table tr td {
-        padding: 1rem; } }
   .fm-table thead {
     background-color: #2ABBAE;
     color: #FFF;
@@ -8418,9 +8460,9 @@ p {
       background-color: #FFF; }
   .fm-table.table-dark tbody tr {
     color: #FFF;
-    background-color: #16181e; }
+    background-color: #26323d; }
     .fm-table.table-dark tbody tr:nth-child(odd) {
-      background-color: #1B1E25; }
+      background-color: #303E4C; }
 
 /*
  * _helper-classes.scss
@@ -8459,6 +8501,9 @@ p {
 .text-accent {
   color: #2ABBAE !important; }
 
+.text-warning {
+  color: #DF574B !important; }
+
 .text-truncate {
   max-width: 45rem;
   white-space: nowrap;
@@ -8487,7 +8532,13 @@ p {
   margin-helpers:                     
 ---------------------------*/
 .no-margin {
-  margin: 0; }
+  margin: 0 !important; }
+
+/*---------------------------
+  padding-helpers:                     
+---------------------------*/
+.no-padding {
+  padding: 0 !important; }
 
 /*---------------------------
   display-helpers:                     
@@ -8508,6 +8559,15 @@ p {
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
   display: flex !important; }
+
+/*---------------------------
+  background-helpers:                     
+---------------------------*/
+.background-light {
+  background-color: #FFF; }
+
+.background-dark {
+  background-color: #F2F2F0; }
 
 /* inject:scss */
 .fm-register {
@@ -8540,8 +8600,23 @@ p {
     .fm-register form .fm-button {
       width: 100%; }
 
+.fm-bulletin-slider {
+  background-color: #303E4C;
+  padding: 2.4rem 0;
+  position: relative; }
+  .fm-bulletin-slider .swiper-container {
+    width: 100%;
+    height: 100%; }
+  .fm-bulletin-slider .swiper-slide {
+    text-align: center; }
+    .fm-bulletin-slider .swiper-slide .fm-bulletin-slider-text {
+      color: #FFF;
+      margin: 0 auto;
+      padding: 0;
+      font-size: 2.5rem; }
+
 .fm-footer {
-  background-color: #1B1E25;
+  background-color: #303E4C;
   color: #FFF; }
   .fm-footer .fm-form-title {
     color: #FFF;
@@ -8811,7 +8886,7 @@ p {
     }
 }*/
 .fm-hero {
-  background-image: url("../img/fm-hero-2.jpg");
+  background-image: url("../img/fm-hero.jpg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -8876,6 +8951,148 @@ p {
           margin: 0 auto 2.4rem auto;
           display: block; } }
 
+.fm-market-map .asia, .fm-market-map .europe, .fm-market-map .africa, .fm-market-map .latin-america, .fm-market-map .north-america {
+  fill: #AFA9A9;
+  transition: fill 900ms ease-in; }
+  .fm-market-map .asia.fm-market-up, .fm-market-map .asia.fm-market-down, .fm-market-map .europe.fm-market-up, .fm-market-map .europe.fm-market-down, .fm-market-map .africa.fm-market-up, .fm-market-map .africa.fm-market-down, .fm-market-map .latin-america.fm-market-up, .fm-market-map .latin-america.fm-market-down, .fm-market-map .north-america.fm-market-up, .fm-market-map .north-america.fm-market-down {
+    transition: fill 900ms ease-out; }
+  .fm-market-map .asia.fm-market-up, .fm-market-map .europe.fm-market-up, .fm-market-map .africa.fm-market-up, .fm-market-map .latin-america.fm-market-up, .fm-market-map .north-america.fm-market-up {
+    fill: #2ABBAE; }
+  .fm-market-map .asia.fm-market-down, .fm-market-map .europe.fm-market-down, .fm-market-map .africa.fm-market-down, .fm-market-map .latin-america.fm-market-down, .fm-market-map .north-america.fm-market-down {
+    fill: #DF574B; }
+
+.fm-market-map .the-rest {
+  fill: #AFA9A9; }
+
+.fm-market-overview .fm-market-overview-title {
+  text-align: center; }
+
+.fm-market-overview .fm-market-overview-subtitle {
+  text-align: center;
+  margin-bottom: 4.8rem; }
+
+.fm-market-overview .fm-market-overview-panel {
+  margin-bottom: 4.8rem;
+  background-color: transparent;
+  border: 1px solid #2ABBAE;
+  padding: 1rem;
+  overflow: hidden; }
+  .fm-market-overview .fm-market-overview-panel h5 {
+    margin: 0;
+    padding: 0;
+    color: #2ABBAE;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase; }
+  .fm-market-overview .fm-market-overview-panel .fm-button-group {
+    float: right; }
+    .fm-market-overview .fm-market-overview-panel .fm-button-group li {
+      display: inline; }
+      .fm-market-overview .fm-market-overview-panel .fm-button-group li .fm-button {
+        color: #FFF;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        letter-spacing: 0.1rem;
+        border-radius: 0;
+        border: 0; }
+
+.fm-market-overview .fm-table.fm-down-fund .ball-outline {
+  color: #DF574B;
+  border-color: #DF574B; }
+  .fm-market-overview .fm-table.fm-down-fund .ball-outline:hover {
+    color: #b2463c;
+    border-color: #b2463c; }
+
+.fm-market-overview .fm-table thead th {
+  overflow: hidden; }
+  .fm-market-overview .fm-table thead th h5 {
+    color: #FFF;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.3rem; }
+    .fm-market-overview .fm-table thead th h5 span {
+      margin-right: 1rem; }
+
+.fm-market-overview .fm-table thead .fm-fund-accordion-chevron:hover {
+  cursor: pointer; }
+
+.fm-market-overview .fm-table thead .fm-fund-accordion {
+  background-color: #303E4C;
+  border-bottom: 1px solid #e6e6e4; }
+  .fm-market-overview .fm-table thead .fm-fund-accordion .fm-fund-accordion-button-bar {
+    max-width: 15rem;
+    padding: 1rem;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .fm-market-overview .fm-table thead .fm-fund-accordion .fm-fund-accordion-button-bar .fm-fund-accordion-button {
+      color: #FFF;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.1rem; }
+      .fm-market-overview .fm-table thead .fm-fund-accordion .fm-fund-accordion-button-bar .fm-fund-accordion-button:hover {
+        color: #2ABBAE; }
+
+.fm-market-overview .fm-table tbody tr {
+  transition: background-color 0.2s linear; }
+  .fm-market-overview .fm-table tbody tr:hover {
+    background-color: #cfcbcb;
+    color: #8c8787;
+    transition: background-color 0.2s linear; }
+    .fm-market-overview .fm-table tbody tr:hover td .fm-fund-yield {
+      color: #8c8787 !important; }
+  .fm-market-overview .fm-table tbody tr td:last-of-type {
+    width: 5rem; }
+  .fm-market-overview .fm-table tbody tr td a {
+    color: inherit; }
+    .fm-market-overview .fm-table tbody tr td a .fm-fund-manager {
+      font-weight: 800; }
+    .fm-market-overview .fm-table tbody tr td a .fm-fund-name {
+      font-size: 1.2rem; }
+  .fm-market-overview .fm-table tbody tr td .fm-fund-yield-wrapper {
+    width: 5rem;
+    margin: 0 auto;
+    text-align: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+    font-weight: 600;
+    font-size: 1.5rem;
+    word-break: keep-all; }
+    .fm-market-overview .fm-table tbody tr td .fm-fund-yield-wrapper .fm-fund-yield {
+      margin: 0 auto;
+      display: block; }
+
+.fm-market-bulletin {
+  background-color: #303E4C;
+  padding: 2.4rem 0;
+  position: relative; }
+  .fm-market-bulletin .swiper-container {
+    width: 100%;
+    height: 100%; }
+  .fm-market-bulletin .swiper-slide {
+    text-align: center; }
+    .fm-market-bulletin .swiper-slide .fm-market-bulletin-text {
+      color: #FFF;
+      margin: 0 auto;
+      padding: 0;
+      font-size: 2.5rem; }
+
 .fm-navbar {
   position: fixed;
   width: 100%;
@@ -8916,14 +9133,67 @@ p {
     margin-bottom: 4.8rem; }
     .fm-newsfeed .fm-news-item .inner {
       background-color: #FFF;
-      padding: 4.8rem; }
+      padding: 4.8rem;
+      border: 1px solid #e6e6e4; }
       .fm-newsfeed .fm-news-item .inner .fa-news-date {
         padding: 0;
         text-transform: uppercase;
         letter-spacing: 0.3rem;
         font-weight: 600; }
+      .fm-newsfeed .fm-news-item .inner .fm-news-headline a {
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        color: inherit; }
+        .fm-newsfeed .fm-news-item .inner .fm-news-headline a:hover {
+          color: #172039; }
+      .fm-newsfeed .fm-news-item .inner .fm-news-content a {
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        color: inherit; }
+        .fm-newsfeed .fm-news-item .inner .fm-news-content a:hover {
+          color: #8c8787; }
+      .fm-newsfeed .fm-news-item .inner .fm-news-tag {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: block;
+        text-align: center;
+        margin-bottom: 0;
+        padding-bottom: 0; }
+        @media (min-width: 768px) {
+          .fm-newsfeed .fm-news-item .inner .fm-news-tag {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+            justify-content: space-around; } }
+        .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name {
+          font-weight: 600;
+          color: #AFA9A9;
+          margin-right: 2.4rem;
+          display: block;
+          word-break: keep-all; }
+          @media (max-width: 480px) {
+            .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name {
+              width: 100%;
+              margin: 0 auto;
+              display: block; } }
+          .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name .fm-news-tag-icon {
+            color: #2ABBAE;
+            transition: color 300ms ease-in; }
+          .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name:hover {
+            color: #8c8787;
+            transition: color 300ms ease-out; }
+            .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name:hover .fm-news-tag-icon {
+              color: #22968b;
+              transition: color 300ms ease-out; }
       .fm-newsfeed .fm-news-item .inner .fm-button {
-        margin-top: 2.4rem; }
+        margin: 1.2rem 0; }
   .fm-newsfeed .fa-news-link {
     text-transform: uppercase;
     font-weight: 800;
@@ -8932,6 +9202,56 @@ p {
     letter-spacing: 0.3rem;
     border-bottom: 1px solid #2ABBAE; }
 
+/*
+
+          a {
+          font-weight: $font-weight-semibold;
+
+          @media(max-width: $screen-xs) {
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+          }
+          
+
+          .fm-news-tag-name, .fm-news-tag-icon {
+            transition: color $animation-transition-short ease-in;
+          }
+
+          .fm-news-tag-name {
+            color: $color-text-primary;
+            margin-right: 2.4rem;
+            display: block;
+            word-break: keep-all;
+
+            
+          @media(max-width: $screen-xs) {
+            margin-bottom: 0.5rem;
+          }
+
+            .fm-news-tag-icon {
+              color: $color-accent;
+            }
+          }
+
+          &:hover {
+
+            .fm-news-tag-name, .fm-news-tag-icon {
+              transition: color $animation-transition-short ease-out;
+            }
+
+            .fm-news-tag-name {
+              color: $color-text-primary-shade;
+
+              .fm-news-tag-icon {
+                color: $color-accent-shade;
+              }
+            }
+          }
+        }
+
+
+*/
 /* endinject */
 
 /*# sourceMappingURL=style.css.map */

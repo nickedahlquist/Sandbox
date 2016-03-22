@@ -13,22 +13,26 @@
 @import 'bootstrap';
 @import 'bourbon';
 @import 'animate';
+@import '../../../bower_components/swiper/dist/css/swiper.css';
 
 // Base styles.
 @import './base_imports/_variables.scss';
 @import './base_imports/_global.scss';
 @import './base_imports/_typography.scss';
 @import './base_imports/_buttons.scss';
-@import './base_imports/_forms.scss';
+@import './base_imports/_tables.scss';
 @import './base_imports/_helper-classes.scss';
 
 // Component styles.
 /* inject:scss */
 @import "../components/controllers/fm-register-controller/fm-register-style.scss";
+@import "../components/directives/fm-bulletin-slider-directive/fm-bulletin-slider-style.scss";
 @import "../components/directives/fm-footer-directive/fm-footer-style.scss";
-@import "../components/directives/fm-fund-gallery-directive/fm-fund-gallery-style.scss";
 @import "../components/directives/fm-hero-directive/fm-hero-style.scss";
+@import "../components/directives/fm-market-map-directive/fm-market-map-style.scss";
+@import "../components/directives/fm-market-overview-directive/fm-market-overview-style.scss";
 @import "../components/directives/fm-navbar-directive/fm-navbar-style.scss";
 @import "../components/directives/fm-newsfeed-directive/fm-newsfeed-style.scss";
+@import "../components/directives/fm-fund-gallery-directive/fm-fund-gallery-style.scss";
 /* endinject */
 

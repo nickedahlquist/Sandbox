@@ -1,0 +1,23 @@
+﻿.fm-market-map {
+
+  .asia, .europe, .africa, .latin-america, .north-america {
+    fill: $color-text-primary;
+    transition: fill $animation-transition-long ease-in;
+
+    &.fm-market-up, &.fm-market-down {
+      transition: fill $animation-transition-long ease-out;
+    }
+
+    &.fm-market-up {
+      fill: $color-accent;
+    }
+
+    &.fm-market-down {
+      fill: $color-red;
+    }
+  }
+
+  .the-rest {
+    fill: $color-text-primary;
+  }
+}

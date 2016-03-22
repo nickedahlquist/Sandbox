@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('fm').controller('FmRegisterController', ['$scope', '$http', 'fmConfig', 'FmAuthtokenFactory', function ($scope, $http, fmConfig, FmAuthtokenFactory) {
+    angular.module('fm').controller('FmRegisterController', ['$scope', '$http', 'fmConfig', 'fmAuthtokenFactory', function ($scope, $http, fmConfig, FmAuthtokenFactory) {
 
       $scope.submit = function () {
 
@@ -15,7 +15,7 @@
         $http.post(url, user).then(onSuccess, onError);
 
         function onSuccess(res) {
-          FmAuthtokenFactory.setToken(res.data.token);
+          fmAuthtokenFactory.setToken(res.data.token);
           //deferred.resolve(res);
         }
 

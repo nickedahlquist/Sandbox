@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('fm').service('$fmDataService', ['$http', '$q', 'fmConfig', function ($http, $q, fmConfig) {
+    angular.module('fm').service('fmDataService', ['$http', '$q', 'fmConfig', function ($http, $q, fmConfig) {
       var deferred = $q.defer();
 
       $http({

@@ -33,27 +33,27 @@
         .state('Hem', {
           url: '/Hem',
           controller: 'FmHomeController',
-          templateUrl: '../views/fm-home-view.html'
+          templateUrl: 'views/fm-home-view.html'
         })
-        .state('Nyheter', {
-          url: '/Nyheter',
-          controller: 'FmNewsController',
-          templateUrl: '../views/fm-news-view.html'
+        .state('Marknaden', {
+          url: '/Marknaden',
+          controller: 'FmMarketController',
+          templateUrl: 'views/fm-market-view.html'
         })
         .state('Fonder', {
           url: '/Fonder',
           controller: 'FmFundsController',
-          templateUrl: '../views/fm-funds-view.html'
+          templateUrl: 'views/fm-funds-view.html'
         })
         .state('Kontakt', {
           url: '/Kontakt',
           controller: 'FmContactController',
-          templateUrl: '../views/fm-contact-view.html'
+          templateUrl: 'views/fm-contact-view.html'
         })
         .state('Skapa Konto', {
           url: '/Skapa Konto',
           controller: 'FmRegisterController',
-          templateUrl: '../views/fm-register-view.html'
+          templateUrl: 'views/fm-register-view.html'
         })
 
   }]);

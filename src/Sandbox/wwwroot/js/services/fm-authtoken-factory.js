@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('fm').factory('FmAuthtokenFactory', ['$window', function ($window) {
+    angular.module('fm').factory('fmAuthtokenFactory', ['$window', function ($window) {
       var storage = $window.localStorage;
       var cachedToken;
       var tokenKey = 'userToken';

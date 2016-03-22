@@ -5,8 +5,12 @@
  */
 
 // Global Colours
-$color-black: #000;
+$color-black: #172039;
 $color-white: #FFF;
+
+$color-red: #DF574B;
+$color-red-highlight: tint($color-red, 40);
+$color-red-shade: shade($color-red, 20);
 
 $color-accent: #2ABBAE;
 $color-accent-highlight: tint($color-accent, 40);
@@ -15,35 +19,11 @@ $color-accent-shade: shade($color-accent, 20);
 $color-light-grey: #F2F2F0;
 $color-light-grey-shade: shade($color-light-grey, 5);
 
-$color-dark-grey: #1B1E25;
+$color-dark-grey: #303E4C;
 $color-dark-grey-highlight: tint($color-dark-grey, 15);
 $color-dark-grey-shade: shade($color-dark-grey, 20);
-
 
 // Text Colours
 $color-text-primary: #AFA9A9;
 $color-text-primary-highlight: tint($color-text-primary, 40);
 $color-text-primary-shade: shade($color-text-primary, 20);
-
-// Body Font Color
-$color-text-secondary: #3D4351;
-
-// Heading Font Color
-$color-text-light: $color-white;
-
-// Header/Hero
-$color-text-accent: #ACB1B4;
-$color-form-placeholder: #BCC1C3;
-
-// Layout Colours
-$color-section-light: $color-white;
-$color-section-dark: #F3F4F8;
-
-$color-footer: #373D4A;
-$color-navbar: rgba(17,18,23,0.85);
-
-// Keylines
-$color-keyline-color: #E6E9EA;
-$color-footer-keyline-color: #4E566C;
-$color-overlay-color: rgba(0, 0, 0, 0.9);
-$color-error-color: #EF1940;

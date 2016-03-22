@@ -1,20 +1,31 @@
 <section class="container-fluid section-padding fm-newsfeed">
   <div class="col-sm-10 col-sm-offset-1">
-    <h2 class="text-center fm-news-title">Senaste nyheter</h2>
-    <p  class="text-center fm-news-subtitle">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal.</p>
+    <h2 class="text-center fm-news-title">Nyheter</h2>
+    <p class="text-center fm-news-subtitle">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal.</p>
 
     <div class="row">
-      <article ng-repeat="newsitem in news" class="col-lg-4 fm-news-item">
+      <article ng-repeat="newsitem in news" class="col-md-12 col-lg-4 fm-news-item">
         <div class="inner">
           <h6 class="fa-news-date">{{newsitem.timestamp}}</h6>
-          <h4 class="fm-news-headline">{{newsitem.headline}}</h4>
-          <p class="fm-news-content">{{newsitem.content | limitTo : 175}}...</p>
-          <p><span ng-repeat="tag in newsitem.tags">{{tag}}</span></p>
-          <button class="fm-button">Läs mer</button>
+          <h4 class="fm-news-headline">
+            <a href="#">{{newsitem.headline}}</a>
+          </h4>
+          <p class="fm-news-content">
+            <a href="#">{{newsitem.content | limitTo : 150}}...</a>
+          </p>
+
+          <hr class="hidden-xs" />
+          <div class="fm-news-tag hidden-xs">
+            <a class="fm-news-tag-name" href="#" ng-repeat="tag in newsitem.tags">
+              <span class="fm-news-tag-icon glyphicon glyphicon-tag"></span> {{tag}}
+            </a>
+          </div>
+
         </div>
       </article>
-
-      <a class="fa-news-link" href="#">Visa alla nyheter</a>
+    </div>
+    <div class="row">
+      <button class="fm-button">Visa alla</button>
     </div>
 
   </div>

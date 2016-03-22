@@ -6,8 +6,15 @@
 
 h1, h2, h3, h4, h5, h6, p {
   //margin: 0;
-  padding: 0 0 $font-size-base 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: $font-size-base/2;
   line-height: inherit;
+
+  @media(min-width: $screen-sm) {
+    padding-bottom: $font-size-base;
+  }
 } 
 
 h1 {
@@ -52,7 +59,11 @@ h4 {
     border: solid 0.2rem $color-accent;
     display: block;
     width: $layout-modifier-lg;
-    margin: $layout-modifier-sm auto;
+    margin: $layout-modifier-sm/2 auto;
+
+    @media(min-width: $screen-sm) {
+      margin: $layout-modifier-sm auto;
+    }
   }
 
   @media(min-width: $screen-sm) {

@@ -1,5 +1,5 @@
 ﻿.fm-hero {
-  background-image: url('../img/fm-hero-2.jpg');
+  background-image: url('../img/fm-hero.jpg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -52,7 +52,7 @@
     display: block;
 
       @media(min-width: $screen-sm) {
-        font-size: $font-size-h1*1.2;
+        font-size: $font-size-h1 * 1.2;
         margin: $layout-modifier-sm auto $layout-modifier-lg auto;
         letter-spacing: 0.7rem;
         border-bottom: 0.4rem solid $color-white;

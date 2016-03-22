@@ -168,6 +168,7 @@ var sass_components_options = {
 
 gulp.task('js:development', function () {
   return gulp.src([paths.js.src, paths.components.js.src])
+      .pipe(newer(paths.js.dest)) //test
       .pipe(sourcemaps.init())
       .pipe(sourcemaps.write('.'))
       .on('error', onError)
@@ -211,6 +212,7 @@ gulp.task('html:production', function () {
 
 gulp.task('templates', function () {
   return gulp.src(paths.components.html.src)
+      .pipe(newer(paths.components.html.dest))
       .pipe(flatten())
       .pipe(gulp.dest(paths.components.html.dest))
       .pipe(browserSync.stream());
@@ -226,6 +228,7 @@ var sass_options = {
     './bower_components/bourbon/app/assets/stylesheets',
     './bower_components/bootstrap-sass/assets/stylesheets',
     './bower_components/animate.css',
+    './bower_components/swiper/dist/css/swiper.css'
     ]
   },
   autoprefixer: {

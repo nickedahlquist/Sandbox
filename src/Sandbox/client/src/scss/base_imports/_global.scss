@@ -33,6 +33,10 @@ body {
   line-height: $font-line-height;
   font-size: 1.4rem;
   -webkit-text-size-adjust: 100%;
+  
+  // Set limit of responsive behavior at 320px
+  min-width: 32rem;
+  
   @include word-wrap(break-word);
   hyphens: auto;
   background-color: $color-white;

@@ -5,7 +5,7 @@
 
       return {
         restrict: 'E',
-        templateUrl: '../../../views/fm-Footer-view.html', 
+        templateUrl: 'views/fm-Footer-view.html'
       }
 
     }]);

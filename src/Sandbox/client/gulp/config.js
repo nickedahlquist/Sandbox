@@ -4,8 +4,8 @@
   var pkg = require('../../package.json');
   var launch_settings = require('../../Properties/launchSettings.json');
   var proxy = launch_settings.iisSettings.iisExpress.applicationUrl;
-  var src_path = './client/src';
-  var dest_path = './wwwroot';
+  var src_path = 'client/src';
+  var dest_path = 'wwwroot';
 
   module.exports = {
     server: {

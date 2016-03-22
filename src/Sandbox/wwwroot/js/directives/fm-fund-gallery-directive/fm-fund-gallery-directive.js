@@ -1,23 +1,22 @@
 (function() {
     'use strict';
 
-    angular.module('fm').directive('fmFundGallery', ['$fmDataService', function ($fmDataService) {
+    angular.module('fm').directive('fmFundGallery', ['fmDataService', 'fmUtilityFunctions', function (fmDataService, fmUtilityFunctions) {
 
       return {
         restrict: 'E',
-        templateUrl: '../../../views/fm-fund-gallery-view.html',
-        link: function (scope, elem, attrs) {
+        templateUrl: 'views/fm-fund-gallery-view.html',
+        link: function (scope, element, attribute) {
 
           scope.title = 'Fonder';
           
           scope.showCard = true;
 
-          scope.getNumber = function (number) {
-            return new Array(number);
-          };
+          scope.getNumber = fmUtilityFunctions.intToArray;
 
-          $fmDataService.then(function (data) {
+          fmDataService.then(function (data) {
             scope.funds = data.funds;
+            scope.newsitems = data.newsitems;
          });
 
         }

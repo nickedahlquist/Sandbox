@@ -1,22 +1,23 @@
-﻿{
+﻿
+{
   "newsitems": [
     {
-      "headline": "Bacon ipsum",
-      "content": "Bacon ipsum dolor amet boudin shoulder pork chop salami. Pork turducken venison chuck short loin frankfurter. Sausage kevin tri-tip pastrami. Frankfurter filet mignon venison beef pig, short loin flank beef ribs. Meatball cupim pork loin frankfurter doner, prosciutto andouille hamburger.",
+      "headline": "Antalet nedlagda hedgefonder i fjol på högsta nivån sedan 2009",
+      "content": "Hedgefonder hade ett nattsvart 2015. Det visar siffror från analysfirman Hedge Fund Research som räknat fram att antalet nedlagda hedgefonder uppgick 979 stycken i fjol, den högsta nivån sedan 2009. Det rapporterar CNBC. Motsvarande siffra för året innan låg på 864. Hedgefonder har haft det riktigt tufft i den finansiella oro som präglat världens börser på senare tid. Det har även avspeglat sig i antalet nystartade hedgefonder där endast 183 inrättades i det fjärde kvartalet 2015, också det den lägsta siffran sedan 2009. Antalet startade hedgefonder i det tredje kvartalet 2015 uppgick till 269 stycken.- Investerare har blivit alltmer diskriminerande i sin kapitalallokering och miljön för att lansera en ny fond fortsätter att vara extremt konkurrensbetonad, sade Kenneth Heinz, chef för Hedge Fund Research. ",
       "timestamp": "2016-03-01",
-      "tags": ["bacon", "boudin", "pork" ]
+      "tags": [ "hedgefunds" ]
     },
     {
-      "headline": "Brunch deep",
-      "content": "Brunch deep v cronut, shoreditch synth chartreuse marfa drinking vinegar gentrify umami irony quinoa distillery next level kogi. Ennui 90's kitsch salvia VHS food truck, narwhal celiac pabst cray 8-bit austin polaroid. Etsy ennui tilde cold-pressed heirloom aesthetic, raw denim artisan art party poutine flexitarian try-hard polaroid.",
-      "timestamp": "2016-03-04",
-      "tags": ["irony", "marfa", "synth"]
+      "headline": "Var inte kortsiktig i ditt sparbeteende",
+      "content": "Inledningen av 2016 känner vi igen med kraftigt sjunkande börser som bottnade ut i slutet av januari månad i samband med att råvarupriserna började stiga igen. Oljan, som hade sin lägsta nivå i slutet av januari, kostade då 27,64 USD för att idag betalas med ca 37 USD. Samtidigt kom vändningen för andra råvaror och just denna signal, med stigande råvarupriser är viktig för stabiliteten. Ett sjunkande oljepris, väcker frågan om när och hur det kommer att ske utslagningar inom råvarusegmentet och hur skall banksektorn klara av detta? Många råvarubolag är högt skuldsatta och kräver betydligt högre priser på sina varor än dagens och dessa faktorer ställer frågor om bankernas möjlighet att möta kreditförluster.",
+      "timestamp": "2016-03-10",
+      "tags": [ "europafonder", "sverigefonder", "nordamerikafonder" ]
     },
     {
-      "headline": "Alohamora wand",
+      "headline": "Vem hade räknat med januari månads börsutveckling?",
       "content": "Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot snargaluff seeker: Hagrid broomstick mischief managed.",
-      "timestamp": "2016-03-06",
-      "tags": ["alohamora", "elf", "leviosa"]
+      "timestamp": "2016-02-10",
+      "tags": [ "alohamora", "elf", "leviosa" ]
     }
   ],
   "funds": [
@@ -28,7 +29,8 @@
       "price": "31,37 USD",
       "return": "32.65%",
       "risk": "high",
-      "rating": 5
+      "rating": 5,
+      "yield": "+17%"
     },
     {
       "id": 2,
@@ -38,7 +40,8 @@
       "price": "25,68 USD",
       "return": "12.95%",
       "risk": "high",
-      "rating": 1
+      "rating": 1,
+      "yield": "-4%"
     },
     {
       "id": 3,
@@ -48,7 +51,8 @@
       "price": "30,77 EUR",
       "return": "56.04%",
       "risk": "high",
-      "rating": 4
+      "rating": 4,
+      "yield": "+120%"
     },
     {
       "id": 4,
@@ -58,7 +62,8 @@
       "price": "13,52 USD",
       "return": "45.50%",
       "risk": "medium",
-      "rating": 5
+      "rating": 5,
+      "yield": "+6%"
     },
     {
       "id": 5,
@@ -68,7 +73,8 @@
       "price": "24,06 USD",
       "return": "11.34%",
       "risk": "high",
-      "rating": 2
+      "rating": 2,
+      "yield": "-2%"
     },
     {
       "id": 6,
@@ -78,7 +84,8 @@
       "price": "55,28 USD",
       "return": "18.95%",
       "risk": "high",
-      "rating": 1
+      "rating": 1,
+      "yield": "-8%"
     },
     {
       "id": 7,
@@ -88,7 +95,8 @@
       "price": "4,35 USD",
       "return": "2.60%",
       "risk": "high",
-      "rating": 4
+      "rating": 4,
+      "yield": "+9%"
     },
     {
       "id": 8,
@@ -98,7 +106,8 @@
       "price": "16,44 USD",
       "return": "89.15%",
       "risk": "high",
-      "rating": 3
+      "rating": 3,
+      "yield": "+5%"
     },
     {
       "id": 9,
@@ -108,7 +117,8 @@
       "price": "62,53 USD",
       "return": "12.65%",
       "risk": "high",
-      "rating": 2
+      "rating": 2,
+      "yield": "-1%"
     },
     {
       "id": 10,
@@ -118,7 +128,8 @@
       "price": "2 578,29 USD",
       "return": "14.78%",
       "risk": "high",
-      "rating": 3
+      "rating": 3,
+      "yield": "-20%"
     }
   ]
 }
