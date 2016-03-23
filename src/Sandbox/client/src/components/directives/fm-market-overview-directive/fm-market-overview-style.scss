@@ -141,7 +141,8 @@
             color: inherit;
 
             .fm-fund-manager {
-              font-weight: $font-weight-bold;
+              font-weight: $font-weight-semibold;
+              //color: $color-text-primary-shade;
             }
 
             .fm-fund-name {

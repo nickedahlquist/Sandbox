@@ -19,19 +19,34 @@
           }
 
           // Modal
-          var modal         = $('#fm-fund-modal'),
-              searchField   = modal.find('#fm-fund-modal-seach'),
-              inputGroup    = modal.find('.fm-modal-inputgroup').hide(),
-              modalButton   = modal.find('.fm-fund-modal-close-button').hide();
+          var modal = $('#fm-fund-modal'),
+              searchField = modal.find('#fm-fund-modal-seach'),
+              inputGroup = modal.find('.fm-modal-inputgroup').hide(),
+              modalButton = modal.find('.fm-fund-modal-close-button').hide();
 
           // Eventhandlers
+          window.addEventListener('keydown', function (event) {
+
+            if (event.altKey && event.keyCode == 83 && !modal.hasClass('modal-open')) {
+              scope.openModal();
+            }
+
+            if (event.keyCode == 27 && modal.hasClass('modal-open')) {
+              scope.closeModal();
+            }
+           
+          });
+
           modal.on('webkitTransitionEnd transitionend', fadeInCloseButton);
-          modalButton.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', fadeInInputGroup);
+          //modalButton.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', fadeInInputGroup);
           inputGroup.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', setInputFocus);
 
           function fadeInCloseButton() {
             if (modal.hasClass('modal-open')) {
               modalButton.show().addClass('flipInY fadeInDown');
+              fadeInInputGroup();
+              searchField.focus();
+
             }
             else {
               resetModal();
@@ -70,7 +85,7 @@
 
             for (var key in scope.funds) {
               if (scope.funds.hasOwnProperty(key)) {
-                var fundItem = { title: scope.funds[key].manager, type: 'fund'};
+                var fundItem = { title: scope.funds[key].name, type: 'fund'};
                 scope.searchItems.push(fundItem);
               }
             }
@@ -81,13 +96,7 @@
                 scope.searchItems.push(newsItem);
               }
             }
-
-            console.log(scope.searchItems);
-
           });
-
-          
-
 
         }
       }

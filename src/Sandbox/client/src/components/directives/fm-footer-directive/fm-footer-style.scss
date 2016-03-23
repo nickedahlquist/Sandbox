@@ -2,17 +2,70 @@
   background-color: $color-dark-grey;
   color: $color-white;
 
+  .fm-footer-heading {
+    color: $color-white;
+    font-size: $font-size-h3;
+  }
+
+  .fm-footer-list {
+    
+    ul  {
+
+      li {
+        margin-bottom: 1rem;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        .glyphicon {
+          font-size: 1.4rem;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+
+  .fm-footer-address-bar {
+    padding: 1.2rem;
+    background-color: $color-dark-grey-shade;
+
+    .fm-footer-address-bar-wrapper {
+      text-align: center;
+
+      @media(min-width: $screen-sm) {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      p {
+        padding: 0;
+        margin: 0.5rem auto;
+        font-size: 1.4rem;
+        font-weight: $font-weight-light;
+
+        @media(min-width: $screen-sm) {
+          margin: 0 auto; 
+        }
+
+        span {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
   .fm-form-title {
     color: $color-white;
     margin-bottom: $layout-modifier-lg;
   }
 
   .fm-contact-form {
-    
+
     .form-control {
       color: $color-white !important;
     }
-    
+
     input, textarea {
       border-radius: 2px;
       padding: $layout-modifier-sm;

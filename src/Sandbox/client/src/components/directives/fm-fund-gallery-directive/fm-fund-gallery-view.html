@@ -8,9 +8,8 @@
   </div>
 
   <div class="fm-fund-button-bar">
-    <button ng-click="showCard = true; showTable1 = false; showTable2 = false;" class="fm-button"> Visa "Cards"</button>
-    <button ng-click="showTable1 = true; showTable2 = false; showCard = false;" class="fm-button"> Visa Tabell 1</button>
-    <button ng-click="showTable2 = true; showTable1 = false; showCard = false;" class="fm-button"> Visa Tabell 2</button>
+    <button ng-click="showCard = true; showTable = false;" class="fm-button button-accent"> Kortvy</button>
+    <button ng-click="showTable = true; showCard = false;" class="fm-button button-accent"> Lista</button>
   </div>
 
   <!-- fm-card -->
@@ -75,7 +74,7 @@
   </div>
   <!-- fm-card:end -->
   <!-- fm-table -->
-  <div ng-show="showTable1" class="row">
+  <div ng-show="showTable" class="row">
     <div class="col-xs-12 col-lg-10 col-lg-offset-1">
       <table class="fm-table">
 
@@ -96,39 +95,6 @@
               <span>{{fund.name}}</span>
             </td>
             <td class="text-right">{{fund.price}}</td>
-            <td class="text-center text-accent hidden-xs">{{fund.return}}</td>
-            <td class="text-center hidden-xs hidden-sm">{{fund.risk}}</td>
-            <td class="hidden-xs">
-              <span ng-repeat="i in getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <!-- fm-table:end -->
-  <!-- fm-table -->
-  <div ng-show="showTable2" class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-      <table class="fm-table table-dark">
-
-        <thead>
-          <tr>
-            <th class="text-truncate">Fond</th>
-            <th class="text-center">Kurs</th>
-            <th class="text-center hidden-xs">Utv.</th>
-            <th class="text-center hidden-xs hidden-sm">Risk</th>
-            <th class="hidden-xs">Betyg</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="fund in funds">
-            <td class="text-truncate">
-              <span class="fm-fund-table-title">{{fund.manager}} - </span>
-              <span>{{fund.name}}</span>
-            </td>
-            <td class="text-center">{{fund.price}}</td>
             <td class="text-center text-accent hidden-xs">{{fund.return}}</td>
             <td class="text-center hidden-xs hidden-sm">{{fund.risk}}</td>
             <td class="hidden-xs">
