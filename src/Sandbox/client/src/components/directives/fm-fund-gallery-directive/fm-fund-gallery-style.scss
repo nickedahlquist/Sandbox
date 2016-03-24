@@ -4,22 +4,14 @@
   background-color: $color-light-grey;
 
   .fm-fund-button-bar {
-    display: block;
-    width: 100%;
-    margin: $layout-modifier-sm auto;
-
-    @media(min-width: $screen-sm) {
-      width: 75rem;
-      display: flex;
-      align-items: center;
-    }
+    margin: $layout-modifier-sm 15px;
 
     button {
-      margin: 0 auto $layout-modifier-sm auto;
-      width: 100%;
+      margin-right: $layout-modifier-sm/2;
+      padding: 1rem $layout-modifier-sm;
 
-      @media(min-width: $screen-sm) {
-        width: auto;
+      &.button-active {
+        background-color: $color-accent-shade;
       }
     }
   }

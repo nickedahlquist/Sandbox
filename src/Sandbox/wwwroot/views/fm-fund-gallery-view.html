@@ -7,16 +7,16 @@
     </div>
   </div>
 
-  <div class="fm-fund-button-bar">
-    <button ng-click="showCard = true; showTable = false;" class="fm-button button-accent"> Kortvy</button>
-    <button ng-click="showTable = true; showCard = false;" class="fm-button button-accent"> Lista</button>
-  </div>
-
   <!-- fm-card -->
   <div ng-show="showCard" class="row">
     <div class="col-xs-12 col-lg-10 col-lg-offset-1">
 
-      <article ng-repeat="fund in funds" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 fm-fund-wrapper">
+      <div class="fm-fund-button-bar">
+        <button ng-click="showCard = true; showTable = false;" class="fm-button button-accent button-active"><span class="glyphicon glyphicon-th"></span> Kortvy</button>
+        <button ng-click="showTable = true; showCard = false;" class="fm-button button-accent"><span class="glyphicon glyphicon-list-alt"></span> Lista</button>
+      </div>
+
+      <article ng-repeat="fund in funds" class="col-xs-12 col-sm-6 col-lg-4 fm-fund-wrapper">
 
         <!-- fm-card-container -->
         <div class="fm-fund-card-container">
@@ -76,6 +76,12 @@
   <!-- fm-table -->
   <div ng-show="showTable" class="row">
     <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+
+      <div class="fm-fund-button-bar" style="margin-left: 0; margin-right: 0;">
+        <button ng-click="showCard = true; showTable = false;" class="fm-button button-accent"><span class="glyphicon glyphicon-th"></span> Kortvy</button>
+        <button ng-click="showTable = true; showCard = false;" class="fm-button button-accent button-active"><span class="glyphicon glyphicon-list-alt"></span> Lista</button>
+      </div>
+
       <table class="fm-table">
 
         <thead>

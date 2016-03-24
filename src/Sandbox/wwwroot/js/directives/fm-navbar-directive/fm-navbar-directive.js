@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('fm').directive('fmNavbar', ['$rootScope', '$navlinksService', 'fmAuthtokenFactory', 'fmDataService', function ($rootScope, $navlinksService, fmAuthtokenFactory, fmDataService) {
+    angular.module('fm').directive('fmNavbar', ['$location', '$rootScope', '$navlinksService', 'fmAuthtokenFactory', 'fmDataService', function ($location, $rootScope, $navlinksService, fmAuthtokenFactory, fmDataService) {
 
       return {
         restrict: 'E',
@@ -20,14 +20,18 @@
 
           // Menu modal
           var menuModal = $('#fm-fund-menu-modal'),
-              menuModalButton = menuModal.find('.fm-fund-modal-close-button').hide();
+              menuModalButton = menuModal.find('.fm-fund-modal-close-button').hide(),
+              menuModalLinks = menuModal.find('.fm-fund-menu-modal-links');
 
           // Eventhandlers
           menuModal.on('webkitTransitionEnd transitionend', fadeInMenuModalButton);
+          menuModalLinks.on('click', navModalLinkClick);
+
 
           function fadeInMenuModalButton() {
             if (menuModal.hasClass('modal-open')) {
               menuModalButton.show().addClass('flipInY');
+              menuModalLinks.addClass('links-open');
             }
             else {
               resetMenuModal();
@@ -36,14 +40,23 @@
 
           function resetMenuModal() {        
             menuModalButton.removeClass('flipInY').hide();
+            menuModalLinks.removeClass('links-open');
           }
+
+
+          function navModalLinkClick(event) {
+            event.preventDefault();
+            scope.closeMenuModal();
+          }
+
 
           scope.openMenuModal = function () {
             menuModal.addClass('modal-open');
           };
 
           scope.closeMenuModal = function () {
-            menuModal.removeClass('modal-open');
+            menuModalLinks.removeClass('links-open');
+            menuModal.removeClass('modal-open');    
           };
 
 

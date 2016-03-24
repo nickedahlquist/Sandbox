@@ -72,7 +72,7 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity $animation-transition-short, visibility 0s $animation-transition-short;
-
+  
   &.modal-open {
     visibility: visible;
     opacity: 1;
@@ -137,22 +137,64 @@
 .fm-fund-menu-modal {
   background-color: rgba(0, 0, 0, 0.9);
 
-  .fm-fund-menu-modal-links {
 
-    li {
-      margin-bottom: $layout-modifier-sm;
-      text-align: center;
 
-      a {
-        color: $color-white;
-        opacity: 0.5;
-        text-transform: uppercase;
-        transition: opacity $animation-transition-short ease-in;
-        font-size: $font-size-h3;
+  nav {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-        &:hover {
+    .fm-fund-menu-modal-links {
+
+      &.links-open {
+
+        li {
           opacity: 1;
-          transition: opacity $animation-transition-short ease-out;
+          transform: translate3d(0, 0, 0);
+          transition: all $animation-transition-short ease-out;
+
+          @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+              transition-delay: #{ (3 - $i + 1) * 100 }ms;
+            }
+          }
+        }
+      }
+
+      li {
+        padding: 0;
+        text-align: center;
+        opacity: 0;
+        transform: translate3d(0, -100vh, 0);
+        transition: all $animation-transition-short ease-in;
+        margin: 20% 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            transition-delay: #{ $i * 100 }ms;
+          }
+        }
+
+        a {
+          color: $color-white;
+          opacity: 0.5;
+          text-transform: uppercase;
+          transition: opacity $animation-transition-short ease-in;
+          font-size: $font-size-h3;
+
+          &:hover {
+            opacity: 1;
+            transition: opacity $animation-transition-short ease-out;
+          }
         }
       }
     }
@@ -160,7 +202,8 @@
 }
 
 .fm-fund-search-modal {
-  background-color: rgba(42,187,174,1);
+  //background-color: rgba(42,187,174,0.98);
+  background-color: rgba(48,68,76,0.95);
   //overflow-y: scroll;
   
   #fm-logo {

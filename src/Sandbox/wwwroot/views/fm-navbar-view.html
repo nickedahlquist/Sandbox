@@ -76,10 +76,13 @@
     <span></span>
   </div>
 
-  <ul class="fm-fund-menu-modal-links">
-    <li ng-repeat="link in navbarlinks">
-      <a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a>
-    </li>
-  </ul>
+  <nav>
+    <ul class="fm-fund-menu-modal-links">
+      <li ng-repeat="link in navbarlinks">
+        <a ui-sref="{{link.url}}">{{link.name}}</a>
+      </li>
+    </ul>
+  </nav>
+
 
 </div><!-- fm-menu-modal:end -->
