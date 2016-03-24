@@ -1,20 +1,41 @@
 ﻿<div class="fm-navbar animated fadeInDownBig">
   <nav>
     <ul>
-      <li><a href="" ng-click="openModal()"><span class="glyphicon glyphicon-search"></span></a></li>
-      <li ng-repeat="link in navbarlinks"><a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a></li>
+      <li>
+        <a href="" ng-click="openSearchModal()">
+          <span class="glyphicon glyphicon-search"></span>
+        </a>
+      </li>
+      <li class="fm-navbar-menu-button">
+        <a href="" ng-click="openMenuModal()">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </a>
+      </li>
+      <li class="hidden-xs" ng-repeat="link in navbarlinks"><a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a></li>
       <!--<li><a ng-if="isAuthenticated()" href="" ng-click="logOut()">Logga ut</a></li>
-      <li><a ng-if="!isAuthenticated()" ui-sref-active="fm-navbar-active" ui-sref="Skapa Konto">Skapa Konto</a></li>-->
+    <li><a ng-if="!isAuthenticated()" ui-sref-active="fm-navbar-active" ui-sref="Skapa Konto">Skapa Konto</a></li>-->
     </ul>
   </nav>
 </div>
 
-<!-- fm-modal -->
-<div id="fm-fund-modal" class="fm-fund-modal">
+<!-- fm-search-modal -->
+<div id="fm-fund-search-modal" class="fm-fund-search-modal">
 
-  <span class="mega-ultra-icon glyphicon glyphicon-search"></span>
+  <svg version="1.1" id="fm-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       viewBox="0 0 544.6 544.6" style="enable-background:new 0 0 544.6 544.6;" xml:space="preserve">
+    <g id="logo-group">
+      <path d="M272.3,73.8V146c70,0,126.3,56.5,126.3,126.2c0,69.7-56.5,126.2-126.2,126.2l0-68.7
+		  c-31.8,0-57.5-25.8-57.5-57.6c0-31.8,26.5-57.6,57.5-57.6V146c-70,0-126.2,56.5-126.2,126.2c0,69.7,56.2,126.2,126.2,126.2v72.3
+		  c109,0,198.5-88.9,198.5-198.5C470.8,162.6,381.3,73.8,272.3,73.8z" />
+      <path d="M329.9,272.3c0-31.8-25.8-57.6-57.5-57.6l0,115.1C304.1,329.8,329.9,304.1,329.9,272.3z" />
+      <path d="M461.8,82.8C411.2,32.2,343.9,4.3,272.3,4.3c-71.6,0-138.9,27.9-189.5,78.5C32.2,133.4,4.3,200.7,4.3,272.3
+		  c0,71.6,27.9,138.9,78.5,189.5c50.6,50.6,117.9,78.5,189.5,78.5c71.6,0,138.9-27.9,189.5-78.5c50.6-50.6,78.5-117.9,78.5-189.5
+		  C540.3,200.7,512.4,133.4,461.8,82.8z M272.3,536.4l0-65.4h0c-109.6,0-198.5-89-198.5-198.6c0-109.7,89.5-198.6,198.5-198.6V8.3
+		  c146,0,264,118.5,264,264.1C536.3,417.9,417.9,536.4,272.3,536.4z" />
+    </g>
+</svg>
 
-  <div ng-click="closeModal()" class="fm-fund-modal-close-button animated">
+  <div ng-click="closeSearchModal()" class="fm-fund-modal-close-button animated">
     <span></span>
     <span></span>
   </div>
@@ -45,4 +66,20 @@
       </div>
     </div>
   </div>
-</div><!-- fm-modal:end -->
+</div><!-- fm-search-modal:end -->
+
+<!-- fm-menu-modal -->
+<div id="fm-fund-menu-modal" class="fm-fund-menu-modal visible-xs">
+
+  <div ng-click="closeMenuModal()" class="fm-fund-modal-close-button animated">
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul class="fm-fund-menu-modal-links">
+    <li ng-repeat="link in navbarlinks">
+      <a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a>
+    </li>
+  </ul>
+
+</div><!-- fm-menu-modal:end -->

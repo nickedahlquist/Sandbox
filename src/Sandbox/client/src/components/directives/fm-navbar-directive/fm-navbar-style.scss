@@ -15,7 +15,19 @@
 
       li {
         display: inline-block;
-        padding-right: $layout-modifier-lg;
+        padding-right: $layout-modifier-sm;
+
+        @media(min-width: $screen-sm) {
+          padding-right: $layout-modifier-lg;
+        }
+
+        &.fm-navbar-menu-button {
+          display: inline-block;
+
+          @media(min-width: $screen-sm) {
+            display: none;
+          }
+        }
 
         a {
           font-size: $font-size-h6;
@@ -47,7 +59,7 @@
   }
 }
 
-.fm-fund-modal {
+.fm-fund-menu-modal, .fm-fund-search-modal {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -56,39 +68,15 @@
   left: 0;
   right: 0;
   margin: auto;
-  background-color: rgba(42,187,174,1);
   z-index: 100000;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 300ms, visibility 0s 300ms;
-  overflow: auto;
+  transition: opacity $animation-transition-short, visibility 0s $animation-transition-short;
 
   &.modal-open {
     visibility: visible;
     opacity: 1;
-    transition: opacity 300ms;
-  }
-
-  .mega-ultra-icon {
-    color: $color-white;
-    position: absolute;
-    margin: auto;
-    top: -10%;
-    left: -10%;
-    //right: 0;
-    //bottom: 0;
-    width: 25%;
-    height: 25%;
-    font-size: 70rem;
-    opacity: 0.1;
-
-    @media(min-width: $screen-sm) {
-      font-size: 90rem;
-    }
-
-    @media(min-width: $screen-md) {
-      font-size: 115rem;
-    }
+    transition: opacity $animation-transition-short;
   }
 
   .fm-fund-modal-close-button {
@@ -112,8 +100,8 @@
       cursor: pointer;
 
       span {
-        background: $color-accent;
-        transition: background $animation-transition-short ease-out;
+        opacity: 1;
+        transition: opacity $animation-transition-short ease-out;
       }
     }
 
@@ -123,13 +111,13 @@
       height: 0.2rem;
       width: 100%;
       background: $color-white;
-      opacity: 1;
+      opacity: 0.5;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
       margin: auto;
-      transition: background $animation-transition-short ease-in;
+      transition: opacity $animation-transition-short ease-in;
 
       @media(min-width: $screen-sm) {
         height: 0.3rem;
@@ -141,6 +129,57 @@
 
       &:nth-child(2) {
         transform: rotate(-135deg);
+      }
+    }
+  }
+}
+
+.fm-fund-menu-modal {
+  background-color: rgba(0, 0, 0, 0.9);
+
+  .fm-fund-menu-modal-links {
+
+    li {
+      margin-bottom: $layout-modifier-sm;
+      text-align: center;
+
+      a {
+        color: $color-white;
+        opacity: 0.5;
+        text-transform: uppercase;
+        transition: opacity $animation-transition-short ease-in;
+        font-size: $font-size-h3;
+
+        &:hover {
+          opacity: 1;
+          transition: opacity $animation-transition-short ease-out;
+        }
+      }
+    }
+  }
+}
+
+.fm-fund-search-modal {
+  background-color: rgba(42,187,174,1);
+  //overflow-y: scroll;
+  
+  #fm-logo {
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    min-width: 50rem;
+    min-height: 50rem;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    margin: auto;
+
+    #logo-group {
+      opacity: 0.1;
+
+      path {
+        fill: $color-white;
       }
     }
   }
@@ -203,7 +242,7 @@
       border-radius: 0;
       border: 0;
       font-size: $font-size-h2;
-
+      
       &::-ms-clear {
         display: none;
       }

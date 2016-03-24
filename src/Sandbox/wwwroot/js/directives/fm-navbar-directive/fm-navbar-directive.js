@@ -18,17 +18,92 @@
             fmAuthtokenFactory.removeToken();
           }
 
-          // Modal
-          var modal       = $('#fm-fund-modal'),
-              searchField = modal.find('#fm-fund-modal-seach');
+          // Menu modal
+          var menuModal = $('#fm-fund-menu-modal'),
+              menuModalButton = menuModal.find('.fm-fund-modal-close-button').hide();
 
-          scope.openModal = function () {
-            modal.addClass('modal-open');
-            searchField.focus();
+          // Eventhandlers
+          menuModal.on('webkitTransitionEnd transitionend', fadeInMenuModalButton);
+
+          function fadeInMenuModalButton() {
+            if (menuModal.hasClass('modal-open')) {
+              menuModalButton.show().addClass('flipInY');
+            }
+            else {
+              resetMenuModal();
+            }
+          }
+
+          function resetMenuModal() {        
+            menuModalButton.removeClass('flipInY').hide();
+          }
+
+          scope.openMenuModal = function () {
+            menuModal.addClass('modal-open');
           };
 
-          scope.closeModal = function () {
-            modal.removeClass('modal-open');
+          scope.closeMenuModal = function () {
+            menuModal.removeClass('modal-open');
+          };
+
+
+          // Search modal
+          var searchModal = $('#fm-fund-search-modal'),
+              searchField = searchModal.find('#fm-fund-modal-seach'),
+              inputGroup = searchModal.find('.fm-modal-inputgroup').hide(),
+              searchModalButton = searchModal.find('.fm-fund-modal-close-button').hide();
+
+          // Eventhandlers
+          window.addEventListener('keydown', function (event) {
+
+            if (event.altKey && event.keyCode == 83 && !searchModal.hasClass('modal-open')) {
+              scope.openSearchModal();
+            }
+
+            if (event.keyCode == 27 && searchModal.hasClass('modal-open')) {
+              scope.closeSearchModal();
+            }
+           
+          });
+
+          searchModal.on('webkitTransitionEnd transitionend', fadeInModalControls);
+          inputGroup.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', setInputFocus);
+
+          function fadeInModalControls() {
+            if (searchModal.hasClass('modal-open')) {
+              searchModalButton.show().addClass('flipInY');
+              inputGroup.show().addClass('fadeIn');
+            }
+            else {
+              resetSearchModal();
+            }
+          }
+
+          function setInputFocus() {
+            searchField.focus();
+          }
+
+          function resetSearchModal() {
+            searchModalButton.removeClass('flipInY fadeInDown').hide();
+            inputGroup.removeClass('fadeIn').hide();
+            searchField.val('');
+
+            if (scope.search.title) {
+              scope.search.title = '';
+            }
+      
+          }
+
+          scope.openSearchModal = function () {
+            searchModal.addClass('modal-open');
+            
+            if (menuModal.hasClass('modal-open')) {
+              scope.closeMenuModal();
+            }
+          };
+
+          scope.closeSearchModal = function () {
+            searchModal.removeClass('modal-open');
           };
 
           scope.searchItems = [];
@@ -40,7 +115,7 @@
 
             for (var key in scope.funds) {
               if (scope.funds.hasOwnProperty(key)) {
-                var fundItem = { title: scope.funds[key].manager, type: 'fund'};
+                var fundItem = { title: scope.funds[key].name, type: 'fund'};
                 scope.searchItems.push(fundItem);
               }
             }
@@ -51,13 +126,7 @@
                 scope.searchItems.push(newsItem);
               }
             }
-
-            console.log(scope.searchItems);
-
           });
-
-          
-
 
         }
       }

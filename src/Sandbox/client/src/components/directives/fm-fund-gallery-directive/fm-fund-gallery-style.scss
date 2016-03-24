@@ -3,30 +3,6 @@
 .fm-fund-gallery {
   background-color: $color-light-grey;
 
-  .fm-fund-serach-button {
-    background-color: $color-accent;
-    height: $layout-modifier-xl;
-    width: $layout-modifier-xl;
-    border-radius: 50%;
-    margin: 0 auto 41px auto;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    transition: background-color ease-in-out $animation-transition-short;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $color-accent-shade;
-    }
-
-    .glyphicon {
-      color: $color-white;
-      font-size: 7.5rem;
-      margin: 0 auto;
-      display: block;
-    }
-  }
-
   .fm-fund-button-bar {
     display: block;
     width: 100%;

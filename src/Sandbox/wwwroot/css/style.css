@@ -8207,7 +8207,7 @@ html {
 
 body {
   font-family: "Open Sans", "sans-serif";
-  color: #AFA9A9;
+  color: #898484;
   line-height: 1.667;
   font-size: 1.4rem;
   -webkit-text-size-adjust: 100%;
@@ -8254,7 +8254,7 @@ a {
 hr {
   border: 0;
   background-color: transparent;
-  border-bottom: 1px solid #AFA9A9;
+  border-bottom: 1px solid #898484;
   opacity: 0.5;
   margin: 1.8rem 0; }
 
@@ -8460,7 +8460,7 @@ p {
       background-color: #FFF; }
   .fm-table.table-dark tbody tr {
     color: #FFF;
-    background-color: #26323d; }
+    background-color: #242f39; }
     .fm-table.table-dark tbody tr:nth-child(odd) {
       background-color: #303E4C; }
 
@@ -8583,16 +8583,16 @@ p {
       margin-bottom: 2.4rem; }
       .fm-register form input::-webkit-input-placeholder {
         opacity: 1;
-        color: #AFA9A9 !important; }
+        color: #898484 !important; }
       .fm-register form input:-moz-placeholder {
         opacity: 1;
-        color: #AFA9A9 !important; }
+        color: #898484 !important; }
       .fm-register form input::-moz-placeholder {
         opacity: 1;
-        color: #AFA9A9 !important; }
+        color: #898484 !important; }
       .fm-register form input:-ms-input-placeholder {
         opacity: 1;
-        color: #AFA9A9 !important; }
+        color: #898484 !important; }
       .fm-register form input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px #F2F2F0 inset; }
       .fm-register form input[type=text], .fm-register form input[type=password] {
@@ -8613,32 +8613,99 @@ p {
       color: #FFF;
       margin: 0 auto;
       padding: 0;
-      font-size: 2.5rem; }
+      font-size: 1.8rem; }
+      @media (min-width: 768px) {
+        .fm-bulletin-slider .swiper-slide .fm-bulletin-slider-text {
+          font-size: 2.3rem; } }
+
+.fm-footer {
+  background-color: #303E4C;
+  color: #FFF; }
+  .fm-footer .fm-footer-heading {
+    color: #FFF;
+    font-size: 2.9rem; }
+  .fm-footer .fm-footer-list ul li {
+    margin-bottom: 1rem; }
+    .fm-footer .fm-footer-list ul li:last-of-type {
+      margin-bottom: 0; }
+    .fm-footer .fm-footer-list ul li .glyphicon {
+      font-size: 1.4rem;
+      margin-right: 1rem; }
+  .fm-footer .fm-footer-address-bar {
+    padding: 1.2rem;
+    background-color: #242f39; }
+    .fm-footer .fm-footer-address-bar .fm-footer-address-bar-wrapper {
+      text-align: center; }
+      @media (min-width: 768px) {
+        .fm-footer .fm-footer-address-bar .fm-footer-address-bar-wrapper {
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+          justify-content: space-between; } }
+      .fm-footer .fm-footer-address-bar .fm-footer-address-bar-wrapper p {
+        padding: 0;
+        margin: 0.5rem auto;
+        font-size: 1.4rem;
+        font-weight: 300; }
+        @media (min-width: 768px) {
+          .fm-footer .fm-footer-address-bar .fm-footer-address-bar-wrapper p {
+            margin: 0 auto; } }
+        .fm-footer .fm-footer-address-bar .fm-footer-address-bar-wrapper p span {
+          margin-right: 0.5rem; }
+  .fm-footer .fm-form-title {
+    color: #FFF;
+    margin-bottom: 4.8rem; }
+  .fm-footer .fm-contact-form .form-control {
+    color: #FFF !important; }
+  .fm-footer .fm-contact-form input, .fm-footer .fm-contact-form textarea {
+    border-radius: 2px;
+    padding: 2.4rem;
+    margin-bottom: 4.8rem;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none; }
+  .fm-footer .fm-contact-form textarea {
+    margin-top: 7.2rem;
+    resize: vertical; }
+  .fm-footer .fm-contact-form input {
+    border-radius: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0; }
+  .fm-footer .fm-contact-form ::-webkit-input-placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form ::-moz-placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form :-ms-input-placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form ::placeholder {
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    font-size: 1.2rem; }
+  .fm-footer .fm-contact-form button[type=submit] {
+    width: 100%; }
+    @media (min-width: 768px) {
+      .fm-footer .fm-contact-form button[type=submit] {
+        width: auto; } }
 
 .fm-fund-gallery {
   background-color: #F2F2F0; }
-  .fm-fund-gallery .fm-fund-serach-button {
-    background-color: #2ABBAE;
-    height: 14.4rem;
-    width: 14.4rem;
-    border-radius: 50%;
-    margin: 0 auto 41px auto;
-    text-align: center;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    transition: background-color ease-in-out 300ms; }
-    .fm-fund-gallery .fm-fund-serach-button:hover {
-      cursor: pointer;
-      background-color: #22968b; }
-    .fm-fund-gallery .fm-fund-serach-button .glyphicon {
-      color: #FFF;
-      font-size: 7.5rem;
-      margin: 0 auto;
-      display: block; }
   .fm-fund-gallery .fm-fund-button-bar {
     display: block;
     width: 100%;
@@ -8774,64 +8841,12 @@ p {
       .fm-fund-gallery .fm-fund-table-title {
         display: inline-block; } }
 
-.fm-footer {
-  background-color: #303E4C;
-  color: #FFF; }
-  .fm-footer .fm-form-title {
-    color: #FFF;
-    margin-bottom: 4.8rem; }
-  .fm-footer .fm-contact-form .form-control {
-    color: #FFF !important; }
-  .fm-footer .fm-contact-form input, .fm-footer .fm-contact-form textarea {
-    border-radius: 2px;
-    padding: 2.4rem;
-    margin-bottom: 4.8rem;
-    background-color: transparent;
-    outline: 0;
-    box-shadow: none; }
-  .fm-footer .fm-contact-form textarea {
-    margin-top: 7.2rem;
-    resize: vertical; }
-  .fm-footer .fm-contact-form input {
-    border-radius: 0;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0; }
-  .fm-footer .fm-contact-form ::-webkit-input-placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form ::-moz-placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form :-ms-input-placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form ::placeholder {
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.3rem;
-    font-size: 1.2rem; }
-  .fm-footer .fm-contact-form button[type=submit] {
-    width: 100%; }
-    @media (min-width: 768px) {
-      .fm-footer .fm-contact-form button[type=submit] {
-        width: auto; } }
-
 .fm-hero {
   background-image: url("../img/fm-hero.jpg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
   background-color: #2ABBAE;
   position: relative; }
@@ -8894,7 +8909,7 @@ p {
           display: block; } }
 
 .fm-market-map .asia, .fm-market-map .europe, .fm-market-map .africa, .fm-market-map .latin-america, .fm-market-map .north-america {
-  fill: #AFA9A9;
+  fill: #898484;
   transition: fill 900ms ease-in; }
   .fm-market-map .asia.fm-market-up, .fm-market-map .asia.fm-market-down, .fm-market-map .europe.fm-market-up, .fm-market-map .europe.fm-market-down, .fm-market-map .africa.fm-market-up, .fm-market-map .africa.fm-market-down, .fm-market-map .latin-america.fm-market-up, .fm-market-map .latin-america.fm-market-down, .fm-market-map .north-america.fm-market-up, .fm-market-map .north-america.fm-market-down {
     transition: fill 900ms ease-out; }
@@ -8904,7 +8919,7 @@ p {
     fill: #DF574B; }
 
 .fm-market-map .the-rest {
-  fill: #AFA9A9; }
+  fill: #898484; }
 
 .fm-market-overview .fm-market-overview-title {
   text-align: center; }
@@ -8988,17 +9003,17 @@ p {
 .fm-market-overview .fm-table tbody tr {
   transition: background-color 0.2s linear; }
   .fm-market-overview .fm-table tbody tr:hover {
-    background-color: #cfcbcb;
-    color: #8c8787;
+    background-color: #b8b5b5;
+    color: #6e6a6a;
     transition: background-color 0.2s linear; }
     .fm-market-overview .fm-table tbody tr:hover td .fm-fund-yield {
-      color: #8c8787 !important; }
+      color: #6e6a6a !important; }
   .fm-market-overview .fm-table tbody tr td:last-of-type {
     width: 5rem; }
   .fm-market-overview .fm-table tbody tr td a {
     color: inherit; }
     .fm-market-overview .fm-table tbody tr td a .fm-fund-manager {
-      font-weight: 800; }
+      font-weight: 600; }
     .fm-market-overview .fm-table tbody tr td a .fm-fund-name {
       font-size: 1.2rem; }
   .fm-market-overview .fm-table tbody tr td .fm-fund-yield-wrapper {
@@ -9048,16 +9063,24 @@ p {
     text-align: right; }
     .fm-navbar nav ul li {
       display: inline-block;
-      padding-right: 4.8rem; }
+      padding-right: 2.4rem; }
+      @media (min-width: 768px) {
+        .fm-navbar nav ul li {
+          padding-right: 4.8rem; } }
+      .fm-navbar nav ul li.fm-navbar-menu-button {
+        display: inline-block; }
+        @media (min-width: 768px) {
+          .fm-navbar nav ul li.fm-navbar-menu-button {
+            display: none; } }
       .fm-navbar nav ul li a {
         font-size: 1.2rem;
         text-transform: uppercase;
         font-weight: 600;
         letter-spacing: 0.3rem;
-        color: #AFA9A9;
+        color: #898484;
         position: relative; }
         .fm-navbar nav ul li a:hover {
-          color: #8c8787; }
+          color: #6e6a6a; }
         .fm-navbar nav ul li a.fm-navbar-active:before {
           content: " ";
           border-top: solid 1rem #2ABBAE;
@@ -9065,8 +9088,10 @@ p {
           top: -3.5rem;
           display: inline;
           width: 100%; }
+        .fm-navbar nav ul li a .glyphicon {
+          font-size: 1.5rem; }
 
-.fm-fund-modal {
+.fm-fund-menu-modal, .fm-fund-search-modal {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -9075,32 +9100,123 @@ p {
   left: 0;
   right: 0;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.9);
   z-index: 100000;
   visibility: hidden;
   opacity: 0;
   transition: opacity 300ms, visibility 0s 300ms; }
-  .fm-fund-modal.modal-open {
+  .fm-fund-menu-modal.modal-open, .fm-fund-search-modal.modal-open {
     visibility: visible;
     opacity: 1;
     transition: opacity 300ms; }
-  .fm-fund-modal .fm-fund-modal-close-button {
+  .fm-fund-menu-modal .fm-fund-modal-close-button, .fm-fund-search-modal .fm-fund-modal-close-button {
     position: absolute;
     margin: auto;
     top: 2.4rem;
     right: 2.4rem;
-    color: #FFF;
-    font-size: 7.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     display: block;
     z-index: 200000; }
-  .fm-fund-modal .fm-fund-search-wrapper {
+    @media (min-width: 768px) {
+      .fm-fund-menu-modal .fm-fund-modal-close-button, .fm-fund-search-modal .fm-fund-modal-close-button {
+        width: 6rem;
+        height: 6rem;
+        top: 4.8rem;
+        right: 4.8rem; } }
+    .fm-fund-menu-modal .fm-fund-modal-close-button:hover, .fm-fund-search-modal .fm-fund-modal-close-button:hover {
+      cursor: pointer; }
+      .fm-fund-menu-modal .fm-fund-modal-close-button:hover span, .fm-fund-search-modal .fm-fund-modal-close-button:hover span {
+        opacity: 1;
+        transition: opacity 300ms ease-out; }
+    .fm-fund-menu-modal .fm-fund-modal-close-button span, .fm-fund-search-modal .fm-fund-modal-close-button span {
+      display: block;
+      position: absolute;
+      height: 0.2rem;
+      width: 100%;
+      background: #FFF;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      transition: opacity 300ms ease-in; }
+      @media (min-width: 768px) {
+        .fm-fund-menu-modal .fm-fund-modal-close-button span, .fm-fund-search-modal .fm-fund-modal-close-button span {
+          height: 0.3rem; } }
+      .fm-fund-menu-modal .fm-fund-modal-close-button span:nth-child(1), .fm-fund-search-modal .fm-fund-modal-close-button span:nth-child(1) {
+        -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        transform: rotate(135deg); }
+      .fm-fund-menu-modal .fm-fund-modal-close-button span:nth-child(2), .fm-fund-search-modal .fm-fund-modal-close-button span:nth-child(2) {
+        -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg); }
+
+.fm-fund-menu-modal {
+  background-color: rgba(0, 0, 0, 0.9); }
+  .fm-fund-menu-modal .fm-fund-menu-modal-links li {
+    margin-bottom: 2.4rem;
+    text-align: center; }
+    .fm-fund-menu-modal .fm-fund-menu-modal-links li a {
+      color: #FFF;
+      opacity: 0.5;
+      text-transform: uppercase;
+      transition: opacity 300ms ease-in;
+      font-size: 2.9rem; }
+      .fm-fund-menu-modal .fm-fund-menu-modal-links li a:hover {
+        opacity: 1;
+        transition: opacity 300ms ease-out; }
+
+.fm-fund-search-modal {
+  background-color: #2abbae; }
+  .fm-fund-search-modal #fm-logo {
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    min-width: 50rem;
+    min-height: 50rem;
+    top: 0;
+    bottom: 0;
+    left: 10%;
+    right: 0;
+    margin: auto; }
+    .fm-fund-search-modal #fm-logo #logo-group {
+      opacity: 0.1; }
+      .fm-fund-search-modal #fm-logo #logo-group path {
+        fill: #FFF; }
+  .fm-fund-search-modal .fm-fund-search-wrapper {
     color: #FFF;
-    padding: 4.8rem 14.4rem; }
-    .fm-fund-modal .fm-fund-search-wrapper label {
+    padding: 2.4rem 4.8rem; }
+    @media (min-width: 768px) {
+      .fm-fund-search-modal .fm-fund-search-wrapper {
+        padding: 4.8rem 14.4rem; } }
+    .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list {
+      font-size: 2.3rem; }
+      @media (min-width: 768px) {
+        .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list {
+          font-size: 2.9rem; } }
+      .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list.ng-enter, .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list.ng-leave, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list.ng-enter, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list.ng-leave {
+        transition: 900ms ease-in all;
+        position: relative;
+        display: block; }
+      .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list.ng-enter.ng-enter-active, .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list.ng-leave, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list.ng-enter.ng-enter-active, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list.ng-leave {
+        opacity: 1; }
+      .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list.ng-leave.ng-leave-active, .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list.ng-enter, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list.ng-leave.ng-leave-active, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list.ng-enter {
+        opacity: 0; }
+      .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list a, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list a {
+        color: #FFF;
+        opacity: 0.5; }
+        .fm-fund-search-modal .fm-fund-search-wrapper .fm-fund-list a:hover, .fm-fund-search-modal .fm-fund-search-wrapper .fm-news-list a:hover {
+          opacity: 1; }
+    .fm-fund-search-modal .fm-fund-search-wrapper label {
       font-weight: 300;
       font-size: 2.9rem;
       margin-bottom: 2.4rem; }
-    .fm-fund-modal .fm-fund-search-wrapper input {
+      @media (min-width: 768px) {
+        .fm-fund-search-modal .fm-fund-search-wrapper label {
+          font-size: 4.7rem; } }
+    .fm-fund-search-modal .fm-fund-search-wrapper input {
       padding: 0;
       margin-bottom: 4.8rem;
       background-color: transparent;
@@ -9109,6 +9225,11 @@ p {
       border-radius: 0;
       border: 0;
       font-size: 4.7rem; }
+      .fm-fund-search-modal .fm-fund-search-wrapper input::-ms-clear {
+        display: none; }
+      @media (min-width: 768px) {
+        .fm-fund-search-modal .fm-fund-search-wrapper input {
+          font-size: 7.6rem; } }
 
 .fm-newsfeed {
   background-color: #F2F2F0;
@@ -9141,7 +9262,7 @@ p {
         hyphens: auto;
         color: inherit; }
         .fm-newsfeed .fm-news-item .inner .fm-news-content a:hover {
-          color: #8c8787; }
+          color: #6e6a6a; }
       .fm-newsfeed .fm-news-item .inner .fm-news-tag {
         font-size: 1.2rem;
         text-transform: uppercase;
@@ -9160,7 +9281,7 @@ p {
             justify-content: space-around; } }
         .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name {
           font-weight: 600;
-          color: #AFA9A9;
+          color: #898484;
           margin-right: 2.4rem;
           display: block;
           word-break: keep-all; }
@@ -9173,7 +9294,7 @@ p {
             color: #2ABBAE;
             transition: color 300ms ease-in; }
           .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name:hover {
-            color: #8c8787;
+            color: #6e6a6a;
             transition: color 300ms ease-out; }
             .fm-newsfeed .fm-news-item .inner .fm-news-tag .fm-news-tag-name:hover .fm-news-tag-icon {
               color: #22968b;

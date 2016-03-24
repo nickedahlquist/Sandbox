@@ -18,62 +18,92 @@
             fmAuthtokenFactory.removeToken();
           }
 
-          // Modal
-          var modal = $('#fm-fund-modal'),
-              searchField = modal.find('#fm-fund-modal-seach'),
-              inputGroup = modal.find('.fm-modal-inputgroup').hide(),
-              modalButton = modal.find('.fm-fund-modal-close-button').hide();
+          // Menu modal
+          var menuModal = $('#fm-fund-menu-modal'),
+              menuModalButton = menuModal.find('.fm-fund-modal-close-button').hide();
+
+          // Eventhandlers
+          menuModal.on('webkitTransitionEnd transitionend', fadeInMenuModalButton);
+
+          function fadeInMenuModalButton() {
+            if (menuModal.hasClass('modal-open')) {
+              menuModalButton.show().addClass('flipInY');
+            }
+            else {
+              resetMenuModal();
+            }
+          }
+
+          function resetMenuModal() {        
+            menuModalButton.removeClass('flipInY').hide();
+          }
+
+          scope.openMenuModal = function () {
+            menuModal.addClass('modal-open');
+          };
+
+          scope.closeMenuModal = function () {
+            menuModal.removeClass('modal-open');
+          };
+
+
+          // Search modal
+          var searchModal = $('#fm-fund-search-modal'),
+              searchField = searchModal.find('#fm-fund-modal-seach'),
+              inputGroup = searchModal.find('.fm-modal-inputgroup').hide(),
+              searchModalButton = searchModal.find('.fm-fund-modal-close-button').hide();
 
           // Eventhandlers
           window.addEventListener('keydown', function (event) {
 
-            if (event.altKey && event.keyCode == 83 && !modal.hasClass('modal-open')) {
-              scope.openModal();
+            if (event.altKey && event.keyCode == 83 && !searchModal.hasClass('modal-open')) {
+              scope.openSearchModal();
             }
 
-            if (event.keyCode == 27 && modal.hasClass('modal-open')) {
-              scope.closeModal();
+            if (event.keyCode == 27 && searchModal.hasClass('modal-open')) {
+              scope.closeSearchModal();
             }
            
           });
 
-          modal.on('webkitTransitionEnd transitionend', fadeInCloseButton);
-          //modalButton.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', fadeInInputGroup);
+          searchModal.on('webkitTransitionEnd transitionend', fadeInModalControls);
           inputGroup.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', setInputFocus);
 
-          function fadeInCloseButton() {
-            if (modal.hasClass('modal-open')) {
-              modalButton.show().addClass('flipInY fadeInDown');
-              fadeInInputGroup();
-              searchField.focus();
-
+          function fadeInModalControls() {
+            if (searchModal.hasClass('modal-open')) {
+              searchModalButton.show().addClass('flipInY');
+              inputGroup.show().addClass('fadeIn');
             }
             else {
-              resetModal();
+              resetSearchModal();
             }
-          }
-
-          function fadeInInputGroup() {
-            inputGroup.show().addClass('fadeIn');
           }
 
           function setInputFocus() {
             searchField.focus();
           }
 
-          function resetModal() {
-            modalButton.removeClass('flipInY fadeInDown').hide();
+          function resetSearchModal() {
+            searchModalButton.removeClass('flipInY fadeInDown').hide();
             inputGroup.removeClass('fadeIn').hide();
             searchField.val('');
-            scope.search.title = '';
+
+            if (scope.search.title) {
+              scope.search.title = '';
+            }
+      
           }
 
-          scope.openModal = function () {
-            modal.addClass('modal-open');
+          scope.openSearchModal = function () {
+            searchModal.addClass('modal-open');
+            
+            if (menuModal.hasClass('modal-open')) {
+              scope.closeMenuModal();
+            }
           };
 
-          scope.closeModal = function () {
-            modal.removeClass('modal-open');
+          scope.closeSearchModal = function () {
+            searchModal.removeClass('modal-open');
           };
 
           scope.searchItems = [];
