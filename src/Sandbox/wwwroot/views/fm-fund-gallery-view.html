@@ -1,117 +1,54 @@
-<section class="container-fluid section-padding fm-fund-gallery">
-
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h2 class="text-center">Fonder</h2>
-      <p class="text-center">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal.</p>
-    </div>
-  </div>
-
-  <!-- button-row -->
-  <div class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-      <div class="fm-fund-button-bar">
-        <button ng-click="showCard = true; showTable = false;" class="fm-button button-accent button-active"><span class="glyphicon glyphicon-th"></span> Kortvy</button>
-        <button ng-click="showTable = true; showCard = false;" class="fm-button button-accent"><span class="glyphicon glyphicon-list-alt"></span> Lista</button>
-      </div>
-    </div>
-  </div>
-  <!-- button-row:end -->
-
   <!-- fm-card -->
-  <div ng-show="showCard" class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+<article ng-repeat="fund in funds" class="col-xs-12 col-sm-6 col-lg-4 fm-fund-wrapper">
 
-      <article ng-repeat="fund in funds" class="col-xs-12 col-sm-6 col-lg-4 fm-fund-wrapper">
+  <!-- fm-card-container -->
+  <div class="fm-fund-card-container">
+    <div class="fm-fund-card">
 
-        <!-- fm-card-container -->
-        <div class="fm-fund-card-container">
-          <div class="fm-fund-card">
+      <!-- fm-card-front -->
+      <div class="fm-fund-card-front">
 
-            <!-- fm-card-front -->
-            <div class="fm-fund-card-front">
+        <header class="fm-fund-card-header">
+          <div class="fm-fund-card-overlay"></div>
+          <img class="fm-fund-card-image img-responsive" ng-src="{{'/img/' + fund.image}}" alt="{{fund.manager}}" />
+        </header>
 
-              <header class="fm-fund-card-header">
-                <div class="fm-fund-card-overlay"></div>
-                <img class="fm-fund-card-image img-responsive" ng-src="{{'/img/' + fund.image}}" alt="{{fund.manager}}" />
-              </header>
+        <div class="fm-fund-card-content">
+          <h5 class="fm-fund-card-title text-truncate">{{fund.manager}}</h5>
+          <h6 class="fm-fund-card-subtitle text-truncate">{{fund.name}}</h6>
 
-              <div class="fm-fund-card-content">
-                <h5 class="fm-fund-card-title text-truncate">{{fund.manager}}</h5>
-                <h6 class="fm-fund-card-subtitle text-truncate">{{fund.name}}</h6>
+          <p class="fm-fund-card-text"><span class="text-semibold">Kurs: </span>{{fund.price}}</p>
+          <p class="fm-fund-card-text"><span class="text-semibold">Avkastning i år: </span><span class="text-accent">{{fund.return}}</span></p>
+          <p class="fm-fund-card-text"><span class="text-semibold">Risk: </span>{{fund.risk}}</p>
 
-                <p class="fm-fund-card-text"><span class="text-semibold">Kurs: </span>{{fund.price}}</p>
-                <p class="fm-fund-card-text"><span class="text-semibold">Avkastning i år: </span><span class="text-accent">{{fund.return}}</span></p>
-                <p class="fm-fund-card-text"><span class="text-semibold">Risk: </span>{{fund.risk}}</p>
-
-                <footer class="fm-fund-card-footer">
-                  <hr />
-                  <span class="fm-fund-card-rating">
-                    <span ng-repeat="i in getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
-                  </span>
-                </footer>
-              </div>
-
-            </div> <!-- fm-card-front:end -->
-            <!-- fm-card-back -->
-            <div class="fm-fund-card-back">
-
-              <div class="fm-fund-card-content">
-                <h5 class="fm-fund-card-title">{{fund.manager}}</h5>
-                <h6 class="fm-fund-card-subtitle">{{fund.name}}</h6>
-
-                <p class="fm-fund-card-text" style="margin-bottom: 2rem;">
-                  Praesent malesuada malesuada purus vel feugiat.
-                  Vivamus congue nisi nibh, et lobortis enim pulvinar sed. Donec at lorem nulla.
-                  Quisque pellentesque tortor ipsum.
-                </p>
-
-                <button class="fm-button" style="width: 100%; max-width: 20rem; margin: 0.5rem auto;">Köp</button>
-                <button class="fm-button button-accent" style="width: 100%; max-width: 20rem; margin: 0.5rem auto;">Jämför</button>
-
-              </div>
-
-            </div> <!-- fm-card-back:end -->
-          </div> <!-- fm-card:end -->
-        </div> <!-- fm-card-container:end -->
-      </article>
-
-    </div>
-  </div>
-  <!-- fm-card:end -->
-
-  <!-- fm-table -->
-  <div ng-show="showTable" class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-
-      <table class="fm-table">
-
-        <thead>
-          <tr>
-            <th class="text-truncate">Fond</th>
-            <th class="text-right">Kurs</th>
-            <th class="text-center hidden-xs">Utv.</th>
-            <th class="text-center hidden-xs hidden-sm">Risk</th>
-            <th class="hidden-xs">Betyg</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="fund in funds">
-            <td class="text-truncate">
-              <span class="fm-fund-table-title">{{fund.manager}} - </span>
-              <span>{{fund.name}}</span>
-            </td>
-            <td class="text-right">{{fund.price}}</td>
-            <td class="text-center text-accent hidden-xs">{{fund.return}}</td>
-            <td class="text-center hidden-xs hidden-sm">{{fund.risk}}</td>
-            <td class="hidden-xs">
+          <footer class="fm-fund-card-footer">
+            <hr />
+            <span class="fm-fund-card-rating">
               <span ng-repeat="i in getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <!-- fm-table:end -->
-</section>
+            </span>
+          </footer>
+        </div>
+
+      </div> <!-- fm-card-front:end -->
+      <!-- fm-card-back -->
+      <div class="fm-fund-card-back">
+
+        <div class="fm-fund-card-content">
+          <h5 class="fm-fund-card-title">{{fund.manager}}</h5>
+          <h6 class="fm-fund-card-subtitle">{{fund.name}}</h6>
+
+          <p class="fm-fund-card-text" style="margin-bottom: 2rem;">
+            Praesent malesuada malesuada purus vel feugiat.
+            Vivamus congue nisi nibh, et lobortis enim pulvinar sed. Donec at lorem nulla.
+            Quisque pellentesque tortor ipsum.
+          </p>
+
+          <button class="fm-button" style="width: 100%; max-width: 20rem; margin: 0.5rem auto;">Köp</button>
+          <button class="fm-button button-accent" style="width: 100%; max-width: 20rem; margin: 0.5rem auto;">Jämför</button>
+
+        </div>
+
+      </div> <!-- fm-card-back:end -->
+    </div> <!-- fm-card:end -->
+  </div> <!-- fm-card-container:end -->
+</article>

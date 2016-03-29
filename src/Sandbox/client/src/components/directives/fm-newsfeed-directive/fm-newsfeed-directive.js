@@ -1,16 +1,15 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('fm').directive('fmNewsfeed', ['fmDataService', function (fmDataService) {
+    angular.module('fm').directive('fmNewsfeed', [function () {
 
       return {
         restrict: 'E',
         templateUrl: 'views/fm-newsfeed-view.html',
+        scope: {
+          news: "="
+        },
         link: function (scope, elem, attrs) {
-
-         fmDataService.then(function (data) {
-           scope.news = data.newsitems;
-         });
 
         }
       }

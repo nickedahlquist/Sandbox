@@ -21,17 +21,23 @@
   }]);
 
   // Register controller.
-  angular.module('fm').controller('FmFundsCtrl', ['allData', FmFundsCtrl]);
+  angular.module('fm').controller('FmFundsCtrl', ['allData', 'fmUtilityFunctions', FmFundsCtrl]);
 
   // Define controller-function.
-  function FmFundsCtrl(allData) {
+  function FmFundsCtrl(allData, fmUtilityFunctions) {
 
     /* jshint validthis: true */
     var vm = this;
 
+    vm.cardMode = true;
     vm.fundData = allData.funds;
+
+    vm.getNumber = fmUtilityFunctions.intToArray;
+
+    vm.toggleCardMode = function () {
+      vm.cardMode = !vm.cardMode;
+    };
   }
 
 })();
-
 //# sourceMappingURL=fm-funds-controller.js.map

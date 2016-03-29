@@ -1,1 +1,66 @@
-﻿<fm-fund-gallery></fm-fund-gallery>
+﻿<section class="container-fluid section-padding fm-fund-gallery background-dark">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h2 class="text-center">Fonder</h2>
+      <p class="text-center">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal.</p>
+    </div>
+  </div>
+
+  <!-- button-row -->
+  <div class="row">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+      <div class="fm-fund-button-bar">
+        <button ng-click="fmFunds.toggleCardMode()" ng-class="{ 'button-active': fmFunds.cardMode }" class="fm-button button-accent"><span class="glyphicon glyphicon-th"></span> Kortvy</button>
+        <button ng-click="fmFunds.toggleCardMode()" ng-class="{ 'button-active': !fmFunds.cardMode }" class="fm-button button-accent"><span class="glyphicon glyphicon-list-alt"></span> Lista</button>
+      </div>
+    </div>
+  </div>
+  <!-- button-row:end -->
+  
+  <!-- fm-card -->
+  <div ng-show="fmFunds.cardMode" class="row">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+      <fm-fund-gallery funds="fmFunds.fundData"></fm-fund-gallery>
+    </div>
+  </div>
+  <!-- fm-card:end -->
+
+  <!-- fm-table -->
+  <div ng-show="!fmFunds.cardMode" class="row">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+
+      <table class="fm-table">
+
+        <thead>
+          <tr>
+            <th class="text-truncate">Fond</th>
+            <th class="text-right">Kurs</th>
+            <th class="text-center hidden-xs">Utv.</th>
+            <th class="text-center hidden-xs hidden-sm">Risk</th>
+            <th class="hidden-xs">Betyg</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="fund in fmFunds.fundData">
+            <td class="text-truncate">
+              <span class="fm-fund-table-title visible-md-inline-block visible-lg-inline-block">{{fund.manager}} - </span>
+              <span>{{fund.name}}</span>
+            </td>
+            <td class="text-right">{{fund.price}}</td>
+            <td class="text-center text-accent hidden-xs">{{fund.return}}</td>
+            <td class="text-center hidden-xs hidden-sm">{{fund.risk}}</td>
+            <td class="hidden-xs">
+              <span ng-repeat="i in fmFunds.getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- fm-table:end -->
+</section>
+
+
+

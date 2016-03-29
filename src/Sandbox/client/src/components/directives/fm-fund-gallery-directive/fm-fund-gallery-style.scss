@@ -1,7 +1,6 @@
 ﻿$fm-card-height: 42rem;
 
 .fm-fund-gallery {
-  background-color: $color-light-grey;
 
   .fm-fund-button-bar {
     margin: $layout-modifier-sm 15px;
@@ -181,10 +180,6 @@
   }
 
   .fm-fund-table-title {
-    display: none;
 
-    @media(min-width: $screen-md) {
-      display: inline-block;
-    }
   }
 }
