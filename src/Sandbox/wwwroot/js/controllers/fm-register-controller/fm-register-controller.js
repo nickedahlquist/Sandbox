@@ -1,31 +1,52 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular.module('fm').controller('FmRegisterController', ['$scope', '$http', 'fmConfig', 'fmAuthtokenFactory', function ($scope, $http, fmConfig, FmAuthtokenFactory) {
+  // Setup routing.
+  angular.module('fm').config(['$stateProvider', function ($stateProvider) {
 
-      $scope.submit = function () {
+    $stateProvider
+      .state('Skapa Konto', {
+        url: '/Skapa Konto',
+        controller: 'FmRegisterCtrl',
+        controllerAs: 'fmRegister',
+        templateUrl: 'views/fm-register-view.html',
+        sortOrder: 4
+      });
 
-        var url = fmConfig.node.url + ':' + fmConfig.node.port + '/register';
+  }]);
 
-        var user = {
-          name: $scope.name,
-          password: $scope.password
-        };
+  // Register controller.
+  angular.module('fm').controller('FmRegisterCtrl', ['$http', 'fmConfig', 'fmAuthtokenFactory', FmRegisterCtrl]);
 
-        $http.post(url, user).then(onSuccess, onError);
+  // Constuctor function.
+  function FmRegisterCtrl($http, fmConfig, fmAuthtokenFactory) {
 
-        function onSuccess(res) {
-          fmAuthtokenFactory.setToken(res.data.token);
-          //deferred.resolve(res);
-        }
+    /* jshint validthis: true */
+    var vm = this;
 
-        function onError(res) {
-          //deferred.reject(res);
-        }
+    vm.submit = function () {
 
+      var url = fmConfig.node.url + ':' + fmConfig.node.port + '/register';
+
+      var user = {
+        name: vm.name,
+        password: vm.password
       };
 
-    }]);
+      $http.post(url, user).then(onSuccess, onError);
+
+      function onSuccess(res) {
+        fmAuthtokenFactory.setToken(res.data.token);
+        //deferred.resolve(res);
+      }
+
+      function onError(res) {
+        console.log(res);
+      }
+
+    };
+
+  }
 
 })();
 

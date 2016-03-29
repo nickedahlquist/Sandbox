@@ -3,21 +3,21 @@
 
     angular.module('fm').service('$navlinksService', ['$state', function ($state) {
 
-      this.links = [];
+      var links = [];
 
-      var states = $state.get();
-      
-      function filterOut(val) {
-        var excludedValues = ['Skapa Konto'];
+      // Sort the navigation links based on the "sortOrder" property of each state.
+      var states = _.sortBy($state.get(), 'sortOrder');
 
-        return (excludedValues.indexOf(val) === -1) ? true : false;
-      }
-
+      // Filter out all states missing the "sortOrder" property.
       for (var key in states) {
-        if (states.hasOwnProperty(key) && states[key].name && filterOut(states[key].name)) {
-          this.links.push({ name: states[key].name, url: states[key].name });
+        if (states.hasOwnProperty(key) && states[key].sortOrder) {
+          links.push({ name: states[key].name, url: states[key].name });
         }
       }
+
+      this.getNavLinks = function () {
+        return links;
+      };
 
     }]);
 

@@ -1,12 +1,12 @@
-﻿<section class="section-padding fm-register" ng-controller="FmRegisterController">
+﻿<section class="section-padding fm-register">
   
   <div class="container">
     <div class="row">
       <h2 class="text-center">Skapa Konto</h2>
-      <form ng-submit="submit()" name="register" class="col-sm-4 col-sm-offset-4">
-        <input type="text" ng-model="name" name="name" placeholder="Användarnamn">
-        <input type="password" ng-model="password" name="password" placeholder="Lösenord">
-        <button class="fm-button button-accent">Skapa Konto</button>
+      <form ng-submit="fmRegister.submit()" name="register" class="col-sm-4 col-sm-offset-4">
+        <input type="text" ng-model="fmRegister.name" name="name" placeholder="Användarnamn">
+        <input type="password" ng-model="fmRegister.password" name="password" placeholder="Lösenord">
+        <input type="submit" class="fm-button button-accent" value="Skapa Konto" />
       </form>
     </div>
   </div>

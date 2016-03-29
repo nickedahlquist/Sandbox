@@ -203,7 +203,7 @@
 
 .fm-fund-search-modal {
   //background-color: rgba(42,187,174,0.98);
-  background-color: rgba(48,68,76,0.95);
+  background-color: rgba(48,68,76,1);
   //overflow-y: scroll;
   
   #fm-logo {
@@ -219,7 +219,7 @@
     margin: auto;
 
     #logo-group {
-      opacity: 0.1;
+      opacity: 0.02;
 
       path {
         fill: $color-white;

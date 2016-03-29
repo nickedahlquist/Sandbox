@@ -9190,7 +9190,7 @@ p {
           transition: opacity 300ms ease-out; }
 
 .fm-fund-search-modal {
-  background-color: rgba(48, 68, 76, 0.95); }
+  background-color: #30444c; }
   .fm-fund-search-modal #fm-logo {
     position: absolute;
     height: 150%;
@@ -9203,7 +9203,7 @@ p {
     right: 0;
     margin: auto; }
     .fm-fund-search-modal #fm-logo #logo-group {
-      opacity: 0.1; }
+      opacity: 0.02; }
       .fm-fund-search-modal #fm-logo #logo-group path {
         fill: #FFF; }
   .fm-fund-search-modal .fm-fund-search-wrapper {

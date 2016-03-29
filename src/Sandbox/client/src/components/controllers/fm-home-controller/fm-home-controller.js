@@ -1,18 +1,36 @@
 ﻿(function () {
-    'use strict';
+  'use strict';
 
-    angular.module('fm').controller('FmHomeController', ['$scope', '$rootScope', 'fmDataService', function ($scope, $rootScope, fmDataService) {
+  // Setup routing.
+  angular.module('fm').config(['$stateProvider', function ($stateProvider) {
 
-      $scope.home = {
-        title: 'Hem',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-      };
-
-      fmDataService.then(function (data) {
-        $scope.funds = data.funds;
+    $stateProvider
+      .state('Hem', {
+        url: '/Hem',
+        controller: 'FmHomeCtrl',
+        controllerAs: 'fmHome',
+        templateUrl: 'views/fm-home-view.html',
+        sortOrder: 1
       });
 
+  }]);
 
-    }]);
+  // Register controller.
+  angular.module('fm').controller('FmHomeCtrl', ['fmDataService', FmHomeCtrl]);
+
+  // Define controller-function.
+  function FmHomeCtrl(fmDataService) {
+
+    /* jshint validthis: true */
+    var vm = this;
+
+    vm.title = 'Hem';
+    vm.content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
+
+    fmDataService.then(function (data) {
+      vm.funds = data.funds;
+    });
+
+  }
 
 })();

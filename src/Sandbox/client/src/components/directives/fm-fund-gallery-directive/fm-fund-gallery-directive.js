@@ -11,8 +11,6 @@
           var buttonbar = $('.fm-fund-button-bar'),
               button = buttonbar.find('.fm-button');
 
-          console.log(button);
-
           button.on('click', function () {
             button.each(function () {
               if ($(this).hasClass('button-active')) {

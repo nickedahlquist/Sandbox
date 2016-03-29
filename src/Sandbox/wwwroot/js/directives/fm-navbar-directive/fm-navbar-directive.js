@@ -8,7 +8,7 @@
         templateUrl: 'views/fm-navbar-view.html',
         link: function (scope, elem, attrs) {
 
-          scope.navbarlinks = $navlinksService.links;
+          scope.navbarlinks = $navlinksService.getNavLinks();
 
           scope.isAuthenticated = function () {
             return fmAuthtokenFactory.isAuthenticated();
