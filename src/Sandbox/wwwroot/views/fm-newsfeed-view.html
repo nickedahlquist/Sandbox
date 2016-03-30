@@ -6,18 +6,18 @@
     <div class="row">
       <article ng-repeat="newsitem in news" class="col-md-12 col-lg-4 fm-news-item">
         <div class="inner">
-          <h6 class="fa-news-date">{{newsitem.timestamp}}</h6>
+          <h6 class="fa-news-date">{{newsitem.PublishDate | limitTo : 10}}</h6>
           <h4 class="fm-news-headline">
-            <a href="#">{{newsitem.headline}}</a>
+            <a href="#">{{newsitem.Title}}</a>
           </h4>
           <p class="fm-news-content">
-            <a href="#">{{newsitem.content | limitTo : 150}}...</a>
+            <a href="#">{{newsitem.NewsText | limitTo : 150}}...</a>
           </p>
 
           <hr class="hidden-xs" />
           <div class="fm-news-tag hidden-xs">
-            <a class="fm-news-tag-name" href="#" ng-repeat="tag in newsitem.tags">
-              <span class="fm-news-tag-icon glyphicon glyphicon-tag"></span> {{tag}}
+            <a class="fm-news-tag-name" href="#" ng-repeat="tag in newsitem.Socialtags">
+              <span class="fm-news-tag-icon glyphicon glyphicon-tag"></span> {{tag.SocialTag}}
             </a>
           </div>
 
