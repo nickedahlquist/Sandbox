@@ -30,6 +30,8 @@
 
     vm.newsItems = newsData;
 
+    console.log(vm.newsItems);
+
   }
 
 })();
