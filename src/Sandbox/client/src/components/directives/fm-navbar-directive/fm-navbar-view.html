@@ -1,4 +1,4 @@
-﻿<div class="fm-navbar animated fadeInDownBig">
+﻿<div class="fm-navbar">
   <nav>
     <ul>
       <li>
@@ -13,7 +13,27 @@
       </li>
       <li class="hidden-xs" ng-repeat="link in navbarlinks"><a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a></li>
       <!--<li><a ng-if="isAuthenticated()" href="" ng-click="logOut()">Logga ut</a></li>
-    <li><a ng-if="!isAuthenticated()" ui-sref-active="fm-navbar-active" ui-sref="Skapa Konto">Skapa Konto</a></li>-->
+      <li><a ng-if="!isAuthenticated()" ui-sref-active="fm-navbar-active" ui-sref="Skapa Konto">Skapa Konto</a></li>-->
+    </ul>
+  </nav>
+</div>
+
+<div class="fm-navbar navbar-sticky">
+  <nav>
+    <ul>
+      <li>
+        <a href="" ng-click="openSearchModal()">
+          <span class="glyphicon glyphicon-search"></span>
+        </a>
+      </li>
+      <li class="fm-navbar-menu-button">
+        <a href="" ng-click="openMenuModal()">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </a>
+      </li>
+      <li class="hidden-xs" ng-repeat="link in navbarlinks"><a ui-sref-active="fm-navbar-active" ui-sref="{{link.url}}">{{link.name}}</a></li>
+      <!--<li><a ng-if="isAuthenticated()" href="" ng-click="logOut()">Logga ut</a></li>
+      <li><a ng-if="!isAuthenticated()" ui-sref-active="fm-navbar-active" ui-sref="Skapa Konto">Skapa Konto</a></li>-->
     </ul>
   </nav>
 </div>

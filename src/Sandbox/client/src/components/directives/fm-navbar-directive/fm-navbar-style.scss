@@ -1,12 +1,26 @@
 ﻿.fm-navbar {
-  position: fixed;
   width: 100%;
   padding: $layout-modifier-sm 0;
-  margin: auto;
-  top: 0;
   z-index: 10;
   background-color: $color-white;
   border-bottom: 1px $color-light-grey-shade solid;
+  position: relative;
+
+  &.navbar-sticky {
+    position: fixed !important;
+    top: 0;
+    margin: auto;
+    opacity: 0;
+    background-color: red;
+    transform: translate3d(0, -79px, 0);
+    transition: transform $animation-transition-short ease-out, opacity $animation-transition-long ease-out;
+
+    &.navbar-slide-up {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition: transform $animation-transition-short ease-in, opacity $animation-transition-long ease-in;
+    }
+  }
 
   nav {
 

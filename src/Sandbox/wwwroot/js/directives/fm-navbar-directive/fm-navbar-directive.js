@@ -8,6 +8,23 @@
         templateUrl: 'views/fm-navbar-view.html',
         link: function (scope, elem, attrs) {
 
+          var w = $(window),
+              navbar = $('.navbar-sticky');
+
+          function headerBgScroll() {
+            var scroll = w.scrollTop(),
+                scrollTriggerDistance = 500;
+
+            if (scroll >= scrollTriggerDistance) {
+              navbar.addClass('navbar-slide-up');
+            }
+            else {
+              navbar.removeClass('navbar-slide-up');
+            }
+          }
+
+          w.on('scroll', headerBgScroll);
+
           scope.navbarlinks = $navlinksService.getNavLinks();
 
           scope.isAuthenticated = function () {
