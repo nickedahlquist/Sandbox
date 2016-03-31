@@ -1,31 +1,26 @@
-﻿.fm-navbar {
+﻿$navbar-height: 6.5rem;
+
+.fm-navbar-offset {
+  margin-top: $navbar-height;
+}
+
+.fm-navbar {
   width: 100%;
-  padding: $layout-modifier-sm 0;
   z-index: 10;
   background-color: $color-white;
   border-bottom: 1px $color-light-grey-shade solid;
-  position: relative;
-
-  &.navbar-sticky {
-    position: fixed !important;
-    top: 0;
-    margin: auto;
-    opacity: 0;
-    background-color: red;
-    transform: translate3d(0, -79px, 0);
-    transition: transform $animation-transition-short ease-out, opacity $animation-transition-long ease-out;
-
-    &.navbar-slide-up {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      transition: transform $animation-transition-short ease-in, opacity $animation-transition-long ease-in;
-    }
-  }
+  position: fixed;
+  margin: auto;
+  top: 0;
+  height: $navbar-height;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
   nav {
 
     ul {
-      text-align: right;
+      text-align: center;
 
       li {
         display: inline-block;
@@ -57,9 +52,9 @@
 
           &.fm-navbar-active:before {
             content: " ";
-            border-top: solid 1rem $color-accent;
+            border-top: solid 0.5rem $color-accent;
             position: absolute;
-            top: -3.5rem;
+            top: ($navbar-height / 2.5) * -1;
             display: inline;
             width: 100%;
           }
@@ -150,8 +145,6 @@
 
 .fm-fund-menu-modal {
   background-color: rgba(0, 0, 0, 0.9);
-
-
 
   nav {
     position: fixed;

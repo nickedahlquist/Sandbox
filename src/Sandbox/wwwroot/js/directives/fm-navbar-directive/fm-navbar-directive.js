@@ -8,6 +8,7 @@
         templateUrl: 'views/fm-navbar-view.html',
         link: function (scope, elem, attrs) {
 
+          /*
           var w = $(window),
               navbar = $('.navbar-sticky');
 
@@ -23,7 +24,7 @@
             }
           }
 
-          w.on('scroll', headerBgScroll);
+          w.on('scroll', headerBgScroll);*/
 
           scope.navbarlinks = $navlinksService.getNavLinks();
 
