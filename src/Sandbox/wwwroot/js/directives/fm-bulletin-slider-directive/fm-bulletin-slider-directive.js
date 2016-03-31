@@ -26,24 +26,22 @@
 
           });
 
-          var swiper;
+          function initSlider() {
+            var owl = $('.owl-carousel'),
+                options = {
+                  items: 1,
+                  loop: true,
+                  margin: 10,
+                  autoplay: true,
+                  autoplayTimeout: 3000,
+                  autoplayHoverPause: true
+                };
 
-          function initSwiper() {
+            owl.owlCarousel(options);
+           }
 
-            var options = {
-              speed: 4000,
-              effect: 'slide',
-              spaceBetween: 100,
-              centeredSlides: true,
-              autoplay: 40,
-              loop: true,
-              autoplayDisableOnInteraction: false
-            };
+          $timeout(initSlider, 0);
 
-            swiper = new Swiper('.swiper-container', options);
-          }
-
-          $timeout(initSwiper, 0);
         }
       }
     }]);

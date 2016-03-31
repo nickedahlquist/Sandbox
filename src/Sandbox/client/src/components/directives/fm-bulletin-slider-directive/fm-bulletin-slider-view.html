@@ -1,4 +1,16 @@
 ﻿<div class="fm-bulletin-slider">
+  <div class="owl-carousel">
+    <p class="fm-bulletin-slider-text" ng-repeat="upfund in up">
+      {{upfund.manager}}
+      <span class="text-accent"> {{upfund.yield}}</span>
+    </p>
+  </div>
+</div>
+
+
+
+<!--
+<div class="fm-bulletin-slider">
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" ng-repeat="upfund in up">
@@ -10,3 +22,4 @@
     </div>
   </div>
 </div>
+-->

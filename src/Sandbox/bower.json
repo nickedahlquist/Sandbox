@@ -14,7 +14,7 @@
     "bootstrap-sass": "^3.3.6",
     "animate.css": "^3.3.6",
     "bourbon": "~4.2.6",
-    "swiper": "^3.3.1",
+    "owl-carousel2": "^2.0.0-beta.3",
     "underscore": "^1.8.3",
     "angular": "^1.5.0",
     "angular-animate": "^1.5.0",
