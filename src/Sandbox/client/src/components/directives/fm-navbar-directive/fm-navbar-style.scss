@@ -9,13 +9,17 @@
   z-index: 10;
   background-color: $color-white;
   border-bottom: 1px $color-light-grey-shade solid;
-  position: fixed;
-  margin: auto;
-  top: 0;
   height: $navbar-height;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  transition: padding $animation-transition-medium ease-in-out;
+
+  &.navbar-fixed {
+    position: fixed;
+    margin: auto;
+    top: 0;
+  }
 
   nav {
 

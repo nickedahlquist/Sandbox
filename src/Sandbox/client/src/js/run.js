@@ -12,7 +12,7 @@
   angular.module('fm').run(['$rootScope', initRun]);
 
   function initRun($rootScope) {
-    $rootScope.store = 0;
+    //$rootScope.navbarIsFixed = false;
   }
 
 })();

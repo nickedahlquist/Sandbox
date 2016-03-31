@@ -8,23 +8,27 @@
         templateUrl: 'views/fm-navbar-view.html',
         link: function (scope, elem, attrs) {
 
-          /*
           var w = $(window),
-              navbar = $('.navbar-sticky');
+              navbar = $('.fm-navbar');
+
+          $rootScope.navbarIsFixed = navbar.hasClass('navbar-fixed');
+
 
           function headerBgScroll() {
             var scroll = w.scrollTop(),
-                scrollTriggerDistance = 500;
+                scrollTriggerDistance = 30;
 
             if (scroll >= scrollTriggerDistance) {
-              navbar.addClass('navbar-slide-up');
+              //navbar.addClass('navbar-slide-up');
+              //navbar.css({ 'padding': '4rem 0' });
             }
             else {
-              navbar.removeClass('navbar-slide-up');
+              //navbar.removeClass('navbar-slide-up');
+              //navbar.css({ 'padding': '0' });
             }
           }
 
-          w.on('scroll', headerBgScroll);*/
+          w.on('scroll', headerBgScroll);
 
           scope.navbarlinks = $navlinksService.getNavLinks();
 

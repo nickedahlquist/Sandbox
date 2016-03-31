@@ -18,7 +18,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
   <fm-navbar></fm-navbar>
-  <main class="fm-navbar-offset" ui-view></main>
+  <main ng-class="{ 'fm-navbar-offset' : navbarIsFixed }" ui-view></main>
   <fm-footer></fm-footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -50,6 +50,7 @@
   <script src="/js/controllers/fm-news-controller/fm-news-controller.js"></script>
   <script src="/js/controllers/fm-register-controller/fm-register-controller.js"></script>
   <script src="/js/controllers/fm-single-newspost-controller/fm-single-newspost-controller.js"></script>
+  <script src="/js/directives/fm-bulletin-slider-directive/fm-bulletin-slider-directive.js"></script>
   <script src="/js/directives/fm-footer-directive/fm-footer-directive.js"></script>
   <script src="/js/directives/fm-fund-gallery-directive/fm-fund-gallery-directive.js"></script>
   <script src="/js/directives/fm-hero-directive/fm-hero-directive.js"></script>
@@ -57,7 +58,6 @@
   <script src="/js/directives/fm-market-overview-directive/fm-market-overview-directive.js"></script>
   <script src="/js/directives/fm-navbar-directive/fm-navbar-directive.js"></script>
   <script src="/js/directives/fm-newsfeed-directive/fm-newsfeed-directive.js"></script>
-  <script src="/js/directives/fm-bulletin-slider-directive/fm-bulletin-slider-directive.js"></script>
   <!-- endinject -->
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
