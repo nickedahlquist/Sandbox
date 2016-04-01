@@ -10,6 +10,11 @@
         controller: 'FmSingleNewsPostCtrl',
         controllerAs: 'fmNews',
         templateUrl: 'views/fm-single-newspost-view.html',
+        resolve: {
+          $title: function () {
+            return 'Nyhetspost';
+          }
+        }
       });
 
     // Register controller.

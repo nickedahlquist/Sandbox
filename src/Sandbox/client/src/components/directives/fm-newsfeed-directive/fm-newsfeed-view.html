@@ -1,32 +1,23 @@
-﻿<section class="container-fluid section-padding fm-newsfeed">
-  <div class="col-sm-10 col-sm-offset-1">
-    <h2 class="text-center fm-news-title">Nyheter</h2>
-    <p class="text-center fm-news-subtitle">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal.</p>
+﻿<article ng-repeat="newsitem in news" class="col-md-12 col-lg-4 fm-news-item">
+  <div class="inner">
+    <h6 class="fa-news-date">{{newsitem.PublishDate | limitTo : 10}}</h6>
+    <h4 class="fm-news-headline">
+      <a href="#">{{newsitem.Title}}</a>
+    </h4>
+    <p class="fm-news-content">
+      <a href="#">{{newsitem.NewsText | limitTo : 150}}...</a>
+    </p>
 
-    <div class="row">
-      <article ng-repeat="newsitem in news" class="col-md-12 col-lg-4 fm-news-item">
-        <div class="inner">
-          <h6 class="fa-news-date">{{newsitem.PublishDate | limitTo : 10}}</h6>
-          <h4 class="fm-news-headline">
-            <a href="#">{{newsitem.Title}}</a>
-          </h4>
-          <p class="fm-news-content">
-            <a href="#">{{newsitem.NewsText | limitTo : 150}}...</a>
-          </p>
-
-          <hr class="hidden-xs" />
-          <div class="fm-news-tag hidden-xs">
-            <a class="fm-news-tag-name" href="#" ng-repeat="tag in newsitem.Socialtags">
-              <span class="fm-news-tag-icon glyphicon glyphicon-tag"></span> {{tag.SocialTag}}
-            </a>
-          </div>
-
-        </div>
-      </article>
-    </div>
-    <div class="row">
-      <a href="" ui-sref="Nyheter" class="fm-button">Visa alla</a>
+    <hr class="hidden-xs" />
+    <div class="fm-news-tag hidden-xs">
+      <a class="fm-news-tag-name" href="#" ng-repeat="tag in newsitem.Socialtags">
+        <span class="fm-news-tag-icon glyphicon glyphicon-tag"></span> {{tag.SocialTag}}
+      </a>
     </div>
 
   </div>
-</section>
+</article>
+
+<div style="border: 1px red solid; clear: both;">
+  <a href="" ui-sref="Nyheter" class="fm-button fm-news-button">Visa alla</a>
+</div>

@@ -10,6 +10,11 @@
         controller: 'FmRegisterCtrl',
         controllerAs: 'fmRegister',
         templateUrl: 'views/fm-register-view.html',
+        resolve: {
+          $title: function () {
+            return 'Skapa Konto';
+          },
+        },
         sortOrder: 4
       });
 

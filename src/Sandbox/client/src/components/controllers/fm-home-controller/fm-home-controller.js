@@ -10,6 +10,11 @@
         controller: 'FmHomeCtrl',
         controllerAs: 'fmHome',
         templateUrl: 'views/fm-home-view.html',
+        resolve: {
+          $title: function () {
+            return 'Hem';
+          },
+        },
         sortOrder: 1
       });
 

@@ -11,6 +11,9 @@
         controllerAs: 'fmFunds',
         templateUrl: 'views/fm-funds-view.html',
         resolve: {
+          $title: function () {
+            return 'Fonder';
+          },
           allData: function (fmDataService) {
             return fmDataService;
           }

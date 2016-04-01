@@ -11,6 +11,9 @@
         controllerAs: 'fmMarket',
         templateUrl: 'views/fm-market-view.html',
         resolve: {
+          $title: function () {
+              return 'Marknaden';
+          },
           allData: function (fmDataService) {
               return fmDataService;
           },

@@ -10,6 +10,9 @@
         controller: 'FmNewsCtrl',
         controllerAs: 'fmNews',
         resolve: {
+          $title: function () {
+            return 'Nyheter';
+          },
           newsData: function (fmNewsService) {
             return fmNewsService.getNews();
           }
