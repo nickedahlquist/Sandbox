@@ -14,8 +14,7 @@
           $title: function () {
             return 'Skapa Konto';
           },
-        },
-        sortOrder: 4
+        }
       });
 
   }]);
