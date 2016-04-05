@@ -9,7 +9,7 @@
         scope: {
           funds: '='
         },
-        link: function (scope, element, attribute) {
+        link: function (scope, element, attrs) {
           scope.getNumber = fmUtilityFunctions.intToArray;
         }
       }

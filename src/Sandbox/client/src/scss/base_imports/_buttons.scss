@@ -1,21 +1,28 @@
 ﻿/*
  * _buttons.scss
- * ============
+ * =============
  * 
  */
 
 .fm-button {
-  border-radius: $layout-modifier-xs;
+  border-radius: $border-radius-sm;
   background-color: $color-dark-grey;
   color: $color-white;
   text-transform: uppercase;
   font-weight: $font-weight-semibold;
-  letter-spacing: $layout-modifier-xs;
+  letter-spacing: $font-letter-spacing;
   font-size: $font-size-h6;
-  padding: 1.5rem 6rem;
+  padding: 1rem $layout-modifier-sm;
   outline: 0;
   border: 0;
   transition: background-color ease-in-out $animation-transition-short;
+  margin: 0 auto $layout-modifier-sm auto;
+  width: 100%;
+
+  @media(min-width: $screen-sm) {
+    width: auto;
+    margin: 0 0 $layout-modifier-sm 0;
+  }
 
   &:hover, &:active {
     background-color: $color-black;
@@ -38,6 +45,14 @@
     &:hover, &:active {
       background-color: $color-accent-shade;
       color: $color-white;
+    }
+  }
+
+  &.button-left-margin {
+    margin-right: 0;
+    
+    @media(min-width: $screen-sm) {
+      margin-right: $layout-modifier-sm / 2;
     }
   }
 }

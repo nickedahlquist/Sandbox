@@ -22,20 +22,19 @@ $font-size-h5: 1.8rem;
 $font-size-h6: 1.2rem;
 $font-size-base: 1.8rem;
 
-/*
-$font-size-base: 1.8rem;
-$font-size-modifier: $ratio-golden;
-
-// Sizes
-$font-size-h6: $font-size-base / $font-size-modifier;
-$font-size-h5: $font-size-base;
-$font-size-h4: $font-size-base * $font-size-modifier;
-$font-size-h3: $font-size-h4 * $font-size-modifier;
-$font-size-h2: $font-size-h3 * $font-size-modifier;
-$font-size-h1: $font-size-h2 * $font-size-modifier;*/
+/*$font-size-h1: 4.8rem;
+$font-size-h2: 3.6rem;
+$font-size-h3: 2.8rem;
+$font-size-h4: 1.8rem;
+$font-size-h5: 1.6rem;
+$font-size-h6: 1.4rem;
+$font-size-base: 1.6rem;*/
 
 // Line Height (keep unitless)
 $font-line-height: 1.667;
+
+// Letter Spacing
+$font-letter-spacing: 0.3rem;
 
 /*---------------------------
   Font-stacks:                     

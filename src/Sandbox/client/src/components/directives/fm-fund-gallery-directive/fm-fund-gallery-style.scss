@@ -19,24 +19,6 @@
     margin-bottom: $layout-modifier-lg;
     transition: $animation-transition-long ease-in background-color;
 
-    /*
-    &.ng-enter, &.ng-leave {
-      transition: $animation-transition-long ease-in all;
-      position: relative;
-      display: block;
-    }
-
-    &.ng-enter.ng-enter-active, &.ng-leave {
-      top: 0;
-      opacity: 1;
-    }
-
-    &.ng-leave.ng-leave-active, &.ng-enter {
-      top: 200px;
-      opacity: 0;
-    }*/
-
-
     .fm-fund-card-container {
       perspective: 80rem;
       width: 100%;

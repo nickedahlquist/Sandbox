@@ -1,0 +1,9 @@
+﻿<div class="generator-progressbar">
+  <ul>
+    <li ng-repeat="step in steps.totalSteps" data-step="{{$index + 1}}" ng-class="{'active': (steps.currentStep >= $index + 1), 'hidden-xs': (steps.currentStep !== $index + 1)}">
+      {{step.stepTitle}}
+    </li>
+  </ul>
+</div>
+
+

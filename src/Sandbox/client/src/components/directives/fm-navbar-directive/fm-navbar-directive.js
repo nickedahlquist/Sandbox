@@ -6,7 +6,7 @@
       return {
         restrict: 'E',
         templateUrl: 'views/fm-navbar-view.html',
-        link: function (scope, elem, attrs) {
+        link: function (scope, element, attrs) {
 
           var w = $(window),
               navbar = $('.fm-navbar');

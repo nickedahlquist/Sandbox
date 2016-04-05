@@ -9,7 +9,7 @@
         scope: {
           news: "="
         },
-        link: function (scope, elem, attrs) {
+        link: function (scope, element, attrs) {
 
         }
       }

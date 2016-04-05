@@ -6,7 +6,7 @@
       return {
         restrict: 'E',
         templateUrl: 'views/fm-hero-view.html',
-        link: function (scope, elem, attrs) {
+        link: function (scope, element, attrs) {
           scope.title = 'Framtiden i fokus';
           scope.subtitle = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
         }

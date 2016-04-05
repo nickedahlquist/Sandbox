@@ -1,0 +1,33 @@
+﻿/*
+ * _icons.scss
+ * ===========
+ * 
+ */
+
+$icon-basename: 'et-line';
+$icon-path: '../fonts/#{$icon-basename}/#{$icon-basename}';
+
+@font-face {
+  font-family: $icon-basename;
+  src: url('#{$icon-path}.eot');
+  src: url('#{$icon-path}.eot?#iefix') format('embedded-opentype'), 
+       url('#{$icon-path}.woff') format('woff'), 
+       url('#{$icon-path}.ttf') format('truetype'), 
+       url('#{$icon-path}.svg#et-line') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: $icon-basename;
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+}
+

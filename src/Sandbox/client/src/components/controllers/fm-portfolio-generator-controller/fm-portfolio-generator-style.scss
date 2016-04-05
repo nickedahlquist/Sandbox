@@ -1,0 +1,84 @@
+﻿.step1, .step2, .step3, .step4 {
+  display: none;
+
+  &.show-step {
+    display: block;
+  }
+} 
+
+.fund-package {
+  border: 1px $color-light-grey-shade solid;
+  border-radius: 0.4rem;
+  margin-bottom: $layout-modifier-sm;
+  background-color: $color-white;
+  overflow: hidden;
+
+  .fund-package-header {
+    display: flex;
+    align-items: center;
+    padding: $layout-modifier-sm/2;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .fund-package-icon {
+      font-size: 3rem;
+      color: $color-accent;
+      line-height: 1.8rem;
+      padding: 0.5rem 1.5rem 0 0;
+    }
+
+    .fund-package-lable-group {
+      width: 100%;
+
+      @media(min-width: $screen-sm) {
+        width: 30%;
+      }
+
+      .fund-package-name {
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        color: $color-dark-grey;
+        line-height: 1.8rem;
+        margin: 0;
+        padding: 0;
+
+        br, .fund-package-type {
+          display: none;
+
+          @media(min-width: $screen-sm) {
+            display: inline;
+          }
+        }
+
+        .fund-package-type {
+          text-transform: uppercase;
+          font-size: 1rem;
+          letter-spacing: 0.3rem;
+          color: $color-text-primary;
+        }
+      }
+    }
+
+    .fund-package-header-description {
+      font-size: 1.4rem;
+      margin: 0;
+      padding: 0;
+      display: none;
+
+      @media(min-width: $screen-sm) {
+        width: 70%;
+        display: block;
+      }
+    }
+  }
+
+  .fund-package-content {
+    padding: $layout-modifier-sm;
+
+    .pie-chart {
+      
+    }
+  }
+}
