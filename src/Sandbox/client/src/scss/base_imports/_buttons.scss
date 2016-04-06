@@ -24,15 +24,23 @@
     margin: 0 0 $layout-modifier-sm 0;
   }
 
-  &:hover, &:active {
+  &:hover:enabled, &:active {
     background-color: $color-black;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 
   &.button-light {
     background-color: transparent;
     border: 1px solid $color-white;
 
-    &:hover, &:active {
+    &:hover:enabled, &:active {
       background-color: rgba(255, 255, 255, 0.15);
       color: $color-white;
     }
@@ -42,7 +50,7 @@
     background-color: $color-accent;
     border: 0;
 
-    &:hover, &:active {
+    &:hover:enabled, &:active {
       background-color: $color-accent-shade;
       color: $color-white;
     }

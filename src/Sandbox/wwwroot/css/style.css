@@ -8414,18 +8414,22 @@ p {
     .fm-button {
       width: auto;
       margin: 0 0 2.4rem 0; } }
-  .fm-button:hover, .fm-button:active {
+  .fm-button:hover:enabled, .fm-button:active {
     background-color: #172039; }
+  .fm-button:disabled {
+    opacity: 0.7; }
+    .fm-button:disabled:hover {
+      cursor: not-allowed; }
   .fm-button.button-light {
     background-color: transparent;
     border: 1px solid #FFF; }
-    .fm-button.button-light:hover, .fm-button.button-light:active {
+    .fm-button.button-light:hover:enabled, .fm-button.button-light:active {
       background-color: rgba(255, 255, 255, 0.15);
       color: #FFF; }
   .fm-button.button-accent {
     background-color: #2ABBAE;
     border: 0; }
-    .fm-button.button-accent:hover, .fm-button.button-accent:active {
+    .fm-button.button-accent:hover:enabled, .fm-button.button-accent:active {
       background-color: #22968b;
       color: #FFF; }
   .fm-button.button-left-margin {
@@ -8606,12 +8610,92 @@ p {
   .step1.show-step, .step2.show-step, .step3.show-step, .step4.show-step {
     display: block; }
 
+.step1 .fund-generator-user-data {
+  text-align: center;
+  font-size: 3.7rem;
+  line-height: 8rem;
+  font-weight: 300; }
+  .step1 .fund-generator-user-data .user-input {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap; }
+    .step1 .fund-generator-user-data .user-input .input-error-message {
+      display: inline-block;
+      position: absolute;
+      bottom: -1.2rem;
+      left: 0;
+      right: 0;
+      width: auto;
+      margin: auto;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.1rem;
+      line-height: normal;
+      color: #DF574B;
+      opacity: 0; }
+    .step1 .fund-generator-user-data .user-input input {
+      display: inline-block;
+      text-align: center;
+      color: #2ABBAE;
+      padding: 0;
+      background-color: transparent;
+      font-size: inherit;
+      line-height: normal;
+      font-weight: 300;
+      border-style: solid;
+      border-width: 0 0 1px 0;
+      border-color: #d0cece;
+      transition: all .3s ease-in-out;
+      width: 20rem; }
+      .step1 .fund-generator-user-data .user-input input:hover {
+        border-color: #898484; }
+      .step1 .fund-generator-user-data .user-input input:focus {
+        outline: 0; }
+      .step1 .fund-generator-user-data .user-input input.input-short {
+        width: 5rem; }
+      .step1 .fund-generator-user-data .user-input input.input-error {
+        color: #DF574B;
+        border-color: #DF574B; }
+        .step1 .fund-generator-user-data .user-input input.input-error:hover, .step1 .fund-generator-user-data .user-input input.input-error:focus, .step1 .fund-generator-user-data .user-input input.input-error:active {
+          border-color: #DF574B !important;
+          outline-color: #DF574B !important; }
+      .step1 .fund-generator-user-data .user-input input::-webkit-inner-spin-button, .step1 .fund-generator-user-data .user-input input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0; }
+
+.step1 .fm-button {
+  display: block;
+  margin: 0 auto; }
+
+.fund-package-panel-header {
+  background-color: #2ABBAE;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 2.4rem;
+  border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem; }
+  .fund-package-panel-header p {
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    color: #FFF;
+    line-height: 1.8rem;
+    margin: 0;
+    padding: 0; }
+
 .fund-package {
   border: 1px #e6e6e4 solid;
   border-radius: 0.4rem;
   margin-bottom: 2.4rem;
   background-color: #FFF;
   overflow: hidden; }
+  .fund-package.no-border-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0; }
   .fund-package .fund-package-header {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8691,6 +8775,45 @@ p {
     .fm-register form .fm-button {
       width: 100%; }
 
+.fm-bulletin-slider {
+  background-color: #303E4C;
+  padding: 2.4rem 0;
+  position: relative;
+  text-align: center; }
+  .fm-bulletin-slider .fm-bulletin-slider-text {
+    color: #FFF;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 1.8rem; }
+    @media (min-width: 768px) {
+      .fm-bulletin-slider .fm-bulletin-slider-text {
+        font-size: 2.3rem; } }
+
+/*.fm-bulletin-slider {
+  background-color: $color-dark-grey;
+  padding: $layout-modifier-sm 0;
+  position: relative;
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+
+    .fm-bulletin-slider-text {
+      color: $color-white;
+      margin: 0 auto;
+      padding: 0;
+      font-size: $font-size-base;
+
+      @media(min-width: $screen-sm) {
+        font-size: $font-size-h4;
+      }
+    }
+  }
+}*/
 .fm-footer {
   background-color: #303E4C;
   color: #FFF; }
@@ -8777,45 +8900,6 @@ p {
       .fm-footer .fm-contact-form button[type=submit] {
         width: auto; } }
 
-.fm-bulletin-slider {
-  background-color: #303E4C;
-  padding: 2.4rem 0;
-  position: relative;
-  text-align: center; }
-  .fm-bulletin-slider .fm-bulletin-slider-text {
-    color: #FFF;
-    margin: 0 auto;
-    padding: 0;
-    font-size: 1.8rem; }
-    @media (min-width: 768px) {
-      .fm-bulletin-slider .fm-bulletin-slider-text {
-        font-size: 2.3rem; } }
-
-/*.fm-bulletin-slider {
-  background-color: $color-dark-grey;
-  padding: $layout-modifier-sm 0;
-  position: relative;
-
-  .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    text-align: center;
-
-    .fm-bulletin-slider-text {
-      color: $color-white;
-      margin: 0 auto;
-      padding: 0;
-      font-size: $font-size-base;
-
-      @media(min-width: $screen-sm) {
-        font-size: $font-size-h4;
-      }
-    }
-  }
-}*/
 .fm-fund-gallery .fm-fund-button-bar {
   margin: 2.4rem 15px; }
   .fm-fund-gallery .fm-fund-button-bar button {
@@ -9088,7 +9172,7 @@ p {
 .fm-market-overview .fm-table tbody tr {
   transition: background-color 0.2s linear; }
   .fm-market-overview .fm-table tbody tr:hover {
-    background-color: #b8b5b5;
+    background-color: #d0cece;
     color: #6e6a6a;
     transition: background-color 0.2s linear; }
     .fm-market-overview .fm-table tbody tr:hover td .fm-fund-yield {
@@ -9447,7 +9531,7 @@ p {
         -ms-flex-pack: justify;
         justify-content: space-between; } }
     .generator-progressbar ul li {
-      color: #b8b5b5;
+      color: #d0cece;
       text-align: center;
       transition: color 300ms ease-in;
       font-size: 1.2rem;
@@ -9467,7 +9551,7 @@ p {
         right: 0;
         border-radius: 100%;
         color: #FFF;
-        background-color: #b8b5b5;
+        background-color: #d0cece;
         transition: background-color 300ms ease-in;
         z-index: 2; }
       .generator-progressbar ul li:after {
@@ -9482,7 +9566,7 @@ p {
             top: -2.4rem;
             left: 50%;
             right: 0;
-            background-color: #b8b5b5; } }
+            background-color: #d0cece; } }
       .generator-progressbar ul li:last-of-type:after {
         content: none; }
       .generator-progressbar ul li.active {

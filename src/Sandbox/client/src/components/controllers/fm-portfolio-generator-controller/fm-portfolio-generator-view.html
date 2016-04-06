@@ -1,5 +1,5 @@
 ﻿
-<section class="background-dark section-padding" style="padding-top: 2.5rem;">
+<section class="background-light section-padding" style="padding-top: 2.5rem;">
   <!-- Fix later -->
 
   <div class="container">
@@ -14,15 +14,32 @@
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
 
-        <div class="step1" ng-class="{ 'show-step': fmPortfolio.steps.currentStep === 1 }">
+        <div class="step1" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 1 }">
           <div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-              <h3 class="text-center">Steg {{fmPortfolio.steps.currentStep}}</h3>
+
+              <div class="fund-generator-user-data section-padding">
+                <span class="user-input">
+                  Jag är
+                    <input type="tel" ng-model="fmPortfolio.userData.age.value" ng-blur="fmPortfolio.validateAge()" ng-class="{ 'input-error' : fmPortfolio.userData.age.errorMessage }" class="input-short" placeholder="" maxlength="2" name="age">
+                    <span class="input-error-message animated" ng-class="{ 'fadeInUp' : fmPortfolio.userData.age.errorMessage}">{{fmPortfolio.userData.age.errorMessage}}</span>
+                  år gammal.
+                </span>
+
+                <span class="user-input">
+                  Min årliga inkomst uppgår till
+                    <input type="tel" ng-model="fmPortfolio.userData.income.value" ng-blur="fmPortfolio.validateIncome()" placeholder="" maxlength="9" name="income">
+                  :-
+                </span>
+              </div>
+
+              <button class="fm-button button-accent" ng-click="fmPortfolio.nextStep()" ng-disabled="!fmPortfolio.userModel.age && !fmPortfolio.userModel.income">Fortsätt</button>
+
             </div>
           </div>
         </div>
 
-        <div class="step2" ng-class="{ 'show-step': fmPortfolio.steps.currentStep === 2 }">
+        <div class="step2" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 2 }">
 
           <div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1" style="padding-top: 2.5rem;">
@@ -33,8 +50,11 @@
           </div>
 
 
+          <header class="fund-package-panel-header">
+            <p class="fund-package-name">Din Plan</p>
+          </header>
 
-          <div class="fund-package">
+          <div class="fund-package no-border-top">
             <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-1">
               <span data-icon="&#xe015;" class="fund-package-icon"></span>
               <div class="fund-package-lable-group">
@@ -51,7 +71,7 @@
               <div class="fund-package-content">
 
                 <div id="chart" class="col-xs-12 col-sm-5">
-                  <div id="chart" class="pie-chart" style="height: auto; max-width: 40rem; margin: 0 auto; width: 100%;"></div>
+                  <div id="chart" class="pie-chart" style="height: auto; max-width: 40rem; margin: 0 auto;"></div>
                 </div>
 
                 <div class="col-xs-12 col-sm-7">
@@ -144,7 +164,7 @@
       </div><!-- New form:end -->
     </div>
 
-    <div class="step3" ng-class="{ 'show-step': fmPortfolio.steps.currentStep === 3 }">
+    <div class="step3" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 3 }">
       <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1">
           <h3 class="text-center">Steg {{fmPortfolio.steps.currentStep}}</h3>
@@ -152,17 +172,16 @@
       </div>
     </div>
 
-    <div class="step4" ng-class="{ 'show-step': fmPortfolio.steps.currentStep === 4 }">
+    <div class="step4" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 4 }">
       <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1">
           <h3 class="text-center">Steg {{fmPortfolio.steps.currentStep}}</h3>
         </div>
       </div>
     </div>
-
-
-
-    <button class="fm-button" ng-click="fmPortfolio.incrementStep()" style="margin: 0 auto; display: block; width: 25%;">Steg {{fmPortfolio.steps.currentStep}}</button>
 
   </div>
 </section>
+
+<!--<button class="fm-button button-accent" ng-click="fmPortfolio.nextStep()">Fortsätt</button>
+<button class="fm-button" ng-click="fmPortfolio.previousStep()">Bakåt</button>-->

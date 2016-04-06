@@ -47,13 +47,50 @@
     };
 
     
-    /*vm.Step1 = function (selectedfund) {
-
-    };*/
-
-    vm.incrementStep = function () {
-      vm.steps.currentStep = (vm.steps.currentStep >= vm.steps.totalSteps.length) ? 1 : vm.steps.currentStep + 1;
+    vm.nextStep = function () {
+      //vm.steps.currentStep = (vm.steps.currentStep >= vm.steps.totalSteps.length) ? 1 : vm.steps.currentStep + 1;
+      if (vm.steps.currentStep < vm.steps.totalSteps.length) {
+        vm.steps.currentStep += 1;
+      }
     };
+
+    vm.previousStep = function () {
+      if (vm.steps.currentStep <= vm.steps.totalSteps.length && vm.steps.currentStep > 1) {
+        vm.steps.currentStep -= 1;
+      }
+    };
+
+    vm.userData = {
+      age: {
+        value: undefined,
+        errorMessage: undefined
+      },
+      income: {
+        value: undefined,
+        errorMessage: undefined
+      }
+    };
+
+    vm.userModel = {
+      age: undefined,
+      income: undefined
+    };
+
+    vm.validateAge = function () {
+
+      var age = parseInt(vm.userData.age.value);
+      vm.userData.age.errorMessage = undefined;
+      
+      if (age < 18) {
+        vm.userData.age.errorMessage = 'Du måste vara minst 18 år gammal';
+      } else {
+        vm.userModel.age = age;
+      }
+
+    };
+
+
+    
 
 
 
