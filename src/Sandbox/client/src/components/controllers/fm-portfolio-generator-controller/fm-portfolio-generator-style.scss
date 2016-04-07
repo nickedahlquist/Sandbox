@@ -17,22 +17,25 @@
     .user-input {
       display: inline-block;
       position: relative;
-      white-space: nowrap;
+     // white-space: nowrap;
 
       .input-error-message {
-        display: inline-block;
+        //display: inline-block;
         position: absolute;
-        bottom: -1 * $layout-modifier-sm / 2;
-        left: 0;
-        right: 0;
-        width: auto;
-        margin: auto;
+        text-align: center;
+        top: 100%;
+        //bottom: -1 * $layout-modifier-sm / 2;
+        //left: 0;
+        //right: 0;
+        left: 15px;
+        max-width: 30rem;
+        //margin: auto;
         font-size: 1.2rem;
         font-weight: $font-weight-semibold;
-        letter-spacing: 0.1rem;
+        //letter-spacing: 0.1rem;
         line-height: normal;
         color: $color-red;
-        opacity: 0;
+        //opacity: 0;
       }
 
       input {

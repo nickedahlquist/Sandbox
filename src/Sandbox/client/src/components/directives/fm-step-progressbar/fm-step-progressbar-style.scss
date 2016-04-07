@@ -27,7 +27,7 @@
         position: absolute;
         width: $size;
         height: $size;
-        line-height: $size;
+        line-height: #{strip-units($size) * 10}px; // IE does not support rems for line-height in pseudo elements, hence the need for the expression.
         margin: auto;
         top: -1 * ($size + 1rem);
         left: 0;

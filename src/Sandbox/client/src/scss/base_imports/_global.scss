@@ -37,7 +37,7 @@ body {
   // Set limit of responsive behavior at 320px
   min-width: 32rem;
   
-  @include word-wrap(break-word);
+  @include word-wrap(keep-all);
   hyphens: auto;
   background-color: $color-white;
 

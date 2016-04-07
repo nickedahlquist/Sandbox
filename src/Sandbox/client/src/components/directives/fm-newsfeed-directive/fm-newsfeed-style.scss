@@ -17,9 +17,6 @@
     .fm-news-headline {
 
       a {
-        //word-wrap: break-word;
-        word-break: break-word;
-        hyphens: auto;
         color: inherit;
 
         &:hover {
@@ -31,8 +28,6 @@
     .fm-news-content {
 
       a {
-        word-break: break-word;
-        hyphens: auto;
         color: inherit;
 
         &:hover {

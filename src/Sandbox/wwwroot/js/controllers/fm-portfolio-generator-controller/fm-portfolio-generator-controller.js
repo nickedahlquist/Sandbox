@@ -46,6 +46,18 @@
       currentStep: 1,
     };
 
+    var userInputs = $('.user-input input');
+
+    userInputs.on('keydown', function (event) {
+      var permittedKeys = [8, 16, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+
+      if (_.contains(permittedKeys, event.keyCode)) {
+        return;
+      } else {
+        event.preventDefault();
+      }
+    });
+
     
     vm.nextStep = function () {
       //vm.steps.currentStep = (vm.steps.currentStep >= vm.steps.totalSteps.length) ? 1 : vm.steps.currentStep + 1;
