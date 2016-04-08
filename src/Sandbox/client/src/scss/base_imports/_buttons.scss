@@ -24,7 +24,7 @@
     margin: 0 0 $layout-modifier-sm 0;
   }
 
-  &:hover:enabled, &:active {
+  &:hover:enabled, &:active, &:focus {
     background-color: $color-black;
   }
 
@@ -40,7 +40,7 @@
     background-color: transparent;
     border: 1px solid $color-white;
 
-    &:hover:enabled, &:active {
+    &:hover:enabled, &:active, &:focus {
       background-color: rgba(255, 255, 255, 0.15);
       color: $color-white;
     }
@@ -50,7 +50,7 @@
     background-color: $color-accent;
     border: 0;
 
-    &:hover:enabled, &:active {
+    &:hover:enabled, &:active, &:focus {
       background-color: $color-accent-shade;
       color: $color-white;
     }
@@ -65,43 +65,3 @@
   }
 }
 
-
-.fm-ball {
-  background-color: $color-accent;
-  height: 4.5rem;
-  width: 4.5rem;
-  border-radius: 50%;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  transition: background-color ease-in-out $animation-transition-short;
-  color: $color-white;
-  padding: 0;
-  overflow: hidden;
-  font-weight: $font-weight-semibold;
-  //font-weight: $font-weight-bold;
-  font-size: 1.5rem;
-
-  &:hover {
-    cursor: pointer;
-    background-color: $color-accent-shade;
-    color: $color-white;
-  }
-
-  span {
-    margin: 0 auto;
-    display: block;
-  }
-
-  &.ball-outline {
-    background-color: transparent;
-    //border: 2px solid $color-accent;
-    color: $color-accent;
-
-    &:hover {
-      //border: 2px solid $color-accent-shade;
-      color: $color-accent-shade;
-    }
-  }
-}

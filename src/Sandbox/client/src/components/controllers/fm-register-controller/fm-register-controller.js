@@ -5,8 +5,8 @@
   angular.module('fm').config(['$stateProvider', function ($stateProvider) {
 
     $stateProvider
-      .state('Skapa Konto', {
-        url: '/Skapa Konto',
+      .state('register', {
+        url: '/register',
         controller: 'FmRegisterCtrl',
         controllerAs: 'fmRegister',
         templateUrl: 'views/fm-register-view.html',

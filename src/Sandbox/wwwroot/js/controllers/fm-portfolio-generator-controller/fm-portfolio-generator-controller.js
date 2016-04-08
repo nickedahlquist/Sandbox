@@ -2,11 +2,13 @@
   'use strict';
 
   // Setup routing.
-  angular.module('fm').config(['$stateProvider', function ($stateProvider) {
+  angular.module('fm').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.when('/portfolio', '/portfolio/user_details');
 
     $stateProvider
-      .state('Portfölj', {
-        url: '/Portfölj',
+      .state('portfolio', {
+        url: '/portfolio',
         controller: 'FmPortfolioGeneratorCtrl',
         controllerAs: 'fmPortfolio',
         templateUrl: 'views/fm-portfolio-generator-view.html',
@@ -16,59 +18,84 @@
           }
         },
         sortOrder: 4
-      });
+      })
+
+     .state('portfolio.userdetails', {
+       url: '/user_details',
+       templateUrl: 'views/fm-portfolio-generator-userdetails-view.html'
+     })
+
+     .state('portfolio.fundpackage', {
+       url: '/select_fundpackage',
+       templateUrl: 'views/fm-portfolio-generator-fundpackage-view.html'
+     })
+
+     .state('portfolio.configure', {
+       url: '/configure_fundpackage',
+       templateUrl: 'views/fm-portfolio-generator-configure-view.html'
+     })
+
+     .state('portfolio.confirm', {
+       url: '/confirm',
+       templateUrl: 'views/fm-portfolio-generator-confirm-view.html'
+     });
 
   }]);
 
   // Register controller.
-  angular.module('fm').controller('FmPortfolioGeneratorCtrl', [FmPortfolioGeneratorCtrl]);
+  angular.module('fm').controller('FmPortfolioGeneratorCtrl', ['$state', FmPortfolioGeneratorCtrl]);
 
   // Define controller-function.
-  function FmPortfolioGeneratorCtrl() {
+  function FmPortfolioGeneratorCtrl($state) {
 
     /* jshint validthis: true */
     var vm = this;
 
     vm.steps = {
-      totalSteps: [
-        {
-          stepTitle: 'Ange uppgifter'
-        },
-        {
-          stepTitle: 'Välj fondpaket'
-        },
-        {
-          stepTitle: 'Välj vad du vill göra'
-        },
-        {
-          stepTitle: 'Skapa portfölj'
-        }],
+      totalSteps: [{ stepTitle: 'Ange uppgifter' }, { stepTitle: 'Välj fondpaket' }, { stepTitle: 'Välj vad du vill göra' }, { stepTitle: 'Skapa portfölj' }],
       currentStep: 1,
-    };
-
-    var userInputs = $('.user-input input');
-
-    userInputs.on('keydown', function (event) {
-      var permittedKeys = [8, 16, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-
-      if (_.contains(permittedKeys, event.keyCode)) {
-        return;
-      } else {
-        event.preventDefault();
-      }
-    });
-
-    
-    vm.nextStep = function () {
-      //vm.steps.currentStep = (vm.steps.currentStep >= vm.steps.totalSteps.length) ? 1 : vm.steps.currentStep + 1;
-      if (vm.steps.currentStep < vm.steps.totalSteps.length) {
-        vm.steps.currentStep += 1;
+      changeCurrentStep: function (step) {
+        vm.steps.currentStep = step;
       }
     };
 
-    vm.previousStep = function () {
-      if (vm.steps.currentStep <= vm.steps.totalSteps.length && vm.steps.currentStep > 1) {
-        vm.steps.currentStep -= 1;
+    vm.formData = {};
+
+    vm.states = {
+      userDetails: {
+        init: function () {
+          vm.steps.changeCurrentStep(1);
+
+          var userInputs = $('.user-input input');
+
+          userInputs.on('keydown', function (event) {
+            var permittedKeys = [8, 16, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
+
+            if (_.contains(permittedKeys, event.keyCode)) {
+              return;
+            } else {
+              event.preventDefault();
+            }
+          });
+        }
+      },
+      fundPackage: {
+        init: function () {
+          vm.steps.changeCurrentStep(2);
+        }
+      },
+      configure: {
+        init: function () {
+          vm.steps.changeCurrentStep(3);
+        }
+      },
+      confirm: {
+        init: function () {
+          vm.steps.changeCurrentStep(4);
+        }
+      },
+      go: function (state) {
+        $state.go(state);
       }
     };
 
@@ -83,11 +110,6 @@
       }
     };
 
-    vm.userModel = {
-      age: undefined,
-      income: undefined
-    };
-
     vm.validateAge = function () {
 
       var age = parseInt(vm.userData.age.value);
@@ -95,10 +117,21 @@
       
       if (age < 18) {
         vm.userData.age.errorMessage = 'Du måste vara minst 18 år gammal';
-      } else {
-        vm.userModel.age = age;
       }
 
+      if (!age) {
+        vm.userData.age.errorMessage = 'Vänligen ange ålder';
+      }
+    };
+
+    vm.validateIncome = function () {
+
+      var income = parseInt(vm.userData.income.value);
+      vm.userData.income.errorMessage = undefined;
+
+      if (!income) {
+        vm.userData.income.errorMessage = 'Vänligen ange inkomst';
+      }
     };
 
 

@@ -5,8 +5,8 @@
   angular.module('fm').config(['$stateProvider', function ($stateProvider) {
 
     $stateProvider
-      .state('Hem', {
-        url: '/Hem',
+      .state('home', {
+        url: '/home',
         controller: 'FmHomeCtrl',
         controllerAs: 'fmHome',
         templateUrl: 'views/fm-home-view.html',

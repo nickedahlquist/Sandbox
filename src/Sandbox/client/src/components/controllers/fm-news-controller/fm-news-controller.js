@@ -5,8 +5,8 @@
   angular.module('fm').config(['$stateProvider', function ($stateProvider) {
 
     $stateProvider
-      .state('Nyheter', {
-        url: '/Nyheter',
+      .state('news', {
+        url: '/news',
         controller: 'FmNewsCtrl',
         controllerAs: 'fmNews',
         resolve: {

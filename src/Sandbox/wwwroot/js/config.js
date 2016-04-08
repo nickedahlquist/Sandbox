@@ -17,7 +17,7 @@
     $urlMatcherFactoryProvider.caseInsensitive(true);
 
     //Set default route
-    $urlRouterProvider.otherwise('/Hem');
+    $urlRouterProvider.otherwise('/home');
 
   }
 

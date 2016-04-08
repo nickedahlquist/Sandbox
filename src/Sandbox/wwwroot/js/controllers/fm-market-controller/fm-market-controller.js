@@ -5,8 +5,8 @@
   angular.module('fm').config(['$stateProvider', function ($stateProvider) {
 
     $stateProvider
-      .state('Marknaden', {
-        url: '/Marknaden',
+      .state('market', {
+        url: '/market',
         controller: 'FmMarketCtrl',
         controllerAs: 'fmMarket',
         templateUrl: 'views/fm-market-view.html',

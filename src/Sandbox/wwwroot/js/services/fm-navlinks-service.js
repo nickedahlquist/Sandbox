@@ -11,7 +11,7 @@
       // Filter out all states missing the "sortOrder" property.
       for (var key in states) {
         if (states.hasOwnProperty(key) && states[key].sortOrder) {
-          links.push({ name: states[key].name, url: states[key].name });
+          links.push({ name: states[key].resolve.$title(), url: states[key].name });
         }
       }
 

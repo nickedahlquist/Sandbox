@@ -4,184 +4,28 @@
 
   <div class="container">
 
+    <!-- Step indicator -->
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <fm-step-progressbar steps="fmPortfolio.steps"></fm-step-progressbar>
       </div>
-    </div>
+    </div><!-- Step indicator:end -->
 
-    <!-- New form -->
+    <!-- Form -->
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-
-        <div class="step1" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 1 }">
-          <div class="row">
-            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-
-              <div class="fund-generator-user-data section-padding">
-                <span class="user-input">
-                  Jag är
-                    <input type="tel" ng-model="fmPortfolio.userData.age.value" ng-blur="fmPortfolio.validateAge()" ng-class="{ 'input-error' : fmPortfolio.userData.age.errorMessage }" class="input-short" placeholder="" maxlength="2" name="age">
-                    <span class="input-error-message animated" ng-class="{ 'fadeInUp' : fmPortfolio.userData.age.errorMessage}">{{fmPortfolio.userData.age.errorMessage}}</span>
-                  år gammal.
-                </span>
-
-                <span class="user-input">
-                  Min årliga inkomst uppgår till
-                    <input type="tel" ng-model="fmPortfolio.userData.income.value" ng-blur="fmPortfolio.validateIncome()" placeholder="" maxlength="9" name="income">
-                  :-
-                </span>
-              </div>
-
-              <button class="fm-button button-accent" ng-click="fmPortfolio.nextStep()" ng-disabled="!fmPortfolio.userModel.age && !fmPortfolio.userModel.income">Fortsätt</button>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="step2" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 2 }">
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-10 col-sm-offset-1" style="padding-top: 2.5rem;">
-              <!-- Fix later -->
-              <h3 class="text-center no-padding">Välj ett av följande fondpaket</h3>
-              <p class="text-center" style="font-size: 1.4rem;">För att göra ditt sparande enkelt har vi tagit fram tre färdiga fondpaket till olika risknivåer.</p><!-- Fix later -->
-            </div>
-          </div>
-
-
-          <header class="fund-package-panel-header">
-            <p class="fund-package-name">Din Plan</p>
-          </header>
-
-          <div class="fund-package no-border-top">
-            <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-1">
-              <span data-icon="&#xe015;" class="fund-package-icon"></span>
-              <div class="fund-package-lable-group">
-                <p class="fund-package-name">
-                  <span class="fund-package-type">Paket 1</span>
-                  <br />
-                  Lågrisk
-                </p>
-              </div>
-              <p class="fund-package-header-description">Rekommenderad placeringshorisont: 3-5 år.</p>
-            </header>
-
-            <footer id="fund-package-content-collapse-1" class="panel-collapse collapse">
-              <div class="fund-package-content">
-
-                <div id="chart" class="col-xs-12 col-sm-5">
-                  <div id="chart" class="pie-chart" style="height: auto; max-width: 40rem; margin: 0 auto;"></div>
-                </div>
-
-                <div class="col-xs-12 col-sm-7">
-                  <h3>Fondpaket: Lågrisk</h3>
-                  <p style="font-size: 1.4rem;">
-                    Fondpaket Lågrisk passar dig som vill ha en låg risk men som ändå vill
-                    vara med på en del av de avkastningsmöjligheter som ett aktiesparande kan erbjuda.
-                    Du är beredd att acceptera en relativt låg avkastning men motstår kursfall på ett
-                    bättre sätt i sämre tider.
-                  </p>
-                  <button class="fm-button button-left-margin">Välj</button>
-                  <button class="fm-button button-accent">Läs mer</button>
-                </div>
-              </div>
-            </footer>
-          </div>
-
-          <div class="fund-package">
-
-            <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-2">
-              <span data-icon="&#xe039;" class="fund-package-icon"></span>
-              <div class="fund-package-lable-group">
-                <p class="fund-package-name">
-                  <span class="fund-package-type">Paket 2</span>
-                  <br />
-                  Medelrisk
-                </p>
-              </div>
-              <p class="fund-package-header-description">Rekommenderad placeringshorisont: 5-10 år.</p>
-            </header>
-
-            <footer id="fund-package-content-collapse-2" class="panel-collapse collapse">
-              <div class="fund-package-content">
-
-                <div class="col-xs-12 col-sm-5 pie-chart-wrapper">
-                  <div class="pie-chart"></div>
-                </div>
-
-                <div class="col-xs-12 col-sm-7">
-                  <h3>Fondpaket: Medelrisk</h3>
-                  <p style="font-size: 1.4rem;">
-                    Fondpaket Medelrisk passar dig som vill ha en medel risk och kan acceptera en ganska stor värdeminskning
-                    enskilda år om det ger möjlighet till en högre avkastning över tid. Vidare söker du de möjligheter till
-                    avkastning som marknaden kan erbjuda utan att exponeras mot enskilda branscher eller marknader.
-                  </p>
-                  <button class="fm-button button-left-margin">Välj</button>
-                  <button class="fm-button button-accent">Läs mer</button>
-                </div>
-              </div>
-            </footer>
-          </div>
-
-          <div class="fund-package">
-
-            <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-3">
-              <span data-icon="&#xe018;" class="fund-package-icon"></span>
-              <div class="fund-package-lable-group">
-                <p class="fund-package-name">
-                  <span class="fund-package-type">Paket 3</span>
-                  <br />
-                  Högrisk
-                </p>
-              </div>
-              <p class="fund-package-header-description">Rekommenderad placeringshorisont: 10 år +.</p>
-            </header>
-
-            <footer id="fund-package-content-collapse-3" class="panel-collapse collapse">
-              <div class="fund-package-content">
-
-                <div class="col-xs-12 col-sm-5 pie-chart-wrapper">
-                  <div class="pie-chart"></div>
-                </div>
-
-                <div class="col-xs-12 col-sm-7">
-                  <h3>Fondpaket: Högrisk</h3>
-                  <p style="font-size: 1.4rem;">
-                    Fondpaket Högrisk passar dig som vill ha en hög avkastning men som kan acceptera en stor värdeminskning.
-                    Detta fondpaket innehåller placeringar i branch-, global- och tillväxtmarknader som i goda tider förväntas
-                    ge en hög avkastning men med en stor fallhöjd i sämre tider. En lång placeringshorisont är en förutsättning
-                    för dig som väljer detta paket.
-                  </p>
-                  <button class="fm-button button-left-margin">Välj</button>
-                  <button class="fm-button button-accent">Läs mer</button>
-                </div>
-              </div>
-            </footer>
-          </div>
-
-        </div>
-      </div><!-- New form:end -->
-    </div>
-
-    <div class="step3" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 3 }">
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-          <h3 class="text-center">Steg {{fmPortfolio.steps.currentStep}}</h3>
-        </div>
+        <div id="form-views" ui-view></div>
       </div>
-    </div>
+    </div><!-- Form:end -->
 
-    <div class="step4" ng-class="{ 'show-step animated fadeIn': fmPortfolio.steps.currentStep === 4 }">
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-          <h3 class="text-center">Steg {{fmPortfolio.steps.currentStep}}</h3>
-        </div>
+    <!--<div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <a href="" ui-sref=".userdetails" class="fm-button button-accent">state1</a>
+        <a href="" ui-sref=".configure" class="fm-button button-accent">state3</a>
+        <a href="" ui-sref=".confirm" class="fm-button button-accent">state4</a>
       </div>
-    </div>
+    </div>-->
 
   </div>
 </section>
 
-<!--<button class="fm-button button-accent" ng-click="fmPortfolio.nextStep()">Fortsätt</button>
-<button class="fm-button" ng-click="fmPortfolio.previousStep()">Bakåt</button>-->

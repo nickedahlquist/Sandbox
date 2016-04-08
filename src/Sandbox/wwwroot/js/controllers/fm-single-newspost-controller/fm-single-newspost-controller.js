@@ -5,8 +5,8 @@
   angular.module('fm').config(['$stateProvider', function ($stateProvider) {
 
     $stateProvider
-      .state('Nyhetspost', {
-        url: '/Nyheter/:id',
+      .state('news.post', {
+        url: '/news/:id',
         controller: 'FmSingleNewsPostCtrl',
         controllerAs: 'fmNews',
         templateUrl: 'views/fm-single-newspost-view.html',

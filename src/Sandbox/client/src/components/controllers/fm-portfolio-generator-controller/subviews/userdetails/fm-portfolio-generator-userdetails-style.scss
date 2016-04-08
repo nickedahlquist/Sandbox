@@ -1,0 +1,75 @@
+﻿$longInput: 20rem;
+$shortInput: 5rem;
+$errorMessageLength: 21rem;
+
+.fund-generator-user-data {
+  text-align: center;
+  font-size: 3.7rem;
+  line-height: 8rem;
+  font-weight: $font-weight-light;
+
+  .user-input {
+    display: inline-block;
+    position: relative;
+    // white-space: nowrap;
+
+    .input-error-message {
+      position: absolute;
+      text-align: center;
+      top: 100%;
+      left: ($errorMessageLength/3) - $shortInput;
+      width: $errorMessageLength;
+      font-size: 1.2rem;
+      font-weight: $font-weight-semibold;
+      line-height: normal;
+      color: $color-red;
+
+      &.right {
+        left: 67.5%;
+      }
+    }
+
+    input {
+      display: inline-block;
+      text-align: center;
+      color: $color-accent;
+      padding: 0;
+      background-color: transparent;
+      font-size: inherit;
+      line-height: normal;
+      font-weight: $font-weight-light;
+      border-style: solid;
+      border-width: 0 0 1px 0;
+      border-color: $color-text-primary-highlight;
+      transition: all .3s ease-in-out;
+      width: $longInput;
+
+      &:hover {
+        border-color: $color-text-primary;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &.input-short {
+        width: $shortInput;
+      }
+
+      &.input-error {
+        color: $color-red;
+        border-color: $color-red;
+
+        &:hover, &:focus, &:active {
+          border-color: $color-red !important;
+          outline-color: $color-red !important;
+        }
+      }
+
+      &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+}
