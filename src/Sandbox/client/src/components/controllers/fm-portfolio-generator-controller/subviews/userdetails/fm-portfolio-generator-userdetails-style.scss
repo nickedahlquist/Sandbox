@@ -11,7 +11,7 @@ $errorMessageLength: 21rem;
   .user-input {
     display: inline-block;
     position: relative;
-    // white-space: nowrap;
+    white-space: nowrap;
 
     .input-error-message {
       position: absolute;

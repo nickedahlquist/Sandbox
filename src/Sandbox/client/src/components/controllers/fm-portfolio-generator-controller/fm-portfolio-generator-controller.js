@@ -55,33 +55,32 @@
       totalSteps: [{ stepTitle: 'Ange uppgifter' }, { stepTitle: 'Välj fondpaket' }, { stepTitle: 'Välj vad du vill göra' }, { stepTitle: 'Skapa portfölj' }],
       currentStep: 1,
       changeCurrentStep: function (step) {
-        vm.steps.currentStep = step;
+        vm.steps.currentStep = (step <= vm.steps.totalSteps.length && step > 0) ? step : vm.steps.currentStep;
       }
     };
 
     vm.formData = {};
 
+    vm.preventNonNumbers = function ($event) {
+      var permittedKeys = [8, 16, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106];
+
+      if (_.contains(permittedKeys, $event.keyCode)) {
+        return;
+      }
+ 
+      $event.preventDefault();
+    }
+
     vm.states = {
       userDetails: {
         init: function () {
           vm.steps.changeCurrentStep(1);
-
-          var userInputs = $('.user-input input');
-
-          userInputs.on('keydown', function (event) {
-            var permittedKeys = [8, 16, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-
-            if (_.contains(permittedKeys, event.keyCode)) {
-              return;
-            } else {
-              event.preventDefault();
-            }
-          });
         }
       },
       fundPackage: {
         init: function () {
           vm.steps.changeCurrentStep(2);
+          initChart();
         }
       },
       configure: {
@@ -135,42 +134,13 @@
     };
 
 
+    vm.disclaimer = {
+      title: '',
+      text: 'Fondpaketen utgör inte investeringsrådgivning och tar således inte hänsyn till din riskprofil, din ekonomi eller din förväntan på avkastning. Vi kan därav inte ta ansvar för att de fonder du väljer passar dig och din investeringsprofil.'
+      };
+
+
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Theme
     Highcharts.theme = {
       colors: ['#DF574B', '#2ABBAE', '#22968b', '#7fd6ce']
@@ -227,9 +197,12 @@
       }]
     };
 
-    var chart = $('#chart');
-
-    chart.highcharts(chartOptions);
+    function initChart() {
+      var chart = $('#chart');
+      chart.highcharts(chartOptions);
+      
+    }
+ 
   }
 
 })();

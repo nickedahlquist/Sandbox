@@ -2,22 +2,18 @@
   <div class="col-xs-12 col-sm-10 col-sm-offset-1">
 
     <div class="fund-generator-user-data section-padding">
-      <span class="user-input">
-        Jag är
-        <input type="tel" ng-model="fmPortfolio.userData.age.value" ng-blur="fmPortfolio.validateAge()" ng-class="{ 'input-error' : fmPortfolio.userData.age.errorMessage }" class="input-short" placeholder="" maxlength="2" name="age">
+      <span class="user-input">Jag är <input type="text" ng-keydown="fmPortfolio.preventNonNumbers($event)" ng-model="fmPortfolio.userData.age.value" ng-blur="fmPortfolio.validateAge()" ng-class="{ 'input-error' : fmPortfolio.userData.age.errorMessage }" class="input-short" placeholder="" maxlength="2" name="age"> år gammal.
         <span class="input-error-message" ng-class="{ 'animated fadeInUp' : fmPortfolio.userData.age.errorMessage}">{{fmPortfolio.userData.age.errorMessage}}</span>
-        år gammal.
       </span>
 
-      <span class="user-input">
-        Min årliga inkomst uppgår till
-        <input type="tel" ng-model="fmPortfolio.userData.income.value" ng-blur="fmPortfolio.validateIncome()" ng-class="{ 'input-error' : fmPortfolio.userData.income.errorMessage }" placeholder="" maxlength="9" name="income">
-        :-
-        <span class="input-error-message right" ng-class="{ 'animated fadeInUp' : fmPortfolio.userData.income.errorMessage}">{{fmPortfolio.userData.income.errorMessage}}</span>
+      <span class="user-input">Min årliga inkomst uppgår till <input type="text" ng-keydown="fmPortfolio.preventNonNumbers($event)" ng-model="fmPortfolio.userData.income.value" ng-blur="fmPortfolio.validateIncome()" ng-class="{ 'input-error' : fmPortfolio.userData.income.errorMessage }" placeholder="" maxlength="9" name="income"> :-
+        <span class="input-error-message right" ng-class="{ 'animated fadeInUp' : fmPortfolio.userData.income.errorMessage, 'animated fadeInDown' : !fmPortfolio.userData.income.errorMessage}">{{fmPortfolio.userData.income.errorMessage}}</span>
       </span>
     </div>
 
-    <button ng-click="fmPortfolio.states.go('portfolio.fundpackage')" class="fm-button button-accent" style="display: block; margin: 0 auto;" ng-disabled="fmPortfolio.userData.age.errorMessage || fmPortfolio.userData.income.errorMessage || fmPortfolio.userData.age.value === undefinded || fmPortfolio.userData.income.value === undefined">Fortsätt</button>
+    <div class="fm-button-bar">
+      <button ng-click="fmPortfolio.states.go('portfolio.fundpackage')" class="fm-button button-accent" ng-disabled="fmPortfolio.userData.age.errorMessage || fmPortfolio.userData.income.errorMessage || fmPortfolio.userData.age.value === undefinded || fmPortfolio.userData.income.value === undefined">Fortsätt</button>
+    </div>
 
   </div>
 </div>

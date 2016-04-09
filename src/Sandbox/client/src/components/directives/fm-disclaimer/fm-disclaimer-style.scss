@@ -1,0 +1,62 @@
+﻿.fm-disclaimer {
+
+  &.open {
+
+    .disclaimer-title {
+
+      .glyphicon {
+        transform: rotate(180deg);
+      }
+    }
+
+    .disclaimer-text {
+      opacity: 1;
+      transition: opacity $animation-transition-short ease-in;
+    }
+  }
+
+  .disclaimer-title, .disclaimer-text {
+    font-size: 1.2rem;
+    font-weight: $font-weight-light;
+  }
+
+  .disclaimer-title {
+    display: none;
+    transition: color $animation-transition-short ease-in;
+    
+    @media(min-width: $screen-sm) {
+      display: block;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $color-text-primary-shade;
+      transition: color $animation-transition-short ease-out;
+
+      .glyphicon {
+        opacity: 0.5;
+      }
+    }
+
+    .glyphicon {
+      font-size: 1rem;
+      line-height: 1em;
+      margin-left: 0.5rem;
+      opacity: 0.25;
+      transition: all $animation-transition-short linear;
+    }
+  }
+
+  .disclaimer-text {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    opacity: 1;
+    transition: opacity $animation-transition-short ease-out;
+    text-align: center;
+
+    @media(min-width: $screen-sm) {
+      text-align: left;
+      opacity: 0;
+    }
+  }
+}
