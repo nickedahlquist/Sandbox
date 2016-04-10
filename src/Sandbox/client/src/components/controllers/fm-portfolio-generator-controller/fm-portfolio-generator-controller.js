@@ -43,10 +43,10 @@
   }]);
 
   // Register controller.
-  angular.module('fm').controller('FmPortfolioGeneratorCtrl', ['$state', FmPortfolioGeneratorCtrl]);
+  angular.module('fm').controller('FmPortfolioGeneratorCtrl', ['$state', '$timeout', FmPortfolioGeneratorCtrl]);
 
   // Define controller-function.
-  function FmPortfolioGeneratorCtrl($state) {
+  function FmPortfolioGeneratorCtrl($state, $timeout) {
 
     /* jshint validthis: true */
     var vm = this;
@@ -61,13 +61,42 @@
 
     vm.formData = {};
 
+    vm.setChart = function (id) {
+      var chart = $(id);
+
+      switch (id) {
+        case '#chart-1':
+          chartOptions.series[0].data = [{ name: null, y: 18.00 }, { name: null, y: 42.00 }, { name: null, y: 15.00 }, { name: null, y: 25.00 }];
+          break;
+        case '#chart-2':
+          chartOptions.series[0].data = [{ name: null, y: 10.00 }, { name: null, y: 25.00 }, { name: null, y: 40.00 }, { name: null, y: 25.00 }];
+          break;
+        case '#chart-3':
+          chartOptions.series[0].data = [{ name: null, y: 56.00 }, { name: null, y: 17.00 }, { name: null, y: 21.00 }, { name: null, y: 6.00 }];
+          break;
+      }
+
+      $timeout(function () {
+        if (!chart.attr('data-highcharts-chart')) {
+          chart.addClass('animated bounceIn');
+          chart.highcharts(chartOptions);
+        }
+        else {
+          if(chart.hasClass('animated bounceIn')) {
+            chart.removeClass('animated bounceIn');
+          }
+        }
+
+      }, 200);
+    }
+
     vm.preventNonNumbers = function ($event) {
       var permittedKeys = [8, 16, 46, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106];
 
       if (_.contains(permittedKeys, $event.keyCode)) {
         return;
       }
- 
+
       $event.preventDefault();
     }
 
@@ -113,7 +142,7 @@
 
       var age = parseInt(vm.userData.age.value);
       vm.userData.age.errorMessage = undefined;
-      
+
       if (age < 18) {
         vm.userData.age.errorMessage = 'Du måste vara minst 18 år gammal';
       }
@@ -133,14 +162,13 @@
       }
     };
 
-
     vm.disclaimer = {
       title: '',
       text: 'Fondpaketen utgör inte investeringsrådgivning och tar således inte hänsyn till din riskprofil, din ekonomi eller din förväntan på avkastning. Vi kan därav inte ta ansvar för att de fonder du väljer passar dig och din investeringsprofil.'
-      };
+    };
 
 
-    
+
     // Theme
     Highcharts.theme = {
       colors: ['#DF574B', '#2ABBAE', '#22968b', '#7fd6ce']
@@ -153,7 +181,8 @@
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false,
-        type: 'pie'
+        type: 'pie',
+        margin: 0
       },
       credits: {
         enabled: false
@@ -169,6 +198,8 @@
       },
       plotOptions: {
         pie: {
+          slicedOffset: 0,
+          size: '100%',
           allowPointSelect: true,
           borderWidth: 0,
           cursor: 'pointer',
@@ -176,33 +207,18 @@
           dataLabels: {
             enabled: false,
           }
+        },
+        series: {
+          animation: false
         }
       },
       series: [{
-        name: 'Brands',
+        name: 'Funds',
         colorByPoint: true,
-        data: [{
-          name: null,
-          y: 18.00
-        }, {
-          name: null,
-          y: 42.00
-        }, {
-          name: null,
-          y: 15.00
-        }, {
-          name: null,
-          y: 25.00
-        }]
+        data: []
       }]
     };
 
-    function initChart() {
-      var chart = $('#chart');
-      chart.highcharts(chartOptions);
-      
-    }
- 
   }
 
 })();

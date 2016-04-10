@@ -1,42 +1,51 @@
 ﻿$size: 2.5rem;
 
 .generator-progressbar {
-  padding: $layout-modifier-lg 0 0 0;
+  padding: 0;
+
+  @media(min-width: $screen-sm) {
+    padding: $layout-modifier-lg 0 0 0;
+  }
 
   ul {
-    display: block;
-
-    @media(min-width: $screen-sm) {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     li {
       color: $color-text-primary-highlight;
       text-align: center;
       transition: color $animation-transition-short ease-in;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       text-transform: capitalize;
+      display: block;
       width: 100%;
       position: relative;
 
+      @media(min-width: $screen-sm) {
+        font-size: 1.2rem;
+      }
+
       &:before {
-        content: attr(data-step);
-        display: block;
-        position: absolute;
-        width: $size;
-        height: $size;
-        line-height: #{strip-units($size) * 10}px; // IE does not support rems for line-height in pseudo elements, hence the need for the expression.
-        margin: auto;
-        top: -1 * ($size + 1rem);
-        left: 0;
-        right: 0;
-        border-radius: $border-radius-lg;
-        color: $color-white;
-        background-color: $color-text-primary-highlight;
-        transition: background-color $animation-transition-short ease-in;
-        z-index: 2;
+        display: none;
+
+        @media(min-width: $screen-sm) {
+          display: block;
+          content: attr(data-step);
+          width: $size;
+          height: $size;
+          line-height: #{strip-units($size) * 10}px; // IE does not support rems for line-height in pseudo elements, hence the need for the expression.
+          border-radius: $border-radius-lg;
+          position: absolute;
+          top: -1 * ($size + 1rem);
+          left: 0;
+          right: 0;
+          margin: auto;
+          color: $color-white;
+          background-color: $color-text-primary-highlight;
+          transition: background-color $animation-transition-short ease-in;
+          z-index: 2;
+        }
       }
 
       &:after {
@@ -77,5 +86,27 @@
         }
       }
     }
+  }
+
+  .small-progressbar {
+    display: block;
+    overflow: hidden;
+    width: 100%; 
+    height: 0.4rem; 
+    margin-top: 1rem;
+    background-color: $color-text-primary-highlight;
+    padding: 0;
+
+    @media(min-width: $screen-sm) {
+      display: none;
+    }
+    
+    .meter {
+      display: block;
+      height: 100%;
+      width: 0;
+      background-color: $color-accent;
+      transition: width $animation-transition-medium;
+    } 
   }
 }

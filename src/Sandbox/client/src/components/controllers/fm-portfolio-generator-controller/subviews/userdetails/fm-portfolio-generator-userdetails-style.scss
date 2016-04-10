@@ -4,14 +4,24 @@ $errorMessageLength: 21rem;
 
 .fund-generator-user-data {
   text-align: center;
-  font-size: 3.7rem;
-  line-height: 8rem;
+  font-size: 2.7rem;
+  line-height: 6rem;
   font-weight: $font-weight-light;
+
+  @media(min-width: $screen-sm) {
+    font-size: 3.7rem;
+    line-height: 8rem;
+  }
 
   .user-input {
     display: inline-block;
     position: relative;
-    white-space: nowrap;
+    text-align: center;
+    //white-space: nowrap;
+
+    @media(min-width: $screen-md) {
+      white-space: nowrap;
+    }
 
     .input-error-message {
       position: absolute;
@@ -41,8 +51,12 @@ $errorMessageLength: 21rem;
       border-style: solid;
       border-width: 0 0 1px 0;
       border-color: $color-text-primary-highlight;
-      transition: all .3s ease-in-out;
-      width: $longInput;
+      transition: all $animation-transition-short ease-in-out;
+      width: ($longInput / 3) * 2;
+
+      @media(min-width: $screen-sm) {
+        width: $longInput;
+      }
 
       &:hover {
         border-color: $color-text-primary;
@@ -53,7 +67,11 @@ $errorMessageLength: 21rem;
       }
 
       &.input-short {
-        width: $shortInput;
+        width: ($shortInput / 3) * 2;
+
+        @media(min-width: $screen-sm) {
+          width: $shortInput;
+        }
       }
 
       &.input-error {

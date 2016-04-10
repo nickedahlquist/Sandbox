@@ -92,9 +92,12 @@
 
   .fund-package-content {
     padding: $layout-modifier-sm;
+    min-height: 40rem;
 
     .pie-chart {
-      
+      height: auto; 
+      width: 100%; 
+      margin: 0 auto;
     }
   }
 }

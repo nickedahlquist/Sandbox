@@ -11,7 +11,7 @@
 </header>
 
 <div class="fund-package no-border-top">
-  <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-1">
+  <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-1" ng-click="fmPortfolio.setChart('#chart-1')">
     <span data-icon="&#xe015;" class="fund-package-icon"></span>
     <div class="fund-package-lable-group">
       <p class="fund-package-name">
@@ -26,8 +26,8 @@
   <footer id="fund-package-content-collapse-1" class="panel-collapse collapse">
     <div class="fund-package-content">
 
-      <div id="chart" class="col-xs-12 col-sm-5">
-        <div id="chart" class="pie-chart" style="height: auto; max-width: 40rem; margin: 0 auto;"></div>
+      <div class="col-xs-12 col-sm-5">
+        <div id="chart-1" class="pie-chart"></div>
       </div>
 
       <div class="col-xs-12 col-sm-7">
@@ -38,7 +38,7 @@
           Du är beredd att acceptera en relativt låg avkastning men motstår kursfall på ett
           bättre sätt i sämre tider.
         </p>
-        <button class="fm-button button-left-margin">Välj</button>
+        <button class="fm-button button-left-margin" ng-click="fmPortfolio.states.go('portfolio.configure')">Välj</button>
         <button class="fm-button button-accent">Läs mer</button>
       </div>
     </div>
@@ -47,7 +47,7 @@
 
 <div class="fund-package">
 
-  <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-2">
+  <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-2" ng-click="fmPortfolio.setChart('#chart-2')">
     <span data-icon="&#xe039;" class="fund-package-icon"></span>
     <div class="fund-package-lable-group">
       <p class="fund-package-name">
@@ -63,7 +63,7 @@
     <div class="fund-package-content">
 
       <div class="col-xs-12 col-sm-5 pie-chart-wrapper">
-        <div class="pie-chart"></div>
+        <div id="chart-2" class="pie-chart"></div>
       </div>
 
       <div class="col-xs-12 col-sm-7">
@@ -73,7 +73,7 @@
           enskilda år om det ger möjlighet till en högre avkastning över tid. Vidare söker du de möjligheter till
           avkastning som marknaden kan erbjuda utan att exponeras mot enskilda branscher eller marknader.
         </p>
-        <button class="fm-button button-left-margin">Välj</button>
+        <button class="fm-button button-left-margin" ng-click="fmPortfolio.states.go('portfolio.configure')">Välj</button>
         <button class="fm-button button-accent">Läs mer</button>
       </div>
     </div>
@@ -82,7 +82,7 @@
 
 <div class="fund-package">
 
-  <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-3">
+  <header class="fund-package-header" data-toggle="collapse" data-target="#fund-package-content-collapse-3" ng-click="fmPortfolio.setChart('#chart-3')">
     <span data-icon="&#xe018;" class="fund-package-icon"></span>
     <div class="fund-package-lable-group">
       <p class="fund-package-name">
@@ -98,7 +98,7 @@
     <div class="fund-package-content">
 
       <div class="col-xs-12 col-sm-5 pie-chart-wrapper">
-        <div class="pie-chart"></div>
+        <div id="chart-3" class="pie-chart"></div>
       </div>
 
       <div class="col-xs-12 col-sm-7">
@@ -109,7 +109,7 @@
           ge en hög avkastning men med en stor fallhöjd i sämre tider. En lång placeringshorisont är en förutsättning
           för dig som väljer detta paket.
         </p>
-        <button class="fm-button button-left-margin">Välj</button>
+        <button class="fm-button button-left-margin" ng-click="fmPortfolio.states.go('portfolio.configure')">Välj</button>
         <button class="fm-button button-accent">Läs mer</button>
       </div>
     </div>
