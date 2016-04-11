@@ -96,9 +96,17 @@
       if (_.contains(permittedKeys, $event.keyCode)) {
         return;
       }
-
       $event.preventDefault();
     }
+
+    // state 3
+    vm.payments = 0;
+
+    vm.payOnce = false;
+
+    vm.togglePayMethod = function () {
+      vm.payOnce = !vm.payOnce;
+    };
 
     vm.states = {
       userDetails: {
@@ -109,7 +117,6 @@
       fundPackage: {
         init: function () {
           vm.steps.changeCurrentStep(2);
-          initChart();
         }
       },
       configure: {
@@ -166,8 +173,6 @@
       title: '',
       text: 'Fondpaketen utgör inte investeringsrådgivning och tar således inte hänsyn till din riskprofil, din ekonomi eller din förväntan på avkastning. Vi kan därav inte ta ansvar för att de fonder du väljer passar dig och din investeringsprofil.'
     };
-
-
 
     // Theme
     Highcharts.theme = {

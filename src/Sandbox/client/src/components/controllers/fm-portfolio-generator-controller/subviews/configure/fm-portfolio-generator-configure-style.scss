@@ -1,1 +1,55 @@
-﻿
+﻿$payment-toggle-size: 20rem;
+
+.payment-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $layout-modifier-sm 0;
+
+
+  .payment-toggle {
+    width: $payment-toggle-size / 2;
+    height: $payment-toggle-size / 2;
+    border: 1px $color-accent solid;
+    border-radius: 100%;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+    @media(min-width: $screen-sm) {
+      width: $payment-toggle-size;
+      height: $payment-toggle-size;
+    }
+
+    .payment-toggle-inner {
+      width: $payment-toggle-size * 2;
+      height: 100%;
+      background-color: $color-accent;
+      transition: transform $animation-transition-short ease-in;
+      margin: 0;
+
+      &.toggled {
+        transform: translate3d(-20rem, 0, 0);
+        transition: transform $animation-transition-short ease-out;
+      }
+
+      .payment-plan {
+        color: $color-white;
+        float: left;
+        display: flex;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+
+        [data-icon] {
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+          color: $color-white;
+          font-size: 10rem;
+        }
+
+      }
+    }
+  }
+}

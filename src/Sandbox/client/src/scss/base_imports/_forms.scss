@@ -1,0 +1,124 @@
+﻿/*
+ * _forms.scss
+ * ===========
+ * 
+ */
+
+$thumb-size: 2.5rem;
+$track-size: 0.5rem;
+$slider-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0px 0px 1px rgba(13, 13, 13, 0);
+$thumb-border: 0px solid rgba(0, 0, 0, 0);
+$track-border: 0px solid rgba(1, 1, 1, 0);
+$thumb-border-radius: 100%;
+$track-border-radius: 0;
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 1rem 0;
+  padding-left: 0;
+  padding-right: 0;
+
+  &:focus {
+    outline: none;
+
+    &::-webkit-slider-runnable-track {
+      background: #dcdbdb;
+    }
+
+    &:focus::-ms-fill-lower {
+      background: #d0cece;
+    }
+
+    &:focus::-ms-fill-upper {
+      background: #dcdbdb;
+    }
+  }
+  // Track
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: $track-size;
+    cursor: pointer;
+    box-shadow: $slider-box-shadow;
+    background: #d0cece;
+    border-radius: $track-border-radius;
+    border: $track-border;
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: $track-size;
+    cursor: pointer;
+    box-shadow: $slider-box-shadow;
+    background: #d0cece;
+    border-radius: $track-border-radius;
+    border: $track-border;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    height: $track-size / 2;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    border-top-width: 1rem;
+    border-bottom-width: 1rem;
+  }
+
+  // Thumb
+  &::-webkit-slider-thumb {
+    box-shadow: $slider-box-shadow;
+    border: $thumb-border;
+    height: $thumb-size;
+    width: $thumb-size;
+    border-radius: $thumb-border-radius;
+    background: $color-accent;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -1rem;
+  }
+
+  &::-moz-range-thumb {
+    box-shadow: $slider-box-shadow;
+    border: $thumb-border;
+    height: $thumb-size;
+    width: $thumb-size;
+    border-radius: $thumb-border-radius;
+    background: $color-accent;
+    cursor: pointer;
+  }
+
+  &::-ms-thumb {
+    box-shadow: $slider-box-shadow;
+    border: $thumb-border;
+    height: $thumb-size / 2;
+    width: $thumb-size / 2;
+    border-radius: $thumb-border-radius;
+    background: $color-accent;
+    cursor: pointer;
+  }
+
+
+  &::-ms-fill-lower {
+    background: #c4c1c1;
+    border: $track-border;
+    border-radius: $track-border-radius;
+    box-shadow: $slider-box-shadow;
+  }
+
+  &::-ms-fill-upper {
+    background: #d0cece;
+    border: $track-border;
+    border-radius: $track-border-radius;
+    box-shadow: $slider-box-shadow;
+  }
+}
+
+
+
+
+
+
+
+
