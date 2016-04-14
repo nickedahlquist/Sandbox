@@ -53,3 +53,15 @@
     }
   }
 }
+
+.col-sm-8.ng-enter h3 {
+  transition: .3s linear all;
+  opacity:0;
+  transform: translate3d(0, -2rem, 0);
+}
+
+/* The finishing CSS styles for the enter animation */
+.col-sm-8.ng-enter.ng-enter-active h3 {
+  opacity:1;
+  transform: translate3d(0, 0, 0);
+}

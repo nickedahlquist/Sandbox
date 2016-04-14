@@ -28,17 +28,17 @@
 // Component styles.
 /* inject:scss */
 @import "../components/controllers/fm-portfolio-generator-controller/fm-portfolio-generator-style.scss";
-@import "../components/controllers/fm-register-controller/fm-register-style.scss";
 @import "../components/directives/fm-bulletin-slider-directive/fm-bulletin-slider-style.scss";
 @import "../components/directives/fm-disclaimer/fm-disclaimer-style.scss";
-@import "../components/directives/fm-footer-directive/fm-footer-style.scss";
 @import "../components/directives/fm-fund-gallery-directive/fm-fund-gallery-style.scss";
-@import "../components/directives/fm-market-map-directive/fm-market-map-style.scss";
+@import "../components/directives/fm-footer-directive/fm-footer-style.scss";
 @import "../components/directives/fm-hero-directive/fm-hero-style.scss";
-@import "../components/directives/fm-navbar-directive/fm-navbar-style.scss";
-@import "../components/directives/fm-newsfeed-directive/fm-newsfeed-style.scss";
+@import "../components/directives/fm-market-map-directive/fm-market-map-style.scss";
 @import "../components/directives/fm-market-overview-directive/fm-market-overview-style.scss";
+@import "../components/directives/fm-newsfeed-directive/fm-newsfeed-style.scss";
 @import "../components/directives/fm-step-progressbar/fm-step-progressbar-style.scss";
+@import "../components/controllers/fm-register-controller/fm-register-style.scss";
+@import "../components/directives/fm-navbar-directive/fm-navbar-style.scss";
 @import "../components/controllers/fm-portfolio-generator-controller/subviews/configure/fm-portfolio-generator-configure-style.scss";
 @import "../components/controllers/fm-portfolio-generator-controller/subviews/confirm/fm-portfolio-generator-confirm-style.scss";
 @import "../components/controllers/fm-portfolio-generator-controller/subviews/fundpackage/fm-portfolio-generator-fundpackage-style.scss";
