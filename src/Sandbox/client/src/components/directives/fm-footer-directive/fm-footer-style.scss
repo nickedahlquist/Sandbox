@@ -2,9 +2,8 @@
   background-color: $color-dark-grey;
   color: $color-white;
 
-  .fm-footer-heading {
+  h4 {
     color: $color-white;
-    font-size: $font-size-h3;
   }
 
   .fm-footer-list {
@@ -19,7 +18,7 @@
         }
 
         .glyphicon {
-          font-size: 1.4rem;
+          font-size: $font-size-caption;
           margin-right: 1rem;
         }
       }
@@ -27,7 +26,7 @@
   }
 
   .fm-footer-address-bar {
-    padding: 1.2rem;
+    padding: $layout-modifier-sm;
     background-color: $color-dark-grey-shade;
 
     .fm-footer-address-bar-wrapper {
@@ -40,8 +39,8 @@
 
       p {
         padding: 0;
-        margin: 0.5rem auto;
-        font-size: 1.4rem;
+        margin: 1rem auto;
+        font-size: $font-size-caption;
         font-weight: $font-weight-light;
 
         @media(min-width: $screen-sm) {
@@ -62,37 +61,15 @@
 
   .fm-contact-form {
 
-    .form-control {
-      color: $color-white !important;
-    }
-
     input, textarea {
-      border-radius: 2px;
-      padding: $layout-modifier-sm;
       margin-bottom: $layout-modifier-lg;
       background-color: transparent;
-      outline: 0;
-      box-shadow: none;
+      color: $color-white;
     }
 
     textarea {
       margin-top: $layout-modifier-lg * 1.5;
       resize: vertical;
-    }
-
-    input {
-      border-radius: 0;
-      border-top: 0;
-      border-left: 0;
-      border-right: 0;
-    }
-
-    ::placeholder {
-      color: $color-white;
-      text-transform: uppercase;
-      font-weight: $font-weight-semibold;
-      letter-spacing: $layout-modifier-xs;
-      font-size: $font-size-h6;
     }
 
     button[type=submit] {

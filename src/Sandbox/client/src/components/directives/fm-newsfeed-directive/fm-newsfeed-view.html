@@ -1,23 +1,24 @@
-﻿<article ng-repeat="newsitem in news" class="col-md-12 col-lg-4 fm-news-item">
-  <div class="inner">
-    <h6 class="fa-news-date">{{newsitem.PublishDate | limitTo : 10}}</h6>
-    <h4 class="fm-news-headline">
-      <a href="#">{{newsitem.Title}}</a>
-    </h4>
-    <p class="fm-news-content">
-      <a href="#">{{newsitem.NewsText | limitTo : 150}}...</a>
-    </p>
+﻿<div class="fm-news-item-wrapper">
 
-    <hr class="hidden-xs" />
-    <div class="fm-news-tag hidden-xs">
-      <a class="fm-news-tag-name" href="#" ng-repeat="tag in newsitem.Socialtags">
-        <span class="fm-news-tag-icon glyphicon glyphicon-tag"></span> {{tag.SocialTag}}
-      </a>
+  <article ng-repeat="newsitem in news" class="fm-news-item">
+    <div class="news-item-wrapper">
+      <figure class="news-item-image"></figure>
+
+      <div class="news-item-content">
+        <!--<small class="fa-news-date">{{newsitem.PublishDate | limitTo : 10}}</small>-->
+
+        <p class="news-item-headline">
+          <a href="#">{{newsitem.Title}}</a>
+        </p>
+
+        <div class="news-item-tag" ng-if="newsitem.Tag">
+          <hr />
+          <a class="tag-name" href="#">
+            <span class="tag-icon glyphicon glyphicon-tag"></span> {{newsitem.Tag}}
+          </a>
+        </div>
+      </div>
     </div>
+  </article>
 
-  </div>
-</article>
-
-<div>
-  <a href="" ui-sref="news" class="fm-button fm-news-button">Visa alla</a>
 </div>

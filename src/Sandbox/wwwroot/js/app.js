@@ -10,7 +10,7 @@
   'use strict';
 
   // Inject modules (dependencies) here.
-  angular.module('fm', ['ngAnimate', 'ui.router', 'ui.router.title']);
+  angular.module('fm', ['ngAnimate', 'ui.router', 'ui.router.title', 'ngSanitize']);
 
 })();
 //# sourceMappingURL=app.js.map

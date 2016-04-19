@@ -1,87 +1,100 @@
-﻿.fm-news-item {
-  margin-bottom: $layout-modifier-lg;
-  text-align: center;
+﻿.fm-news-item-wrapper {
+  display: block;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
 
-  .inner {
-    background-color: $color-white;
-    padding: $layout-modifier-lg;
-    border: 1px solid $color-light-grey-shade;
+  @media(min-width: $screen-md) {
+    display: flex;
+    width: 85%;   
+  }
 
-    .fa-news-date {
-      padding: 0;
-      text-transform: uppercase;
-      letter-spacing: $layout-modifier-xs;
-      font-weight: $font-weight-semibold;
-    }
+  .fm-news-item {
+    margin-bottom: $layout-modifier-lg;
+    margin-left: $layout-modifier-sm / 2;
+    margin-right: $layout-modifier-sm / 2;
+    text-align: center;
 
-    .fm-news-headline {
+    .news-item-wrapper {
+      border: 1px solid $color-light-grey-shade;
+      transition: transform $animation-transition-short ease-in, box-shadow $animation-transition-short ease-in;
+      margin: 0 auto;
+      width: 100%;
+      
+      @media(min-width: $screen-md) {
+        width: 35rem;
+      }
+      
+      &:hover {
+        transform: scale3d(1.02, 1.02, 1.02);
+        transition: transform $animation-transition-short ease-out, box-shadow $animation-transition-short ease-out;
+        transition-delay: $animation-transition-short;
+        box-shadow: 0 0 0.5rem $color-light-grey-shade;
+      }
 
-      a {
-        color: inherit;
+      .news-item-image {
+        height: 12rem;
+        background-color: $color-accent;
+      }
 
-        &:hover {
-          color: $color-black;
+      .news-item-content {
+        background-color: $color-white;
+        padding: $layout-modifier-sm;
+        overflow: hidden;
+
+        .news-item-date {
+          padding: 0;
+          text-transform: uppercase;
+          letter-spacing: $font-letter-spacing;
+          font-weight: $font-weight-semibold;
         }
-      }
-    }
 
-    .fm-news-content {
+        .news-item-headline {
+          text-transform: capitalize;
 
-      a {
-        color: inherit;
+          a {
+            color: inherit;
 
-        &:hover {
-          color: $color-text-primary-shade;
+            &:hover {
+              color: $color-black;
+            }
+          }
         }
-      }
-    }
 
-    .fm-news-tag {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      display: block;
-      text-align: center;
-      margin-bottom: 0;
-      padding-bottom: 0;
-
-      @media(min-width: $screen-sm) {
-        display: flex;
-        justify-content: space-around;
-      }
-
-      .fm-news-tag-name {
-        font-weight: $font-weight-semibold;
-        color: $color-text-primary;
-        margin-right: 2.4rem;
-        display: block;
-        word-break: keep-all;
-
-        @media(max-width: $screen-xs) {
-          width: 100%;
-          margin: 0 auto;
+        .news-item-tag {
+          font-size: $font-size-small;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
           display: block;
-        }
+          text-align: center;
+          margin-bottom: 0;
+          padding-bottom: 0;
 
-        .fm-news-tag-icon {
-          color: $color-accent;
-          transition: color $animation-transition-short ease-in;
-        }
+          .tag-name {
+            font-weight: $font-weight-semibold;
+            color: $color-text-primary;
+            margin-right: $layout-modifier-sm;
+            display: block;
+            word-break: keep-all;
 
-        &:hover {
-          color: $color-text-primary-shade;
-          transition: color $animation-transition-short ease-out;
+            .tag-icon {
+              color: $color-accent;
+              transition: color $animation-transition-short ease-in;
+            }
 
-          .fm-news-tag-icon {
-            color: $color-accent-shade;
-            transition: color $animation-transition-short ease-out;
+            &:hover {
+              color: $color-text-primary-shade;
+              transition: color $animation-transition-short ease-out;
+
+              .tag-icon {
+                color: $color-accent-shade;
+                transition: color $animation-transition-short ease-out;
+              }
+            }
           }
         }
       }
     }
   }
-}
-
-.fm-news-button {
-  margin: $layout-modifier-sm/2 0;
 }

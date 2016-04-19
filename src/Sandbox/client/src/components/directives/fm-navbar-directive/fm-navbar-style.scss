@@ -43,10 +43,10 @@
         }
 
         a {
-          font-size: $font-size-h6;
           text-transform: uppercase;
+          font-size: $font-size-small; 
           font-weight: $font-weight-semibold;
-          letter-spacing: $layout-modifier-xs;
+          letter-spacing: $font-letter-spacing;
           color: $color-text-primary;
           position: relative;
 
@@ -56,7 +56,7 @@
 
           &.fm-navbar-active:before {
             content: " ";
-            border-top: solid 0.5rem $color-accent;
+            border-top: solid 0.7em $color-accent;
             position: absolute;
             top: ($navbar-height / 2.5) * -1;
             display: inline;
@@ -64,7 +64,8 @@
           }
 
           .glyphicon {
-            font-size: 1.5rem;
+            //font-size: 1.5rem;
+            font-size: $font-size-base;
           }
         }
       }
@@ -213,8 +214,8 @@
 }
 
 .fm-fund-search-modal {
-  //background-color: rgba(42,187,174,0.98);
-  background-color: rgba(48,68,76,1);
+  background-color: rgba(42,187,174,0.98);
+  //background-color: rgba(48,68,76,1);
   //overflow-y: scroll;
   
   #fm-logo {

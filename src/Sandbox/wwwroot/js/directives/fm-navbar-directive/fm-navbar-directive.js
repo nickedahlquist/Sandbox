@@ -13,7 +13,6 @@
 
           $rootScope.navbarIsFixed = navbar.hasClass('navbar-fixed');
 
-
           function headerBgScroll() {
             var scroll = w.scrollTop(),
                 scrollTriggerDistance = 30;

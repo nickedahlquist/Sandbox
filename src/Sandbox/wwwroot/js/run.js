@@ -9,10 +9,18 @@
 (function () {
   'use strict';
 
-  angular.module('fm').run(['$rootScope', initRun]);
+  angular.module('fm').run(['$rootScope', 'fmDOMCache', initRun]);
 
-  function initRun($rootScope) {
-    //$rootScope.navbarIsFixed = false;
+  function initRun($rootScope, fmDOMCache) {
+        
+    $rootScope.$on('$stateChangeSuccess', function () {
+      
+      // reset scrollTop on state change 
+      if (fmDOMCache.body[0].scrollTop !== 0) {
+        fmDOMCache.body[0].scrollTop = 0;
+      }
+
+    });
   }
 
 })();

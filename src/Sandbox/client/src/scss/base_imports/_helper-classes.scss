@@ -61,7 +61,7 @@
 ---------------------------*/
 
 .no-padding {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .section-padding {
@@ -87,12 +87,20 @@
   margin: 0 !important;
 }
 
-/*---------------------------
-  padding-helpers:                     
----------------------------*/
+.margin-bottom-lg {
+  margin-bottom: $layout-modifier-sm;
 
-.no-padding {
-  padding: 0 !important;
+  @media(min-width: $screen-md) {
+    margin-bottom: $layout-modifier-lg;
+  }
+}
+
+.margin-bottom-sm {
+  margin-bottom: $layout-modifier-sm / 2;
+
+  @media(min-width: $screen-sm) {
+    margin-bottom: $layout-modifier-sm;
+  }
 }
 
 /*---------------------------

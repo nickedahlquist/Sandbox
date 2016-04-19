@@ -1,44 +1,15 @@
 ﻿.fm-register {
   position: relative;
-  background-color: $color-light-grey;
 
   form {
     background-color: $color-white;
     padding: $layout-modifier-sm * 1.5;
 
-    
     input {
-	    width: 100%;
-	    background-color: $color-light-grey !important;
-	    border: none;
       margin-bottom: $layout-modifier-sm;
-
-        &::-webkit-input-placeholder {
-          opacity: 1;
-          color: $color-text-primary !important;
-        }
-
-        &:-moz-placeholder {
-          opacity: 1;
-          color: $color-text-primary !important;
-        }
-
-        &::-moz-placeholder {
-          opacity: 1;
-          color: $color-text-primary !important;
-        }
-
-        &:-ms-input-placeholder {
-          opacity: 1;
-          color: $color-text-primary !important;
-        }
 
       &:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px $color-light-grey inset;
-      }
-      
-      &[type=text], &[type=password] {
-        padding: 1rem;
       }
     }
 

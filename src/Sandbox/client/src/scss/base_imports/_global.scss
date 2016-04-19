@@ -23,27 +23,34 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 56.3%;
+  
+  font-size: 50%;
+  
   overflow-x: hidden;
+
+  @media(min-width: $screen-sm) {
+    font-size: 62.5%;
+  }
 }
 
 body {
   font-family: $font-stack-open-sans;
   color: $color-text-primary;
   line-height: $font-line-height;
-  font-size: 1.4rem;
+  font-size: $font-size-caption;
   -webkit-text-size-adjust: 100%;
-  
   // Set limit of responsive behavior at 320px
   min-width: 32rem;
-  
-  @include word-wrap(keep-all);
-  hyphens: auto;
+
+  //@include word-wrap(keep-all);
+  //hyphens: auto;
   background-color: $color-white;
 
-  @media(min-width: $screen-sm) {
-    font-size: $font-size-base;
-  }
+  word-wrap: keep-all;
+  word-break: break-word;
+  overflow-wrap: break-word; 
+  hyphens: auto;
 }
 
 img { 
@@ -72,13 +79,13 @@ a {
   transition-timing-function: ease;
   transition-duration: $animation-transition-short;
   transition-property: color, border-color, background-color;
+  font-size: inherit;
 
   &:hover, &:active, &:focus {
     color: $color-accent-shade;
     text-decoration: none;
     outline: none;
     border: none;
-    
     transition-timing-function: ease;
     transition-duration: $animation-transition-short;
     transition-property: color, border-color, background-color;
@@ -91,7 +98,6 @@ hr {
   border-bottom: 1px solid $color-text-primary;
   opacity: 0.5;
   margin: $font-size-base 0;
-
 }
 
 button[type=submit]:focus {
@@ -105,42 +111,42 @@ td, th, span, li, input, textarea {
 
 input, textarea {
   -webkit-appearance: none;
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  color: inherit;
+  font-size: $font-size-base;
+  appearance: none;
+  box-shadow: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: inherit;
+  padding: $layout-modifier-sm;
+  height: auto;
+  vertical-align: middle;
+  border-radius: $border-radius-sm;
+  background-color: inherit;
+  transition: border-color ease-in-out $animation-transition-short;
 
-    display: block;
-    margin: 0;
-    width: 100%;
-    font-family: inherit;
-    font-size: $font-size-base;
-    appearance: none;
-    box-shadow: none;
-    border-radius: none;
-    border: none;
-    padding: 0.5rem 1rem;
-
-  
-  &::-webkit-input-placeholder {
-    opacity: 1;
-    color: $color-white !important;
-  }
-
-  &:-moz-placeholder {
-    opacity: 1;
-    color: $color-white !important;
-  }
-
-  &::-moz-placeholder {
-    opacity: 1;
-    color: $color-white !important;
-  }
-
-  &:-ms-input-placeholder {
-    opacity: 1;
-    color: $color-white !important;
+  &::placeholder {
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: $font-letter-spacing;
+    font-size: inherit;
   }
 
   &:focus, &:active {
     border-color: $color-accent !important;
+    outline: 0;
   }
+}
+
+input {
+  border-radius: 0;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {

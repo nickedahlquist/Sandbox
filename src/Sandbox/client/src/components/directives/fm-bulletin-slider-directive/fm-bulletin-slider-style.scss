@@ -11,34 +11,7 @@
     font-size: $font-size-base;
 
     @media(min-width: $screen-sm) {
-      font-size: $font-size-h4;
+      font-size: $font-size-h6;
     }
   }
 }
-
-
-/*.fm-bulletin-slider {
-  background-color: $color-dark-grey;
-  padding: $layout-modifier-sm 0;
-  position: relative;
-
-  .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    text-align: center;
-
-    .fm-bulletin-slider-text {
-      color: $color-white;
-      margin: 0 auto;
-      padding: 0;
-      font-size: $font-size-base;
-
-      @media(min-width: $screen-sm) {
-        font-size: $font-size-h4;
-      }
-    }
-  }
-}*/

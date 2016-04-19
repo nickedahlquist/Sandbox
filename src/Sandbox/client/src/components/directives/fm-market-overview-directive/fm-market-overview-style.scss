@@ -21,8 +21,8 @@
       padding: 0;
       color: $color-accent;
       font-weight: $font-weight-semibold;
-      font-size: 1.4rem;
-      letter-spacing: $layout-modifier-xs;
+      font-size: $font-size-caption;
+      letter-spacing: $font-letter-spacing;
       text-transform: uppercase;
     }
 
@@ -43,8 +43,6 @@
         }
       }
     }
-    //background-color: $color-accent;
-    //border: 1px solid $color-accent-shade;
   }
 
   .fm-table {
@@ -73,8 +71,8 @@
           padding: 0;
           margin: 0;
           font-weight: $font-weight-semibold;
-          font-size: 1.4rem;
-          letter-spacing: $layout-modifier-xs;
+          font-size: $font-size-caption;
+          letter-spacing: $font-letter-spacing;
 
           span {
             margin-right: 1rem;
@@ -102,7 +100,7 @@
           .fm-fund-accordion-button {
             color: $color-white;
             font-weight: $font-weight-semibold;
-            font-size: 1.1rem;
+            font-size: $font-size-small;
             letter-spacing: 0.1rem;
 
             &:hover {
@@ -116,12 +114,12 @@
     tbody {
 
       tr {
-        transition: background-color 0.2s linear;
+        transition: background-color $animation-transition-short linear;
 
         &:hover {
           background-color: $color-text-primary-highlight;
           color: $color-text-primary-shade;
-          transition: background-color 0.2s linear;
+          transition: background-color $animation-transition-short linear;
 
           td {
 
@@ -142,11 +140,10 @@
 
             .fm-fund-manager {
               font-weight: $font-weight-semibold;
-              //color: $color-text-primary-shade;
             }
 
             .fm-fund-name {
-              font-size: 1.2rem;
+              font-size: $font-size-small;
             }
           }
 
@@ -159,7 +156,7 @@
             padding: 0;
             overflow: hidden;
             font-weight: $font-weight-semibold;
-            font-size: 1.5rem;
+            font-size: $font-size-base;
             word-break: keep-all;
 
             .fm-fund-yield {
@@ -169,29 +166,6 @@
           }
         }
       }
-    }
-  }
-}
-
-
-.fm-market-bulletin {
-  background-color: $color-dark-grey;
-  padding: $layout-modifier-sm 0;
-  position: relative;
-
-  .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    text-align: center;
-
-    .fm-market-bulletin-text {
-      color: $color-white;
-      margin: 0 auto;
-      padding: 0;
-      font-size: 2.5rem;
     }
   }
 }
