@@ -1,33 +1,33 @@
 <section class="container-fluid section-padding fm-fund-gallery background-dark">
 
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 margin-bottom-lg">
       <h3 class="text-center">Fonder</h3>
       <p class="text-center">Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal.</p>
     </div>
   </div>
 
   <!-- button-row -->
-  <div class="row">
+  <!--<div class="row">
     <div class="col-xs-12 col-lg-10 col-lg-offset-1">
       <div class="fm-fund-button-bar">
         <button ng-click="fmFunds.toggleCardMode()" ng-class="{ 'button-active': fmFunds.cardMode }" class="fm-button button-accent"><span class="glyphicon glyphicon-th"></span> Kortvy</button>
         <button ng-click="fmFunds.toggleCardMode()" ng-class="{ 'button-active': !fmFunds.cardMode }" class="fm-button button-accent"><span class="glyphicon glyphicon-list-alt"></span> Lista</button>
       </div>
     </div>
-  </div>
+  </div>-->
   <!-- button-row:end -->
   
   <!-- fm-card -->
-  <div ng-show="fmFunds.cardMode" class="row">
+  <!--<div ng-show="fmFunds.cardMode" class="row">
     <div class="col-xs-12 col-lg-10 col-lg-offset-1">
       <fm-fund-gallery funds="fmFunds.fundData"></fm-fund-gallery>
     </div>
-  </div>
+  </div>-->
   <!-- fm-card:end -->
 
   <!-- fm-table -->
-  <div ng-show="!fmFunds.cardMode" class="row">
+  <!--<div ng-show="!fmFunds.cardMode" class="row">
     <div class="col-xs-12 col-lg-10 col-lg-offset-1">
 
       <table class="fm-table">
@@ -58,9 +58,51 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div>-->
   <!-- fm-table:end -->
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+      <table class="fm-table">
+        <thead>
+          <tr>
+            <th>Fond</th>
+            <th class="text-center">Typ</th>
+            <th class="text-center">Volatilitet</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr dir-paginate="fundItem in fmFunds.realFundData | itemsPerPage: 10" total-items="fmFunds.totalFunds" current-page="fmFunds.pagination.current">
+            <td class="text-truncate"><a ui-sref="fund({id: fundItem.Id})" target="_blank">{{fundItem.FundInfo[0].Name}}</a></td>
+            <td class="text-center">{{fundItem.FundInfo[0].Type}}</td>
+            <td class="text-center text-accent">{{fundItem.FundInfo[0].Volatility}}</td>
+            <td>
+              <span ng-repeat="i in fmFunds.getNumber(fundItem.FundInfo[0].Risk) track by $index" class="glyphicon glyphicon-star"></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
+
+  <div class="row">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+      <dir-pagination-controls auto-hide="false" on-page-change="fmFunds.pageChanged(newPageNumber)"></dir-pagination-controls>
+      <!--<div class="fm-fund-button-bar">
+        <button class="fm-button" ng-click="fmFunds.loadMore()">Visa mer</button>
+      </div>-->
+    </div>
+  </div>
+
 </section>
+
+
+
+
 
 
 

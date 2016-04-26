@@ -228,7 +228,7 @@ var sass_options = {
     './bower_components/bourbon/app/assets/stylesheets',
     './bower_components/bootstrap-sass/assets/stylesheets',
     './bower_components/animate.css',
-    './bower_components/owl-carousel2/dist/assets/owl.carousel.css'
+    './bower_components/spinkit/scss'
     ]
   },
   autoprefixer: {

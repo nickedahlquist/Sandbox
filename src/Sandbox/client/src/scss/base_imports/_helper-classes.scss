@@ -49,6 +49,14 @@
   color: $color-red !important;
 }
 
+.text-caption {
+  font-size: $font-size-caption;
+}
+
+.text-small {
+  font-size: $font-size-small;
+}
+
 .text-truncate {
   max-width: 45rem;
   white-space: nowrap;
@@ -130,10 +138,64 @@
 /*---------------------------
   background-helpers:                     
 ---------------------------*/
+
 .background-light {
   background-color: $color-white;
 }
 
 .background-dark {
   background-color: $color-light-grey;
+}
+
+.background-accent {
+  background-color: $color-accent;
+}
+
+/*---------------------------
+  background-image-helpers:                     
+---------------------------*/
+
+// The background-image property needs to be set via the style attribute 
+.background-image-cover {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+
+
+
+// REMOVE LATER, for demo
+.newspaper {
+    column-count: 1;
+    column-gap: $layout-modifier-lg;
+    column-rule-style: none;
+    column-fill: auto;
+    text-align: left;
+    
+    @media(min-width: $screen-md) {
+      column-count: 2;
+      text-align: justify;
+    }
+ }
+
+ul.pagination {
+
+
+  li {
+
+    &.active {
+      border-color: $color-accent-shade !important;
+      
+      a {
+        color: $color-white;
+        background-color: $color-accent !important;
+        border-color: $color-accent !important;
+      }
+    }
+
+    a {
+      color: inherit;
+    }
+  }
 }

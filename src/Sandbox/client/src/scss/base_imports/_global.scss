@@ -23,15 +23,16 @@
 }
 
 html {
-  font-size: 56.3%;
-  
-  font-size: 50%;
-  
   overflow-x: hidden;
-
+  
+  // Responsive typography
+  /*font-size: 56.3%;
+ 
   @media(min-width: $screen-sm) {
     font-size: 62.5%;
-  }
+  }*/
+
+  font-size: 62.5%;
 }
 
 body {
@@ -96,7 +97,7 @@ hr {
   border: 0;
   background-color: transparent;
   border-bottom: 1px solid $color-text-primary;
-  opacity: 0.5;
+  opacity: 0.4;
   margin: $font-size-base 0;
 }
 

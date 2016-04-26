@@ -1,57 +1,41 @@
-﻿.fm-news-item-wrapper {
-  display: block;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  width: 100%;
+﻿.fm-news-item {
+  margin-bottom: $layout-modifier-lg;
+  text-align: center;
 
-  @media(min-width: $screen-md) {
-    display: flex;
-    width: 85%;   
-  }
+  .news-item-wrapper {
+    border: 1px solid $color-light-grey-shade;
+    transition: transform $animation-transition-short ease-in, box-shadow $animation-transition-short ease-in;
+    //margin: 0 auto;
+    @media(min-width: $screen-sm) {
+      //max-width: 35rem;
+    }
 
-  .fm-news-item {
-    margin-bottom: $layout-modifier-lg;
-    margin-left: $layout-modifier-sm / 2;
-    margin-right: $layout-modifier-sm / 2;
-    text-align: center;
+    &:hover {
+      transform: scale3d(1.02, 1.02, 1.02);
+      transition: transform $animation-transition-short ease-out, box-shadow $animation-transition-short ease-out;
+      transition-delay: $animation-transition-short;
+      box-shadow: 0 0 0.5rem $color-light-grey-shade;
+    }
 
-    .news-item-wrapper {
-      border: 1px solid $color-light-grey-shade;
-      transition: transform $animation-transition-short ease-in, box-shadow $animation-transition-short ease-in;
-      margin: 0 auto;
-      width: 100%;
-      
-      @media(min-width: $screen-md) {
-        width: 35rem;
-      }
-      
-      &:hover {
-        transform: scale3d(1.02, 1.02, 1.02);
-        transition: transform $animation-transition-short ease-out, box-shadow $animation-transition-short ease-out;
-        transition-delay: $animation-transition-short;
-        box-shadow: 0 0 0.5rem $color-light-grey-shade;
-      }
+    .news-item-image {
+      height: 20rem;
+      background-color: $color-accent;
+    }
 
-      .news-item-image {
-        height: 12rem;
-        background-color: $color-accent;
-      }
+    .news-item-content {
+      background-color: $color-white;
+      padding: $layout-modifier-sm;
 
-      .news-item-content {
-        background-color: $color-white;
-        padding: $layout-modifier-sm;
-        overflow: hidden;
-
-        .news-item-date {
-          padding: 0;
-          text-transform: uppercase;
-          letter-spacing: $font-letter-spacing;
-          font-weight: $font-weight-semibold;
-        }
+      .news-item-date {
+        padding: 0;
+        text-transform: uppercase;
+        letter-spacing: $font-letter-spacing;
+        font-weight: $font-weight-semibold;
 
         .news-item-headline {
           text-transform: capitalize;
+          max-height: 7rem;
+          overflow: hidden;
 
           a {
             color: inherit;
@@ -95,6 +79,12 @@
           }
         }
       }
+    }
+
+    .news-item-footer {
+      background-color: $color-accent;
+      padding: $layout-modifier-sm;
+      color: $color-white;
     }
   }
 }

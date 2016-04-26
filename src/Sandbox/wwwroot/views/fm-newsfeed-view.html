@@ -1,24 +1,28 @@
-<div class="fm-news-item-wrapper">
+<article ng-repeat="newsitem in news" class="col-xs-12 col-sm-6 col-md-4 fm-news-item">
+  <div class="news-item-wrapper">
+    <a ui-sref="article({id: newsitem.NewsItemId})">
+    <figure class="news-item-image background-image-cover" style="background-image: url('img/fm-hero.jpg');"></figure>
 
-  <article ng-repeat="newsitem in news" class="fm-news-item">
-    <div class="news-item-wrapper">
-      <figure class="news-item-image"></figure>
+    <div class="news-item-content">
+      <!--<small class="news-item-date">{{newsitem.PublishDate | limitTo : 10}}</small>-->
 
-      <div class="news-item-content">
-        <!--<small class="fa-news-date">{{newsitem.PublishDate | limitTo : 10}}</small>-->
+      <h6 class="news-item-headline text-left">{{newsitem.Title}}</h6>
+      <p class="text-caption text-left visible-xs" ng-bind-html="newsitem.Excerpt"></p>
 
-        <p class="news-item-headline">
-          <a href="#">{{newsitem.Title}}</a>
-        </p>
+      <!--<div class="news-item-tag" ng-if="newsitem.Tag">
+        <hr />
+        <a class="tag-name" href="#">
+          <span class="tag-icon glyphicon glyphicon-tag"></span> {{newsitem.Tag}}
+        </a>
+      </div>-->
 
-        <div class="news-item-tag" ng-if="newsitem.Tag">
-          <hr />
-          <a class="tag-name" href="#">
-            <span class="tag-icon glyphicon glyphicon-tag"></span> {{newsitem.Tag}}
-          </a>
-        </div>
-      </div>
     </div>
-  </article>
 
-</div>
+    <footer class="news-item-footer">
+      <p class="no-margin text-right">Läs mer ></p>
+    </footer>
+      </a>
+  </div>
+</article>
+
+
