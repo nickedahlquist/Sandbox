@@ -7,63 +7,11 @@
     </div>
   </div>
 
-  <!-- button-row -->
-  <!--<div class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-      <div class="fm-fund-button-bar">
-        <button ng-click="fmFunds.toggleCardMode()" ng-class="{ 'button-active': fmFunds.cardMode }" class="fm-button button-accent"><span class="glyphicon glyphicon-th"></span> Kortvy</button>
-        <button ng-click="fmFunds.toggleCardMode()" ng-class="{ 'button-active': !fmFunds.cardMode }" class="fm-button button-accent"><span class="glyphicon glyphicon-list-alt"></span> Lista</button>
-      </div>
-    </div>
-  </div>-->
-  <!-- button-row:end -->
-  
-  <!-- fm-card -->
-  <!--<div ng-show="fmFunds.cardMode" class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-      <fm-fund-gallery funds="fmFunds.fundData"></fm-fund-gallery>
-    </div>
-  </div>-->
-  <!-- fm-card:end -->
-
-  <!-- fm-table -->
-  <!--<div ng-show="!fmFunds.cardMode" class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-
-      <table class="fm-table">
-
-        <thead>
-          <tr>
-            <th class="text-truncate">Fond</th>
-            <th class="text-right">Kurs</th>
-            <th class="text-center hidden-xs">Utv.</th>
-            <th class="text-center hidden-xs hidden-sm">Risk</th>
-            <th class="hidden-xs">Betyg</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="fund in fmFunds.fundData">
-            <td class="text-truncate">
-              <span class="fm-fund-table-title visible-md-inline-block visible-lg-inline-block">{{fund.manager}} - </span>
-              <span>{{fund.name}}</span>
-            </td>
-            <td class="text-right">{{fund.price}}</td>
-            <td class="text-center text-accent hidden-xs">{{fund.return}}</td>
-            <td class="text-center hidden-xs hidden-sm">{{fund.risk}}</td>
-            <td class="hidden-xs">
-              <span ng-repeat="i in fmFunds.getNumber(fund.rating) track by $index" class="glyphicon glyphicon-star"></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>-->
-  <!-- fm-table:end -->
-
   <div class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
-      <table class="fm-table">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1" infinite-scroll="fmFunds.loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled='fmFunds.busy'>
+
+ 
+      <table class="fm-table table-stripe hidden-xs">
         <thead>
           <tr>
             <th>Fond</th>
@@ -74,29 +22,85 @@
         </thead>
 
         <tbody>
-          <tr dir-paginate="fundItem in fmFunds.realFundData | itemsPerPage: 10" total-items="fmFunds.totalFunds" current-page="fmFunds.pagination.current">
-            <td class="text-truncate"><a ui-sref="fund({id: fundItem.Id})" target="_blank">{{fundItem.FundInfo[0].Name}}</a></td>
+          <tr ng-repeat="fundItem in fmFunds.realFundData">
+            <td class="text-truncate"><a ui-sref="fund({id: fundItem.Id})">{{fundItem.FundInfo[0].Name}}</a></td>
             <td class="text-center">{{fundItem.FundInfo[0].Type}}</td>
             <td class="text-center text-accent">{{fundItem.FundInfo[0].Volatility}}</td>
             <td>
               <span ng-repeat="i in fmFunds.getNumber(fundItem.FundInfo[0].Risk) track by $index" class="glyphicon glyphicon-star"></span>
             </td>
           </tr>
+
         </tbody>
       </table>
+
+      <!-- card start -->
+      <!--<article class="fm-panel visible-xs" dir-paginate="fundItem in fmFunds.realFundData | itemsPerPage: 10" total-items="fmFunds.totalFunds" current-page="fmFunds.pagination.current">
+        <a ui-sref="fund({id: fundItem.Id})" target="_blank">
+          <header class="fm-panel-header">
+            <h6>{{fundItem.FundInfo[0].Name}}</h6>
+          </header>
+        </a>
+
+        <div class="panel-body">
+          <table class="fm-table no-border">
+            <tbody>
+              <tr>
+                <th>Typ</th>
+                <td>{{fundItem.FundInfo[0].Type}}</td>
+              </tr>
+              <tr>
+                <th>Volatilitet</th>
+                <td>{{fundItem.FundInfo[0].Volatility}}</td>
+              </tr>
+              <tr>
+                <th>Risk</th>
+                <td><span ng-repeat="i in fmFunds.getNumber(fundItem.FundInfo[0].Risk) track by $index" class="glyphicon glyphicon-star"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>-->
+      <!--  card end -->
+
+      <article class="fm-panel visible-xs hover-up stagger" ng-repeat="fundItem in fmFunds.realFundData">
+        <a ui-sref="fund({id: fundItem.Id})">
+          <header class="fm-panel-header">
+            <h6 class="text-white">{{fundItem.FundInfo[0].Name}}</h6>
+          </header>
+        </a>
+
+        <div class="panel-body">
+          <table class="fm-table no-border">
+            <tbody>
+              <tr>
+                <th>Typ</th>
+                <td>{{fundItem.FundInfo[0].Type}}</td>
+              </tr>
+              <tr>
+                <th>Volatilitet</th>
+                <td>{{fundItem.FundInfo[0].Volatility}}</td>
+              </tr>
+              <tr>
+                <th>Risk</th>
+                <td><span ng-repeat="i in fmFunds.getNumber(fundItem.FundInfo[0].Risk) track by $index" class="glyphicon glyphicon-star"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+
     </div>
   </div>
 
-  
 
-  <div class="row">
-    <div class="col-xs-12 col-lg-10 col-lg-offset-1">
+
+  <!--<div class="row">
+    <div class="col-xs-12 col-lg-10 col-lg-offset-1 display-flex flex-center">
       <dir-pagination-controls auto-hide="false" on-page-change="fmFunds.pageChanged(newPageNumber)"></dir-pagination-controls>
-      <!--<div class="fm-fund-button-bar">
-        <button class="fm-button" ng-click="fmFunds.loadMore()">Visa mer</button>
-      </div>-->
     </div>
-  </div>
+  </div>-->
 
 </section>
 

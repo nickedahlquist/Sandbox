@@ -11,7 +11,7 @@ $table-padding: 1rem;
   width: 100%;
   max-width: 100%;
   margin-bottom: $layout-modifier-sm;
-  font-size: 1.4rem;
+  font-size: $font-size-caption;
 
   tr {
 
@@ -31,33 +31,26 @@ $table-padding: 1rem;
   tbody {
 
     tr {
-      background-color: $color-light-grey;
+      background-color: $color-white;
+      border-bottom: 1px $color-light-grey-shade solid;
 
-      &:nth-child(odd) {
-        background-color: $color-white;
+      &:last-child {
+        border-bottom: 0;
       }
+    }
+  }
 
-      /*&.ng-enter-stagger {
-        transition-delay: $animation-transition-short/4;
-        transition-duration: 0;
+  &.table-stripe {
+
+    tbody {
+
+      tr {
+        background-color: $color-light-grey;
+
+        &:nth-child(odd) {
+          background-color: $color-white;
+        }
       }
-
-      &.ng-move, &.ng-enter, &.ng-leave {
-        transition: opacity $animation-transition-short linear;
-        //transition: all 175ms linear;
-      }
-
-      &.ng-leave.ng-leave-active, &.ng-move, &.ng-enter {
-        opacity: 0;
-        //transform: translate3d(5rem, 0, 0); 
-        //transform: scale3d(0.5, 0.5, 0.5);
-      }
-
-      &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active {
-        opacity: 1;
-        //transform: translate3d(-1rem, 0, 0); 
-        //transform: scale3d(1, 1, 1);
-      }*/
     }
   }
 

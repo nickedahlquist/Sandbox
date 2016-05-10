@@ -231,7 +231,7 @@
     margin: auto;
 
     #logo-group {
-      opacity: 0.02;
+      opacity: 0.05;
 
       path {
         fill: $color-white;
@@ -248,10 +248,10 @@
     }
 
     .fm-fund-list, .fm-news-list {
-      font-size: $font-size-h4;
+      font-size: $font-size-h6;
 
       @media(min-width: $screen-sm) {
-        font-size: $font-size-h3;
+        font-size: $font-size-h5;
       }
 
       &.ng-enter, &.ng-leave {
@@ -280,11 +280,11 @@
 
     label {
       font-weight: $font-weight-light;
-      font-size: $font-size-h3;
+      font-size: $font-size-h4;
       margin-bottom: $layout-modifier-sm;
 
       @media(min-width: $screen-sm) {
-        font-size: $font-size-h2;
+        font-size: $font-size-h3;
       }
     }
 
@@ -296,14 +296,14 @@
       box-shadow: none;
       border-radius: 0;
       border: 0;
-      font-size: $font-size-h2;
+      font-size: $font-size-h3;
       
       &::-ms-clear {
         display: none;
       }
 
       @media(min-width: $screen-sm) {
-        font-size: $font-size-h1;
+        font-size: $font-size-h2;
       }
     }
   }

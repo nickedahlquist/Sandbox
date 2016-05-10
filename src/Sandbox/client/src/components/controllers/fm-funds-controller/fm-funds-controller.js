@@ -18,8 +18,8 @@
             return fmDataService;
           },
           fundData: function (fmFundDataService) {
-            //return fmFundDataService.getFunds();
-            return fmFundDataService.getResultsPage(1);
+            return fmFundDataService.getFunds();
+            //return fmFundDataService.getResultsPage(1);
           }
         },
         sortOrder: 3
@@ -39,43 +39,62 @@
     vm.cardMode = true;
     vm.fundData = allData.funds;
     vm.realFundData = fundData.value;
+    vm.busy = false;
 
     var nextItems = fundData["@odata.nextLink"];
 
+    /*
     vm.funds = [];
-    vm.totalFunds = 1000;
-    vm.fundsPerPage = 5;
+    vm.totalFunds = fundData["@odata.count"] - 10;
+    vm.fundsPerPage = 10;
+    vm.clickable = true;
 
     vm.pagination = {
       current: 1
-    };
+    };*/
 
-    vm.pageChanged = function (newPage) {
+    /*vm.pageChanged = function (newPage) {
 
       fmFundDataService.getResultsPage(newPage).then(function (data) {
           vm.realFundData = data.value;
           return;
         });
+    };*/
+
+    /*
+    vm.pageChanged = _.debounce(function (newPage) {
+      fmFundDataService.getResultsPage(newPage).then(function (data) {
+        vm.realFundData = data.value;
+        vm.pagination.current = newPage;
+        console.log(vm.pagination.current);
+        return;
+      });
+    }, 500, true);*/
+
+    //vm.loadMore = _.debounce(function () {
+    //    fmFundDataService.getNextLinks(nextItems).then(function (data) {
+    //      vm.realFundData = vm.realFundData.concat(data.value);
+    //      nextItems = data["@odata.nextLink"];
+    //      return;
+    //    });
+    //}, 500, true);
+
+    vm.loadMore = function () {
+
+      if (vm.busy) {
+        return;
+      }
+
+      vm.busy = true;
+
+      return fmFundDataService.getNextLinks(nextItems).then(function (data) {
+        vm.realFundData = vm.realFundData.concat(data.value);
+        nextItems = data["@odata.nextLink"];
+        vm.busy = false;
+        return;
+      });
+
     };
-
-    vm.loadMore = _.debounce(function () {
-        fmFundDataService.getNextLinks(nextItems).then(function (data) {
-          vm.realFundData = vm.realFundData.concat(data.value);
-          nextItems = data["@odata.nextLink"];
-          return;
-        });
-    }, 500, true);
-
-    //vm.loadMore = function () {
-
-    //  fmFundDataService.getNextLinks(nextItems).then(function (data) {
-    //    vm.realFundData = vm.realFundData.concat(data.value);
-    //    nextItems = data["@odata.nextLink"];
-    //    console.log(data);
-    //    return;
-    //  });
-
-    //};
 
     vm.getNumber = fmUtilityFunctions.intToArray;
 

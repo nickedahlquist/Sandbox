@@ -1,10 +1,132 @@
-<section class="section-padding background-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-        <h3 class="text-center">{{fmSingleFund.fund.FundInfo[0].Name}}</h3>
+<section class="container-fluid section-padding background-dark" ng-init="fmSingleFund.addSeries(fmSingleFund.fund.Isin, fmSingleFund.fund.FundInfo[0].Name)">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h4>{{fmSingleFund.fund.FundInfo[0].Name}}</h4>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-7 col-sm-offset-1">
+
+      <div class="fm-panel animated fadeIn" ng-show="fmSingleFund.chartComplete">
+        <header class="fm-panel-header background-black">
+          <h6>Utveckling</h6>
+        </header>
+
+        <div class="panel-body">
+          <highchart id="chart1" config="fmSingleFund.chartConfig"></highchart>
+        </div>
+      </div>
+
+      <div ng-hide="fmSingleFund.chartComplete" class="sk-wave">
+        <div class="sk-rect sk-rect1"></div>
+        <div class="sk-rect sk-rect2"></div>
+        <div class="sk-rect sk-rect3"></div>
+        <div class="sk-rect sk-rect4"></div>
+        <div class="sk-rect sk-rect5"></div>
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+
+      <div ng-show="fmSingleFund.fundList" class="fm-panel">
+        <header class="fm-panel-header background-black">
+          <h6>Jämför</h6>
+        </header>
+
+        <div class="panel-body">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Jämför <span class="caret"></span></button>
+            <ul class="dropdown-menu scrollable-menu" role="menu">
+              <li ng-repeat="fund in fmSingleFund.fundList">
+                <a href="" ng-click="fmSingleFund.addSeries(fund.Isin, fund.FundInfo[0].Name)">{{fund.FundInfo[0].Name}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="fm-panel animated fadeIn">
+        <header class="fm-panel-header background-black">
+          <h6>Fondinfo</h6>
+        </header>
+        <div class="panel-body">
+          <table class="fm-table no-border">
+            <tbody>
+              <tr>
+                <th>Isin</th>
+                <td class="text-right">{{fmSingleFund.fund.Isin}}</td>
+              </tr>
+              <tr>
+                <th>Typ</th>
+                <td class="text-right">{{fmSingleFund.fund.FundInfo[0].Type}}</td>
+              </tr>
+              <tr>
+                <th>Volatilitet</th>
+                <td class="text-right">{{fmSingleFund.fund.FundInfo[0].Volatility}}</td>
+              </tr>
+              <tr>
+                <th>Risk</th>
+                <td class="text-right"><span ng-repeat="i in fmSingleFund.getNumber(fmSingleFund.fund.FundInfo[0].Risk) track by $index" class="glyphicon glyphicon-star"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-1">
+      <div class="fm-panel animated fadeIn">
+        <header class="fm-panel-header background-black">
+          <h6>Innehav och fördelning</h6>
+        </header>
+        <div class="panel-body">
+          <highchart id="pie-chart" class="col-xs-12" config="fmSingleFund.pieChartConfig"></highchart>
+          <!--<aside id="pie-legend" class="col-xs-12" ng-repeat="data in fmSingleFund.pieChartConfig.series[0].data">
+            <p class="text-caption">{{data.name}}</p>
+          </aside>-->
+        </div>
       </div>
     </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-1">
+      <div class="fm-panel animated fadeIn">
+        <header class="fm-panel-header background-black">
+          <h6>Innehav och fördelning</h6>
+        </header>
+        <div id="#holdings-slider" class="panel-body owl-carousel">
+          <div ng-repeat="holding in fmSingleFund.fund.CompanyHoldings">
+            <div class="c100 p{{(holding.HoldingValue * 100).toFixed(0)}} big">
+              <span class="text-accent"> {{(holding.HoldingValue * 100).toFixed(0) + '%'}}</span>
+              <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+              </div>
+            </div>
+            <p>{{holding.CompnyName}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="fm-panel animated fadeIn">
+        <header class="fm-panel-header background-black">
+          <h6>Placeringsinriktning</h6>
+        </header>
+        <div class="panel-body">
+          <p class="text-caption">{{fmSingleFund.fund.FundInfo[0].Description}}</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 

@@ -45,6 +45,10 @@
   color: $color-accent !important;
 }
 
+.text-white {
+  color: $color-white !important;
+}
+
 .text-warning {
   color: $color-red !important;
 }
@@ -132,7 +136,19 @@
 }
 
 .display-flex {
-  display: flex !important;
+  display: flex;
+
+  &.flex-center {
+    justify-content: center;
+  }
+}
+
+/*---------------------------
+  border-helpers:                     
+---------------------------*/
+
+.no-border {
+  border: 0;
 }
 
 /*---------------------------
@@ -140,15 +156,19 @@
 ---------------------------*/
 
 .background-light {
-  background-color: $color-white;
+  background-color: $color-white !important;
 }
 
 .background-dark {
-  background-color: $color-light-grey;
+  background-color: $color-light-grey !important;
+}
+
+.background-black {
+  background-color: $color-dark-grey !important; 
 }
 
 .background-accent {
-  background-color: $color-accent;
+  background-color: $color-accent !important;
 }
 
 /*---------------------------
@@ -162,7 +182,37 @@
   background-size: cover;
 }
 
+/*---------------------------
+  hover-helpers:                     
+---------------------------*/
 
+.hover-up {
+  transform: translate3d(0, 0, 0);
+  transition: transform $animation-transition-short ease-in-out;
+
+  &:hover {
+    transform: translate3d(0, -1em, 0);
+  }
+}
+
+.stagger {
+
+  &.ng-enter-stagger {
+    transition-delay: $animation-transition-short/2;
+    transition-duration: 0;
+  }
+
+  &.ng-leave.ng-leave-active, &.ng-move, &.ng-enter {
+    opacity: 0;
+    transform: scale3d(0.95, 0.95, 0.95);
+    transition: all $animation-transition-short ease-in;
+  }
+
+  &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
 
 
 // REMOVE LATER, for demo
@@ -180,13 +230,13 @@
  }
 
 ul.pagination {
-
+  margin: 0 auto;
+  border-radius: $border-radius-sm;
 
   li {
 
     &.active {
-      border-color: $color-accent-shade !important;
-      
+
       a {
         color: $color-white;
         background-color: $color-accent !important;
@@ -194,8 +244,100 @@ ul.pagination {
       }
     }
 
+    &.disabled {
+
+      a {
+        color: inherit !important;
+        line-height: inherit !important;
+        background-color: $color-white !important;
+        border-color: $color-light-grey-shade !important;
+      }
+    }
+
+    &:first-child {
+
+      a {
+        border-bottom-left-radius: $border-radius-sm;
+        border-top-left-radius: $border-radius-sm;
+      }
+    }
+
+    &:last-child {
+
+      a {
+        border-bottom-right-radius: $border-radius-sm;
+        border-top-right-radius: $border-radius-sm;
+      }
+    }
+
     a {
       color: inherit;
+      line-height: inherit;
+      background-color: $color-white;
+      border-color: $color-light-grey-shade;
+
+      &:hover {
+        color: inherit;
+        background-color: $color-light-grey-shade;
+        border-color: $color-light-grey-shade;
+      }
     }
   }
 }
+
+.scrollable-menu {
+    height: auto;
+    width: 40rem;
+    max-width: 50rem;
+    max-height: 20rem;
+    overflow-x: hidden;
+}
+
+      /*&.ng-enter-stagger {
+        transition-delay: $animation-transition-short/4;
+        transition-duration: 0;
+      }
+
+      &.ng-move, &.ng-enter, &.ng-leave {
+        transition: opacity $animation-transition-short linear;
+        //transition: all 175ms linear;
+      }
+
+      &.ng-leave.ng-leave-active, &.ng-move, &.ng-enter {
+        opacity: 0;
+        //transform: translate3d(5rem, 0, 0); 
+        //transform: scale3d(0.5, 0.5, 0.5);
+      }
+
+      &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active {
+        opacity: 1;
+        //transform: translate3d(-1rem, 0, 0); 
+        //transform: scale3d(1, 1, 1);
+      }*/
+
+#pie-chart {
+
+  svg {
+
+    .highcharts-series {
+      
+
+      &:hover {
+
+        path {
+          opacity: 0.7;
+
+          &:hover {
+            transform: translate3d(0, -1rem, 0);
+            opacity: 1.0;
+          }
+        }
+      }
+
+      path {
+        transition: all $animation-transition-short ease-in-out;
+      }
+    }
+  }
+}
+

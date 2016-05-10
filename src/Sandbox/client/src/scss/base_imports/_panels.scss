@@ -1,0 +1,31 @@
+﻿/*
+ * _panels.scss
+ * ============
+ * 
+ */
+
+.fm-panel {
+  background-color: $color-white;
+  border-radius: $border-radius-sm;
+  border: 1px $color-light-grey-shade solid;
+  margin-bottom: $layout-modifier-sm;
+
+  .fm-panel-header {
+    padding: 0 $layout-modifier-sm;
+    background-color: $color-accent;
+    overflow: hidden;
+    border-top-right-radius: $border-radius-sm;
+    border-top-left-radius: $border-radius-sm;
+    color: $color-white !important;
+    
+    h1, h2, h3, h4, h5, h6, p, a {
+      color: $color-white !important;
+    }
+  }
+
+  .fm-panel-body {
+    padding: 0 $layout-modifier-sm;
+    border-bottom-right-radius: $border-radius-sm;
+    border-bottom-left-radius: $border-radius-sm;
+  }
+}
