@@ -1,4 +1,4 @@
-﻿/*
+/*
  * _styles.scss
  * ============
  * 
@@ -30,6 +30,10 @@
 
 // Component styles.
 /* inject:scss */
+@import "../components/controllers/fm-news-controller/fm-news-style.scss";
+@import "../components/controllers/fm-portfolio-generator-controller/fm-portfolio-generator-style.scss";
+@import "../components/controllers/fm-register-controller/fm-register-style.scss";
+@import "../components/controllers/fm-single-fund-controller/fm-single-fund-style.scss";
 @import "../components/directives/fm-bulletin-slider-directive/fm-bulletin-slider-style.scss";
 @import "../components/directives/fm-disclaimer/fm-disclaimer-style.scss";
 @import "../components/directives/fm-footer-directive/fm-footer-style.scss";
@@ -40,10 +44,6 @@
 @import "../components/directives/fm-navbar-directive/fm-navbar-style.scss";
 @import "../components/directives/fm-newsfeed-directive/fm-newsfeed-style.scss";
 @import "../components/directives/fm-step-progressbar/fm-step-progressbar-style.scss";
-@import "../components/controllers/fm-news-controller/fm-news-style.scss";
-@import "../components/controllers/fm-portfolio-generator-controller/fm-portfolio-generator-style.scss";
-@import "../components/controllers/fm-register-controller/fm-register-style.scss";
-@import "../components/controllers/fm-single-fund-controller/fm-single-fund-style.scss";
 @import "../components/controllers/fm-portfolio-generator-controller/subviews/configure/fm-portfolio-generator-configure-style.scss";
 @import "../components/controllers/fm-portfolio-generator-controller/subviews/confirm/fm-portfolio-generator-confirm-style.scss";
 @import "../components/controllers/fm-portfolio-generator-controller/subviews/fundpackage/fm-portfolio-generator-fundpackage-style.scss";
