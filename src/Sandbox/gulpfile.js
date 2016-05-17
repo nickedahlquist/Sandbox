@@ -297,8 +297,7 @@ gulp.task('serve', function (done) {
   gulp.watch(paths.components.html.src, ['templates']);
 
   gulp.watch(paths.components.css.src, ['inject-sass-components']);
-  gulp.watch([paths.js.src, paths.components.js.src], ['inject-js']);
-  
+  gulp.watch([paths.js.src, paths.components.js.src], ['inject-js']);  
 });
 
 // --------------------------------------------------------------------

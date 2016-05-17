@@ -21,10 +21,10 @@
   }]);
 
   // Register controller.
-  angular.module('fm').controller('FmHomeCtrl', [FmHomeCtrl]);
+  angular.module('fm').controller('FmHomeCtrl', ['fmAuthServiceFactory', FmHomeCtrl]);
 
   // Define controller-function.
-  function FmHomeCtrl() {
+  function FmHomeCtrl(fmAuthServiceFactory) {
 
     /* jshint validthis: true */
     var vm = this;

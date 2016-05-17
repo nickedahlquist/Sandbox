@@ -1,0 +1,20 @@
+﻿.fm-login {
+  position: relative;
+
+  form {
+    background-color: $color-white;
+    padding: $layout-modifier-sm * 1.5;
+
+    input {
+      margin-bottom: $layout-modifier-sm;
+
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $color-light-grey inset;
+      }
+    }
+
+    .fm-button {
+	    width: 100%;
+    }
+  }
+}

@@ -12,6 +12,6 @@
   'use strict';
 
   // Inject modules (dependencies) here.
-  angular.module('fm', ['ngAnimate', 'ui.router', 'ui.router.title', 'ngSanitize', 'infinite-scroll', 'highcharts-ng']);
+  angular.module('fm', ['ngAnimate', 'ui.router', 'ui.router.title', 'ngSanitize', 'infinite-scroll', 'highcharts-ng', 'LocalStorageModule']);
 
 })();

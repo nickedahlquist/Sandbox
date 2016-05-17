@@ -1,0 +1,14 @@
+﻿<div class="fm-holdings">
+  <ul class="margin-bottom-lg">
+    <li>
+      <p class="text-small"><span class="count">#</span>Företag</p>
+      <p class="text-small company-name indent">Fördelning</p>
+    </li>
+    <li ng-repeat="holding in holdings">
+      <p class="text-small text-semibold"><span class="count rounded">{{$index + 1}}</span>{{holding.CompnyName}}</p>
+      <div class="holdings-bar-wrapper">
+        <span class="fill" data-percentage="{{(holding.HoldingValue * 100).toFixed()}}%" style="width: {{holding.barWidth}}; background: linear-gradient(-90deg, {{holding.barGradient.colorStop1}} 0%, {{holding.barGradient.colorStop2}} 100%);"></span>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -65,3 +65,38 @@
   }
 }
 
+.fm-pill {
+  border-radius: $border-radius-md;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $font-letter-spacing;
+  font-size: $font-size-small;
+  padding: 0.7rem 1.4rem;
+  outline: 0;
+  border: 1px solid transparent;
+  color: $color-text-primary-highlight;
+  margin: 0 auto $layout-modifier-sm auto;
+  min-width: $layout-modifier-lg;
+  transition: all ease-in-out $animation-transition-short;
+  white-space: nowrap;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+
+  &.pill-active {
+    border-color: $color-text-primary;
+    color: $color-text-primary;
+
+    &:hover {
+      background-color: $color-light-grey-highlight;
+    }
+
+    &:active {
+      background-color: $color-light-grey;
+    }
+  }
+
+}
+

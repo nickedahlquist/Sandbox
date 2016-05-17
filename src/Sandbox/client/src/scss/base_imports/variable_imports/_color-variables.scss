@@ -17,6 +17,7 @@ $color-accent-highlight: tint($color-accent, 40);
 $color-accent-shade: shade($color-accent, 20);
 
 $color-light-grey: #F2F2F0;
+$color-light-grey-highlight: tint($color-light-grey, 60);
 $color-light-grey-shade: shade($color-light-grey, 5);
 
 $color-dark-grey: #303E4C;

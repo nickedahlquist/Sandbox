@@ -29,76 +29,60 @@
   function FmSingleFundCtrl(singleFundData, fmFundDataService, fmChartDefaults, $timeout, fmUtilityFunctions) {
 
     /* jshint validthis: true */
-    var vm = this;
-    var defaultLineOptions = fmChartDefaults.getLineOptions();
-    var defaultPieOptions = fmChartDefaults.getPieOptions();
-    var utils = fmUtilityFunctions;
+    var vm = this,
+        defaultLineOptions = fmChartDefaults.getLineChart(),
+        defaultPieOptions1 = fmChartDefaults.getPieChart(),
+        defaultPieOptions2 = fmChartDefaults.getPieChart(),
+        utils = fmUtilityFunctions;
 
-    var chartCache = undefined;
     vm.chartComplete = false;
-    vm.fund = singleFundData.value[0];
+    vm.name = singleFundData.FundInfo[0].Name;
+    vm.isin = singleFundData.Isin;
+    vm.description = singleFundData.FundInfo[0].Description;
+    vm.volatility = singleFundData.FundInfo[0].Volatility;
+    vm.risk = singleFundData.FundInfo[0].Risk;
+    vm.type = singleFundData.FundInfo[0].Type;
+    vm.navHistory = singleFundData.NavHistory;
+    vm.holdings = singleFundData.CompanyHoldings;
+    vm.sectors = singleFundData.Sectors;
+    vm.regions = singleFundData.Regions;
+
+
     vm.getNumber = fmUtilityFunctions.intToArray;
 
     fmFundDataService.getFunds().then(function (data) {
       vm.fundList = data.value;
     });
 
-    vm.addSeries = function (isin, name) {
-      
-      //if (chartCache === undefined) {
+    vm.populateChart = function (idIn, nameIn) {
+      fmFundDataService.getFundById(idIn).then(function (data) {
+        vm.addSeries(nameIn, data.NavHistory);
+      });
+    };
 
-        fmFundDataService.getNavHistory(isin).then(function (data) {
-          var navHistory = _.sortBy(data, function (val) { return val.RateDate; });
-          var seriesData = [];
-          var intitialValue = navHistory[0].Rate;
+    vm.addSeries = function (nameIn, navHistoryIn) {
+      var navHistory = _.sortBy(navHistoryIn, function (val) { return val.RateDate; });
+      var seriesData = [];
+      var intitialValue = navHistory[0].Rate;
 
-          for (var i = 0; i < navHistory.length; i++) {
-            seriesData.push([
-              (new Date(navHistory[i].RateDate).getTime()),
-              100 * (navHistory[i].Rate - intitialValue) / intitialValue
-            ]);
-          }
+      for (var i = 0; i < navHistory.length; i++) {
+        seriesData.push([
+          (new Date(navHistory[i].RateDate).getTime()),
+          100 * (navHistory[i].Rate - intitialValue) / intitialValue
+        ]);
+      }
 
-          var newSeries = {
-            name: name,
-            data: seriesData
-          };
+      var newSeries = {
+        name: nameIn,
+        data: seriesData
+      };
 
-          chartCache = newSeries;
-
-          if (vm.chartConfig.series.length > 2) {
-            vm.chartConfig.series.pop();
-            vm.chartConfig.series.pop();
-          }
-
-          vm.chartConfig.series.push(newSeries);
-          vm.chartComplete = true;
-        });
-
-        //fmFundDataService.getFundByIsin(vm.fund.Isin).then(function (data) {
-        //  var navHistory = data.value[0].NavHistory.reverse();
-        //  var series = [];
-        //  var intitialValue = navHistory[0].Rate;
-
-        //  for (var i = 0; i < navHistory.length; i++) {
-        //    series.push([
-        //      (new Date(navHistory[i].RateDate).getTime()),
-        //      100 * (navHistory[i].Rate - intitialValue) / intitialValue
-        //    ]);
-        //  }
-
-        //  chartCache = series;
-        //  vm.chartConfig.series[0].data = chartCache;
-        //  vm.chartComplete = true;
-        //});
-
-      //} else {
-      //  vm.chartConfig.series[0] = chartCache;
-      //}
+      vm.navHistoryLineChart.series.push(newSeries);
+      vm.chartComplete = true;
     }
 
 
-    vm.chartConfig = {
+    vm.navHistoryLineChart = {
       options: defaultLineOptions,
       series: [],
       title: {
@@ -122,8 +106,8 @@
           }
         }
       },
-      func: function(chart) {
-        $timeout(function() {
+      func: function (chart) {
+        $timeout(function () {
           chart.reflow();
         }, 0);
       },
@@ -131,52 +115,36 @@
     };
 
 
-
-    var pieData = [];
-
-    for (var j = 0; j < vm.fund.CompanyHoldings.length; j++) {
-
-
-      pieData.push({
-        name: vm.fund.CompanyHoldings[j].CompnyName,
-        y: vm.fund.CompanyHoldings[j].HoldingValue * 100
-      });
-    }
-
-    function initSlider() {
-      var owl = $('.owl-carousel'),
-          options = {
-            items: 1,
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: true
-          };
-
-      owl.owlCarousel(options);
-      console.log(owl);
-    }
-
-    $timeout(initSlider, 0);
-
-    //defaultPieOptions.chart.events = {
-    //  load: function () {
-
-    //    var chart = this;
-    //    console.log(chart);
-    //  }
-    //};
-
-    vm.pieChartConfig = {
-
-      options: defaultPieOptions,
-
-      series: [{
-        name: 'Holdings',
+    var sectorSeries = {
+        name: 'Sektor',
         colorByPoint: true,
-        data: pieData
-      }],
+        data: vm.holdings.reduce(function (result, value, key) {
+          result.push({
+            name: value.CompnyName,
+            y: value.HoldingValue * 100
+          });
+          return result;
+        }, [])
+      };
+    
+    defaultPieOptions1.chart.events = {
+      load: function () {
+        var chart = $('#sector-pie-chart'),
+            legend = chart.find('.highcharts-legend').removeAttr('transform').appendTo('#sector-pie-chart-legend');
+      },
+      redraw: function () {
+        var chart = $('#sector-pie-chart-legend'),
+            legend = chart.find('.highcharts-legend').removeAttr('transform');
+      }
+    };
+
+    
+
+    vm.sectorPieChart = {
+
+      options: defaultPieOptions1,
+
+      series: [sectorSeries],
 
       title: {
         text: '',
@@ -203,7 +171,7 @@
         }
       },
 
-      func: function (chart) {     
+      func: function (chart) {
         $timeout(function () {
           chart.reflow();
         }, 0);
@@ -211,11 +179,74 @@
       },
 
       useHighStocks: false,
-
     };
 
-    //console.log(defaultPieOptions.getHighcharts().colors);
 
+    var regionsSeries = {
+      name: 'Regions',
+      colorByPoint: true,
+      data: vm.holdings.reduce(function (result, value, key) {
+        result.push({
+          name: value.CompnyName,
+          y: value.HoldingValue * 100
+        });
+        return result;
+      }, [])
+    };
+    
+    defaultPieOptions2.chart.events = {
+      load: function () {
+        var chart2 = $('#regions-pie-chart'),
+            legend2 = chart2.find('.highcharts-legend').removeAttr('transform').appendTo('#regions-pie-chart-legend');
+      },
+      redraw: function () {
+        var chart2 = $('#regions-pie-chart-legend'),
+            legend2 = chart2.find('.highcharts-legend').removeAttr('transform');
+      }
+    };
+
+    
+
+    vm.regionsPieChart = {
+
+      options: defaultPieOptions2,
+
+      series: [regionsSeries],
+
+      title: {
+        text: '',
+        style: {
+          display: 'none'
+        }
+      },
+
+      subtitle: {
+        text: '',
+        style: {
+          display: 'none'
+        }
+      },
+
+      loading: false,
+
+      xAxis: {
+        title: {
+          text: '',
+          style: {
+            display: 'none'
+          }
+        }
+      },
+
+      func: function (chart) {
+        $timeout(function () {
+          chart.reflow();
+        }, 0);
+
+      },
+
+      useHighStocks: false,
+    };
 
   }
 })();

@@ -1,0 +1,150 @@
+﻿<div class="fm-single-fund" ng-init="fmSingleFund.addSeries(fmSingleFund.name, fmSingleFund.navHistory)">
+
+  <section class="container-fluid background-light">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <header class="margin-top-lg single-fund-header">
+          <h4 class="title no-padding">{{fmSingleFund.name}}</h4>
+          <ul class="title-buttonbar">
+            <li><button class="fm-pill pill-active no-margin">Översikt</button></li>
+            <li><button class="fm-pill no-margin">Betyg</button></li>
+            <li><button class="fm-pill no-margin">Fakta</button></li>
+          </ul>
+        </header>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid section-padding-sm background-dark">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <h6 class="no-padding no-margin">Isin</h6>
+        <h5 class="no-padding no-margin">{{fmSingleFund.isin}}</h5>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid section-padding-sm background-light">
+    <div class="row">
+      <div class="col-xs-12 col-md-5 col-md-offset-1 animated fadeIn col-divider-md" ng-show="fmSingleFund.chartComplete">
+        <h5>Utveckling</h5>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Jämför <span class="caret"></span></button>
+          <ul class="dropdown-menu scrollable-menu" role="menu">
+            <li ng-repeat="fund in fmSingleFund.fundList">
+              <a href="" ng-click="fmSingleFund.populateChart(fund.Id, fund.FundInfo[0].Name)">{{fund.FundInfo[0].Name}}</a>
+            </li>
+          </ul>
+        </div>
+        <highchart id="chart1" config="fmSingleFund.navHistoryLineChart"></highchart>
+
+        <div ng-hide="fmSingleFund.chartComplete" class="sk-wave">
+          <div class="sk-rect sk-rect1"></div>
+          <div class="sk-rect sk-rect2"></div>
+          <div class="sk-rect sk-rect3"></div>
+          <div class="sk-rect sk-rect4"></div>
+          <div class="sk-rect sk-rect5"></div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-5 animated fadeIn">
+        <h5>Största placeringarna</h5>
+        <fm-holdings holdings="fmSingleFund.holdings"></fm-holdings>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="hidden-xs hidden-sm col-md-10 col-md-offset-1">
+        <hr class="margin-bottom-lg margin-top-lg" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-5 col-md-offset-1 animated fadeIn col-divider-md">
+        <h5>Innehav och fördelning</h5>
+        <div class="col-xs-12 col-md-6">
+          <highchart id="sector-pie-chart" config="fmSingleFund.sectorPieChart" style="width: 250px;"></highchart>
+          <svg id="sector-pie-chart-legend" class="highcharts-container"></svg>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <highchart id="regions-pie-chart" config="fmSingleFund.regionsPieChart" style="width: 250px;"></highchart>
+          <svg id="regions-pie-chart-legend" class="highcharts-container"></svg>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-5 animated fadeIn">
+        <h5>Fondinfo</h5>
+        <table class="fm-table no-border">
+          <tbody>
+            <tr>
+              <th>Isin</th>
+              <td class="text-right">{{fmSingleFund.isin}}</td>
+            </tr>
+            <tr>
+              <th>Typ</th>
+              <td class="text-right">{{fmSingleFund.type}}</td>
+            </tr>
+            <tr>
+              <th>Volatilitet</th>
+              <td class="text-right">{{fmSingleFund.volatility}}</td>
+            </tr>
+            <tr>
+              <th>Risk</th>
+              <td class="text-right"><span ng-repeat="i in fmSingleFund.getNumber(fmSingleFund.risk) track by $index" class="glyphicon glyphicon-star"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="hidden-xs hidden-sm col-md-10 col-md-offset-1">
+        <hr class="margin-bottom-lg margin-top-lg" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-5 col-md-offset-1 animated fadeIn">
+        <h5>Placeringsinriktning</h5>
+        <p class="text-caption">{{fmSingleFund.description}}</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+
+<!--<div class="col-xs-12 col-md-3 col-md-offset-1">
+  <div class="fm-panel animated fadeIn">
+
+<div class="panel-body">
+      <h5 class="text-highlight">Innehav och fördelning</h5>
+      <highchart id="pie-chart" class="col-xs-12" config="fmSingleFund.pieChartConfig"></highchart>
+      <aside class="col-xs-12" style="overflow: hidden;">
+        <svg id="pie-chart-legend" class="highcharts-container"></svg>
+      </aside>
+    </div>
+  </div>
+</div>-->
+<!--<div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-1">
+  <div class="fm-panel animated fadeIn">
+    <header class="fm-panel-header background-black">
+      <h6>Innehav och fördelning</h6>
+    </header>
+    <div id="#holdings-slider" class="panel-body owl-carousel">
+      <div ng-repeat="holding in fmSingleFund.fund.CompanyHoldings">
+        <div class="c100 p{{(holding.HoldingValue * 100).toFixed(0)}} big">
+          <span class="text-accent"> {{(holding.HoldingValue * 100).toFixed(0) + '%'}}</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
+        </div>
+        <p>{{holding.CompnyName}}</p>
+      </div>
+    </div>
+  </div>
+</div>-->

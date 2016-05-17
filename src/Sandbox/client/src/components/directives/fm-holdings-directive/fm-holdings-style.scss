@@ -1,0 +1,69 @@
+﻿.fm-holdings {
+ 
+   $modifier: 1rem;
+  
+  .indent {
+    padding-left: $modifier;
+  }
+
+  ul {
+
+    li {
+      border-bottom: 1px solid $color-light-grey-shade;
+      display: flex;
+
+      p {
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
+        width: 30%;
+        max-width: 30%;
+        min-width: 15rem;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        .count {
+          display: inline-block;
+          width: 2 * $modifier;
+          height: 2 * $modifier;
+          margin-right: $modifier;
+          transition: background-color $animation-transition-short ease-in;
+          z-index: 2;
+          font-size: $modifier;
+          line-height: 2* $modifier;
+          text-align: center;
+
+          &.rounded {
+            border-radius: $border-radius-lg;
+            background-color: $color-text-primary;
+            color: $color-white;
+          }
+        }
+      }
+
+      .holdings-bar-wrapper {
+        width: 45%;
+        position: relative;
+        margin-left: $modifier;
+
+        .fill {
+          height: 100%;
+          display: block;
+          position: absolute;
+          margin: auto;
+          top: 0;
+          left: 0;
+          transition: all $animation-transition-short;
+
+          &:after {
+            content: attr(data-percentage);
+            position: absolute;
+            top: 0.5em;
+            right: -3 * $modifier;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}

@@ -49,6 +49,10 @@
   color: $color-white !important;
 }
 
+.text-highlight {
+  color: $color-text-primary-highlight !important;
+}
+
 .text-warning {
   color: $color-red !important;
 }
@@ -91,6 +95,16 @@
   }
 }
 
+.section-padding-sm {
+  padding-top: $layout-modifier-sm;
+  padding-bottom: $layout-modifier-sm;
+
+  @media(min-width: $screen-sm) {
+    padding-top: $layout-modifier-lg;
+    padding-bottom: $layout-modifier-lg;
+  }
+}
+
 /*---------------------------
   margin-helpers:                     
 ---------------------------*/
@@ -112,6 +126,22 @@
 
   @media(min-width: $screen-sm) {
     margin-bottom: $layout-modifier-sm;
+  }
+}
+
+.margin-top-lg {
+  margin-top: $layout-modifier-sm;
+
+  @media(min-width: $screen-md) {
+    margin-top: $layout-modifier-lg;
+  }
+}
+
+.margin-top-sm {
+  margin-top: $layout-modifier-sm / 2;
+
+  @media(min-width: $screen-sm) {
+    margin-top: $layout-modifier-sm;
   }
 }
 
@@ -164,7 +194,7 @@
 }
 
 .background-black {
-  background-color: $color-dark-grey !important; 
+  background-color: $color-dark-grey !important;
 }
 
 .background-accent {
@@ -175,12 +205,53 @@
   background-image-helpers:                     
 ---------------------------*/
 
-// The background-image property needs to be set via the style attribute 
+// The background-image property needs to be set via the style attribute
 .background-image-cover {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
 }
+
+/*---------------------------
+  column-divider:                     
+---------------------------*/
+
+.col-divider-md {
+  $divider-offset: 1rem;
+
+  @media(min-width: $screen-md) {
+    position: relative;
+    padding-right: $layout-modifier-lg;
+  }
+
+  & + div {
+
+    @media(min-width: $screen-md) {
+      padding-left: $layout-modifier-lg + $divider-offset;
+    }
+  }
+
+  &:after {
+
+    @media(min-width: $screen-md) {
+      position: absolute;
+      content: '';
+      height: auto;
+      top: $layout-modifier-sm;
+      bottom: $layout-modifier-sm;
+      right: -1 * $divider-offset;
+      border-right: 1px solid $color-light-grey-shade;
+      width: 0;
+    }
+  }
+}
+
+
+
+
+
+
+
 
 /*---------------------------
   hover-helpers:                     
@@ -217,17 +288,17 @@
 
 // REMOVE LATER, for demo
 .newspaper {
-    column-count: 1;
-    column-gap: $layout-modifier-lg;
-    column-rule-style: none;
-    column-fill: auto;
-    text-align: left;
-    
-    @media(min-width: $screen-md) {
-      column-count: 2;
-      text-align: justify;
-    }
- }
+  column-count: 1;
+  column-gap: $layout-modifier-lg;
+  column-rule-style: none;
+  column-fill: auto;
+  text-align: left;
+
+  @media(min-width: $screen-md) {
+    column-count: 2;
+    text-align: justify;
+  }
+}
 
 ul.pagination {
   margin: 0 auto;
@@ -286,14 +357,14 @@ ul.pagination {
 }
 
 .scrollable-menu {
-    height: auto;
-    width: 40rem;
-    max-width: 50rem;
-    max-height: 20rem;
-    overflow-x: hidden;
+  height: auto;
+  width: 40rem;
+  max-width: 50rem;
+  max-height: 20rem;
+  overflow-x: hidden;
 }
 
-      /*&.ng-enter-stagger {
+/*&.ng-enter-stagger {
         transition-delay: $animation-transition-short/4;
         transition-duration: 0;
       }
@@ -315,12 +386,14 @@ ul.pagination {
         //transform: scale3d(1, 1, 1);
       }*/
 
+
+/*
 #pie-chart {
 
   svg {
 
     .highcharts-series {
-      
+
 
       &:hover {
 
@@ -339,5 +412,4 @@ ul.pagination {
       }
     }
   }
-}
-
+}*/

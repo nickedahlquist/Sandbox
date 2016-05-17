@@ -1,0 +1,21 @@
+﻿<section class="section-padding fm-login background-dark">
+  
+  <div class="container">
+    <div class="row" ng-if="fmLogin.status.isAuthenticated === false">
+      <h4 class="text-center">Logga in</h4>
+      <form ng-submit="fmLogin.login()" name="login" class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <input type="text" ng-model="fmLogin.username" name="name" placeholder="Användarnamn">
+        <input type="password" ng-model="fmLogin.password" name="password" placeholder="Lösenord">
+        <input type="submit" class="fm-button button-accent" value="Logga in" />
+      </form>
+    </div>
+
+    <div class="row" ng-if="fmLogin.status.isAuthenticated === true">
+      <h4 class="text-center">Logga ut</h4>
+      <form ng-submit="fmLogin.logout()" name="login" class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <input type="submit" class="fm-button" value="Logga ut" />
+      </form>
+    </div>
+  </div>
+
+</section>

@@ -11,7 +11,9 @@
 
   var constants = {
     webAPI: {
-      url: 'http://localhost:61448/'
+      url: 'http://localhost:61448/',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+      clientId: 'FM2-Web'
     },
     node: {
       url: 'http://localhost',

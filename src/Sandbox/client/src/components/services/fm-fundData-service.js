@@ -26,14 +26,14 @@
     }
 
     
-
     return {
       getFunds: function () {
         var url = fmConfig.webAPI.url + 'api/Fund?$count=true&$expand=FundInfo';
         return loadFundData(url);
       },
       getFundById: function (id) {
-        var url = fmConfig.webAPI.url + 'api/Fund?$filter=Id%20eq%20' + id + '&$expand=FundInfo,CompanyHoldings';
+        //var url = fmConfig.webAPI.url + 'api/Fund?$filter=Id%20eq%20' + id + '&$expand=FundInfo,CompanyHoldings';
+        var url = fmConfig.webAPI.url +'api/Fund(' + id + ')?$expand=FundInfo,Regions($select=Region,Value),Sectors($select=Sector,Value),CompanyHoldings($select=CompnyName,HoldingValue),NavHistory($select=Rate,RateDate)';
         return loadFundData(url);
       },
       getFundByIsin: function (isin) {

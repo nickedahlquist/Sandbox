@@ -37,6 +37,7 @@
   <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="/bower_components/angular-ui-router-title/angular-ui-router-title.js"></script>
+  <script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
   <!-- endbower -->
   
 
@@ -46,6 +47,8 @@
   <script src="/js/config.js"></script>
 
   <!-- inject:js-modules -->
+  <script src="/js/services/auth-service-factory.js"></script>
+  <script src="/js/services/fm-auth-interceptor-service.js"></script>
   <script src="/js/services/fm-authtoken-factory.js"></script>
   <script src="/js/services/fm-chart-defaults-service.js"></script>
   <script src="/js/services/fm-data-service.js"></script>
@@ -56,10 +59,10 @@
   <script src="/js/services/fm-utility-functions-factory.js"></script>
   <script src="/js/controllers/fm-funds-controller/fm-funds-controller.js"></script>
   <script src="/js/controllers/fm-home-controller/fm-home-controller.js"></script>
+  <script src="/js/controllers/fm-login-controller/fm-login-controller.js"></script>
   <script src="/js/controllers/fm-market-controller/fm-market-controller.js"></script>
   <script src="/js/controllers/fm-news-controller/fm-news-controller.js"></script>
   <script src="/js/controllers/fm-portfolio-generator-controller/fm-portfolio-generator-controller.js"></script>
-  <script src="/js/controllers/fm-register-controller/fm-register-controller.js"></script>
   <script src="/js/controllers/fm-single-fund-controller/fm-single-fund-controller.js"></script>
   <script src="/js/controllers/fm-single-newspost-controller/fm-newsarticle-controller.js"></script>
   <script src="/js/directives/fm-bulletin-slider-directive/fm-bulletin-slider-directive.js"></script>
@@ -67,6 +70,7 @@
   <script src="/js/directives/fm-footer-directive/fm-footer-directive.js"></script>
   <script src="/js/directives/fm-fund-gallery-directive/fm-fund-gallery-directive.js"></script>
   <script src="/js/directives/fm-hero-directive/fm-hero-directive.js"></script>
+  <script src="/js/directives/fm-holdings-directive/fm-holdings-directive.js"></script>
   <script src="/js/directives/fm-market-map-directive/fm-market-map-directive.js"></script>
   <script src="/js/directives/fm-market-overview-directive/fm-market-overview-directive.js"></script>
   <script src="/js/directives/fm-navbar-directive/fm-navbar-directive.js"></script>

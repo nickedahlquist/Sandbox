@@ -1,1 +1,42 @@
-﻿
+﻿.fm-single-fund {
+  
+  .single-fund-header {
+    margin-bottom: 0;
+
+    @media(min-width: $screen-sm) {
+     display: flex;
+     align-items: center;
+     margin-bottom: $layout-modifier-sm;
+    }
+
+    .title {
+      margin: 0 $layout-modifier-lg 0 0; 
+    }
+
+    .title-buttonbar {
+      display: flex;
+      border-top: 1px solid $color-light-grey-shade;
+      padding: ($layout-modifier-sm / 4) 0;
+
+      @media(min-width: $screen-sm) {
+        border-top: none;
+        padding: 0;
+      }
+      
+      li {
+        margin-right: $layout-modifier-sm / 2;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        .fm-pill {
+        
+          @media(max-width: $screen-sm) {
+            border: none !important;
+         }
+        }
+      }
+    }
+  }
+}
