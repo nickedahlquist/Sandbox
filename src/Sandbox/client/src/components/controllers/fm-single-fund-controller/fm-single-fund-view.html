@@ -4,26 +4,29 @@
     <div class="row">
       <div class="col-xs-12 col-md-10 col-md-offset-1">
         <header class="margin-top-lg single-fund-header">
-          <h4 class="title no-padding">{{fmSingleFund.name}}</h4>
+          <h3 class="title no-padding">{{fmSingleFund.name}}</h3>
           <!--<ul class="title-buttonbar">
             <li><button class="fm-pill pill-active no-margin">Översikt</button></li>
             <li><button class="fm-pill no-margin">Betyg</button></li>
             <li><button class="fm-pill no-margin">Fakta</button></li>
           </ul>-->
+          <h6 class="no-padding no-margin single-fund-rating">
+            <fm-star-bar stars="fmSingleFund.stars"></fm-star-bar>
+          </h6>
         </header>
         <nav class="single-fund-nav">
           <ul>
             <li>
-              <a href="#" class="single-fund-nav-button active">Översikt</a>
+              <a href="#" class="single-fund-nav-button active">Översikt<span class="glyphicon glyphicon-chevron-right single-fund-nav-button-chevron"></span></a>
             </li>
             <li>
-              <a href="#" class="single-fund-nav-button">Betyg</a>
+              <a href="#" class="single-fund-nav-button">Betyg<span class="glyphicon glyphicon-chevron-right single-fund-nav-button-chevron"></span></a>
             </li>
             <li>
-              <a href="#" class="single-fund-nav-button">Fakta</a>
+              <a href="#" class="single-fund-nav-button">Fakta<span class="glyphicon glyphicon-chevron-right single-fund-nav-button-chevron"></span></a>
             </li>
             <li>
-              <a href="#" class="single-fund-nav-button">Relaterade nyheter</a>
+              <a href="#" class="single-fund-nav-button">Relaterade nyheter<span class="glyphicon glyphicon-chevron-right single-fund-nav-button-chevron"></span></a>
             </li>
           </ul>
         </nav>
@@ -33,8 +36,27 @@
 
   <section class="container-fluid section-padding-sm background-dark">
     <div class="row">
-      <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="col-xs-12 col-md-5 col-md-offset-1">
         <highchart id="volatility-guage" class="single-fund-guage col-xs-12 col-md-3" config="fmSingleFund.volatilityGuage"></highchart>
+      </div>
+      <div class="col-xs-12 col-md-5">
+        
+        <div class="single-fund-news">
+          <p class="news-title">relaterade nyheter</p>
+          <ul>
+            <li>
+              <a href="#">
+                <h6 class="text-accent no-margin no-padding">
+                  <span data-icon="&#xe039;"></span>
+                </h6>
+                <p class="text-small">foo</p>
+                <p class="text-small">
+                  <span class="glyphicon glyphicon-time news-time-icon"></span>9:20 PM
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>

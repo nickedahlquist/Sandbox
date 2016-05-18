@@ -48,6 +48,11 @@
     vm.sectors = singleFundData.Sectors;
     vm.regions = singleFundData.Regions;
 
+    vm.stars = {
+      rating: vm.risk,
+      total: 5
+    }
+
     vm.getNumber = fmUtilityFunctions.intToArray;
 
     console.log(singleFundData);

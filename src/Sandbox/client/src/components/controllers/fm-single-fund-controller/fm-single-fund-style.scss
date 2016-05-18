@@ -1,16 +1,24 @@
 ﻿.fm-single-fund {
-  
+
   .single-fund-header {
     margin-bottom: $layout-modifier-sm/2 !important;
 
     @media(min-width: $screen-sm) {
-     display: flex;
-     align-items: center;
-     margin-bottom: $layout-modifier-sm;
+      display: flex;
+      align-items: center;
+      margin-bottom: $layout-modifier-sm;
     }
 
     .title {
-      margin: 0 $layout-modifier-lg 0 0; 
+      margin: 0 $layout-modifier-sm 0 0;
+    }
+
+    .single-fund-rating {
+      transform: translate3d(0, 0, 0);
+
+      @media(min-width: $screen-sm) {
+        transform: translate3d(0, 0.7rem, 0);
+      }
     }
 
     .title-buttonbar {
@@ -22,7 +30,7 @@
         border-top: none;
         padding: 0;
       }
-      
+
       li {
         margin-right: $layout-modifier-sm / 2;
 
@@ -31,10 +39,10 @@
         }
 
         .fm-pill {
-        
+
           @media(max-width: $screen-sm) {
             border: none !important;
-         }
+          }
         }
       }
     }
@@ -44,58 +52,133 @@
     padding: ($layout-modifier-sm / 2) 0;
     overflow: hidden;
 
+    @media(max-width: $screen-xs) {
+      padding: 0;
+    }
+
     ul {
-   
-       li {
-         padding-right: $layout-modifier-sm;
-         display: inline-block;
 
-         @media(min-width: $screen-sm) {
-          padding-right: $layout-modifier-lg;
-         }
+      li {
+        padding-right: $layout-modifier-lg;
+        display: inline-block;
 
-         .single-fund-nav-button {
-           text-transform: uppercase;
-           font-weight: $font-weight-semibold;
-           font-size: $font-size-small;
-           color: $color-text-primary-highlight;
-           letter-spacing: $font-letter-spacing-sm;
+        &:last-of-type {
+          padding-right: 0;
+        }
 
-           &:hover {
+        @media(max-width: $screen-xs) {
+          display: block;
+          border-top: 1px solid $color-light-grey-shade;
+          padding-right: 0;
+        }
+
+        .single-fund-nav-button {
+          text-transform: uppercase;
+          font-weight: $font-weight-semibold;
+          font-size: $font-size-small;
+          color: $color-text-primary-highlight;
+          letter-spacing: $font-letter-spacing-sm;
+
+          @media(max-width: $screen-xs) {
+            display: block;
+            padding: 1rem 0;
+          }
+
+          &:hover {
             color: $color-text-primary-shade;
-           }
+          }
 
-           &.active {
-             color: $color-text-primary !important;
-             position: relative;
+          &.active {
+            color: $color-text-primary !important;
+            position: relative;
 
-             &:after {
-               $stroke-height: 0.5rem;
-               content: ' ';
-               width: 100%;
-               height: $stroke-height;
-               background-color: $color-accent;
-               position: absolute;
-               top: $layout-modifier-sm + ($stroke-height / 2);
-               left: 0;
-               right: 0;
-               margin: auto;
-             }
-           }
-         }
-       }
+            @media(max-width: $screen-xs) {
+              color: $color-accent !important;
+            }
+
+            &:after {
+              $stroke-height: 0.5rem;
+              content: ' ';
+              width: 100%;
+              height: $stroke-height;
+              background-color: $color-accent;
+              position: absolute;
+              top: $layout-modifier-sm + ($stroke-height / 2);
+              left: 0;
+              right: 0;
+              margin: auto;
+
+              @media(max-width: $screen-xs) {
+                display: none;
+              }
+            }
+          }
+
+          .single-fund-nav-button-chevron {
+            float: right;
+            display: none;
+
+            @media(max-width: $screen-xs) {
+              display: inline;
+            }
+          }
+        }
+      }
     }
   }
-  
+
+  .single-fund-news {
+
+    .news-title {
+      text-transform: uppercase;
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-small;
+      letter-spacing: $font-letter-spacing-sm;
+    }
+
+    ul {
+      border: 1px solid $color-light-grey-shade;
+      background-color: $color-white;
+
+      li {
+        border-top: 1px solid $color-light-grey-shade;
+
+        &:first-of-type {
+          border-top: 0;
+        }
+
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: ($layout-modifier-sm / 2);
+          color:  $color-text-primary-highlight;
+          border-left: 0.5rem solid transparent;
+
+          &:hover {
+            color:  $color-text-primary;
+            border-left-color: $color-accent;
+            background-color: $color-light-grey-highlight;
+          }
+
+          .news-time-icon {
+            margin-right: 0.5em;
+          }
+        }
+
+      }
+    }
+  }
+
   .single-fund-pie-chart {
     max-height: 30rem;
-    min-width: 19.5rem; 
+    min-width: 19.5rem;
     margin: 0 auto;
   }
 
   .single-fund-guage {
     max-height: 13.6rem;
-    min-width: 19.5rem; 
+    min-width: 19.5rem;
     margin: 0 auto;
   }
 }
