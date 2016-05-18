@@ -23,16 +23,17 @@
   }]);
 
   // Register controller.
-  angular.module('fm').controller('FmSingleFundCtrl', ['singleFundData', 'fmFundDataService', 'fmChartDefaults', '$timeout', 'fmUtilityFunctions', FmSingleFundCtrl]);
+  angular.module('fm').controller('FmSingleFundCtrl', ['singleFundData', 'fmFundDataService', 'fmChartDefaults', '$timeout', '$interval', 'fmUtilityFunctions', FmSingleFundCtrl]);
 
   // Define controller-function.
-  function FmSingleFundCtrl(singleFundData, fmFundDataService, fmChartDefaults, $timeout, fmUtilityFunctions) {
+  function FmSingleFundCtrl(singleFundData, fmFundDataService, fmChartDefaults, $timeout, $interval, fmUtilityFunctions) {
 
     /* jshint validthis: true */
     var vm = this,
-        defaultLineOptions = fmChartDefaults.getLineChart(),
-        defaultPieOptions1 = fmChartDefaults.getPieChart(),
-        defaultPieOptions2 = fmChartDefaults.getPieChart(),
+        navHistoryChart = fmChartDefaults.getLineChart(),
+        regionsChart    = fmChartDefaults.getPieChart({ legendParent: '#regions-pie-chart-legend' }),
+        sectorChart     = fmChartDefaults.getPieChart({ legendParent: '#sector-pie-chart-legend' }),
+        volatilityGuage = fmChartDefaults.getGuage({ title: 'Volatilitet' }),
         utils = fmUtilityFunctions;
 
     vm.chartComplete = false;
@@ -47,8 +48,9 @@
     vm.sectors = singleFundData.Sectors;
     vm.regions = singleFundData.Regions;
 
-
     vm.getNumber = fmUtilityFunctions.intToArray;
+
+    console.log(singleFundData);
 
     fmFundDataService.getFunds().then(function (data) {
       vm.fundList = data.value;
@@ -60,6 +62,7 @@
       });
     };
 
+    /* Nav history chart */
     vm.addSeries = function (nameIn, navHistoryIn) {
       var navHistory = _.sortBy(navHistoryIn, function (val) { return val.RateDate; });
       var seriesData = [];
@@ -80,173 +83,45 @@
       vm.navHistoryLineChart.series.push(newSeries);
       vm.chartComplete = true;
     }
+    vm.navHistoryLineChart = navHistoryChart;
 
-
-    vm.navHistoryLineChart = {
-      options: defaultLineOptions,
-      series: [],
-      title: {
-        text: '',
-        style: {
-          display: 'none'
-        }
-      },
-      subtitle: {
-        text: '',
-        style: {
-          display: 'none'
-        }
-      },
-      loading: false,
-      xAxis: {
-        title: {
-          text: '',
-          style: {
-            display: 'none'
-          }
-        }
-      },
-      func: function (chart) {
-        $timeout(function () {
-          chart.reflow();
-        }, 0);
-      },
-      useHighStocks: true,
-    };
-
-
-    var sectorSeries = {
+    /* Sector chart */
+    sectorChart.series.push({
         name: 'Sektor',
         colorByPoint: true,
-        data: vm.holdings.reduce(function (result, value, key) {
+        data: vm.sectors.reduce(function (result, value, key) {
           result.push({
-            name: value.CompnyName,
-            y: value.HoldingValue * 100
+            name: value.Sector,
+            y: value.Value
           });
           return result;
         }, [])
-      };
-    
-    defaultPieOptions1.chart.events = {
-      load: function () {
-        var chart = $('#sector-pie-chart'),
-            legend = chart.find('.highcharts-legend').removeAttr('transform').appendTo('#sector-pie-chart-legend');
-      },
-      redraw: function () {
-        var chart = $('#sector-pie-chart-legend'),
-            legend = chart.find('.highcharts-legend').removeAttr('transform');
-      }
-    };
+      });
+    vm.sectorPieChart = sectorChart;
 
-    
-
-    vm.sectorPieChart = {
-
-      options: defaultPieOptions1,
-
-      series: [sectorSeries],
-
-      title: {
-        text: '',
-        style: {
-          display: 'none'
-        }
-      },
-
-      subtitle: {
-        text: '',
-        style: {
-          display: 'none'
-        }
-      },
-
-      loading: false,
-
-      xAxis: {
-        title: {
-          text: '',
-          style: {
-            display: 'none'
-          }
-        }
-      },
-
-      func: function (chart) {
-        $timeout(function () {
-          chart.reflow();
-        }, 0);
-
-      },
-
-      useHighStocks: false,
-    };
-
-
-    var regionsSeries = {
+    /* Regions chart */
+    regionsChart.series.push({
       name: 'Regions',
       colorByPoint: true,
-      data: vm.holdings.reduce(function (result, value, key) {
+      data: vm.regions.reduce(function (result, value, key) {
         result.push({
-          name: value.CompnyName,
-          y: value.HoldingValue * 100
+          name: value.Region,
+          y: value.Value
         });
         return result;
       }, [])
-    };
-    
-    defaultPieOptions2.chart.events = {
-      load: function () {
-        var chart2 = $('#regions-pie-chart'),
-            legend2 = chart2.find('.highcharts-legend').removeAttr('transform').appendTo('#regions-pie-chart-legend');
-      },
-      redraw: function () {
-        var chart2 = $('#regions-pie-chart-legend'),
-            legend2 = chart2.find('.highcharts-legend').removeAttr('transform');
-      }
-    };
+    });
+    vm.regionsPieChart = regionsChart;
 
-    
+    $timeout(function () {
 
-    vm.regionsPieChart = {
+      vm.volatilityGuage.series[0].data = [vm.volatility];
 
-      options: defaultPieOptions2,
 
-      series: [regionsSeries],
+    }, 1000);
 
-      title: {
-        text: '',
-        style: {
-          display: 'none'
-        }
-      },
 
-      subtitle: {
-        text: '',
-        style: {
-          display: 'none'
-        }
-      },
-
-      loading: false,
-
-      xAxis: {
-        title: {
-          text: '',
-          style: {
-            display: 'none'
-          }
-        }
-      },
-
-      func: function (chart) {
-        $timeout(function () {
-          chart.reflow();
-        }, 0);
-
-      },
-
-      useHighStocks: false,
-    };
+    vm.volatilityGuage = volatilityGuage;
 
   }
 })();

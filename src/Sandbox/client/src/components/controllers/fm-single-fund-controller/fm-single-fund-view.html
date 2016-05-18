@@ -5,12 +5,28 @@
       <div class="col-xs-12 col-md-10 col-md-offset-1">
         <header class="margin-top-lg single-fund-header">
           <h4 class="title no-padding">{{fmSingleFund.name}}</h4>
-          <ul class="title-buttonbar">
+          <!--<ul class="title-buttonbar">
             <li><button class="fm-pill pill-active no-margin">Översikt</button></li>
             <li><button class="fm-pill no-margin">Betyg</button></li>
             <li><button class="fm-pill no-margin">Fakta</button></li>
-          </ul>
+          </ul>-->
         </header>
+        <nav class="single-fund-nav">
+          <ul>
+            <li>
+              <a href="#" class="single-fund-nav-button active">Översikt</a>
+            </li>
+            <li>
+              <a href="#" class="single-fund-nav-button">Betyg</a>
+            </li>
+            <li>
+              <a href="#" class="single-fund-nav-button">Fakta</a>
+            </li>
+            <li>
+              <a href="#" class="single-fund-nav-button">Relaterade nyheter</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </section>
@@ -18,8 +34,7 @@
   <section class="container-fluid section-padding-sm background-dark">
     <div class="row">
       <div class="col-xs-12 col-md-10 col-md-offset-1">
-        <h6 class="no-padding no-margin">Isin</h6>
-        <h5 class="no-padding no-margin">{{fmSingleFund.isin}}</h5>
+        <highchart id="volatility-guage" class="single-fund-guage col-xs-12 col-md-3" config="fmSingleFund.volatilityGuage"></highchart>
       </div>
     </div>
   </section>
@@ -63,12 +78,12 @@
     <div class="row">
       <div class="col-xs-12 col-md-5 col-md-offset-1 animated fadeIn col-divider-md">
         <h5>Innehav och fördelning</h5>
-        <div class="col-xs-12 col-md-6">
-          <highchart id="sector-pie-chart" config="fmSingleFund.sectorPieChart" style="width: 250px;"></highchart>
+        <div class="col-xs-6 col-md-6">
+          <highchart id="sector-pie-chart" class="single-fund-pie-chart" config="fmSingleFund.sectorPieChart"></highchart>
           <svg id="sector-pie-chart-legend" class="highcharts-container"></svg>
         </div>
-        <div class="col-xs-12 col-md-6">
-          <highchart id="regions-pie-chart" config="fmSingleFund.regionsPieChart" style="width: 250px;"></highchart>
+        <div class="col-xs-6 col-md-6">
+          <highchart id="regions-pie-chart" class="single-fund-pie-chart" config="fmSingleFund.regionsPieChart"></highchart>
           <svg id="regions-pie-chart-legend" class="highcharts-container"></svg>
         </div>
       </div>
@@ -106,10 +121,11 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-md-5 col-md-offset-1 animated fadeIn">
+      <div class="col-xs-12 col-md-5 col-md-offset-1 animated fadeIn col-divider-md">
         <h5>Placeringsinriktning</h5>
         <p class="text-caption">{{fmSingleFund.description}}</p>
       </div>
+
     </div>
   </section>
 

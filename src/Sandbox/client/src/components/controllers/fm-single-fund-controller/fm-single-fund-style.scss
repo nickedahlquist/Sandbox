@@ -1,7 +1,7 @@
 ﻿.fm-single-fund {
   
   .single-fund-header {
-    margin-bottom: 0;
+    margin-bottom: $layout-modifier-sm/2 !important;
 
     @media(min-width: $screen-sm) {
      display: flex;
@@ -38,5 +38,64 @@
         }
       }
     }
+  }
+
+  .single-fund-nav {
+    padding: ($layout-modifier-sm / 2) 0;
+    overflow: hidden;
+
+    ul {
+   
+       li {
+         padding-right: $layout-modifier-sm;
+         display: inline-block;
+
+         @media(min-width: $screen-sm) {
+          padding-right: $layout-modifier-lg;
+         }
+
+         .single-fund-nav-button {
+           text-transform: uppercase;
+           font-weight: $font-weight-semibold;
+           font-size: $font-size-small;
+           color: $color-text-primary-highlight;
+           letter-spacing: $font-letter-spacing-sm;
+
+           &:hover {
+            color: $color-text-primary-shade;
+           }
+
+           &.active {
+             color: $color-text-primary !important;
+             position: relative;
+
+             &:after {
+               $stroke-height: 0.5rem;
+               content: ' ';
+               width: 100%;
+               height: $stroke-height;
+               background-color: $color-accent;
+               position: absolute;
+               top: $layout-modifier-sm + ($stroke-height / 2);
+               left: 0;
+               right: 0;
+               margin: auto;
+             }
+           }
+         }
+       }
+    }
+  }
+  
+  .single-fund-pie-chart {
+    max-height: 30rem;
+    min-width: 19.5rem; 
+    margin: 0 auto;
+  }
+
+  .single-fund-guage {
+    max-height: 13.6rem;
+    min-width: 19.5rem; 
+    margin: 0 auto;
   }
 }

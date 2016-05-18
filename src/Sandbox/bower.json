@@ -32,7 +32,7 @@
   },
   "overrides": {
     "highcharts": {
-      "main": [ "highstock.js" ]
+      "main": [ "highstock.js", "highcharts-more.js", "modules/solid-gauge.js" ]
     }
   },
   "resolutions": {
